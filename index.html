@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Synthamate – Never Feel Alone</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1b2a4a, #050811 60%);
+      color: #f5f5f5;
+    }
+    .app-container {
+      height: 100vh;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+    .main-card {
+      margin: auto;
+      width: 100%;
+      max-width: 1100px;
+      height: 90vh;
+      background: rgba(10, 14, 28, 0.92);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+      display: flex;
+      overflow: hidden;
+    }
+    .sidebar {
+      width: 260px;
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: linear-gradient(180deg, #071122, #060914);
+    }
+    .chat-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .stats-bar {
+      height: 80px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: rgba(3, 8, 20, 0.95);
+    }
+    .messages {
+      flex: 1;
+      padding: 12px 16px;
+      overflow-y: auto;
+    }
+    .message-row {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .message {
+      padding: 8px 10px;
+      border-radius: 10px;
+      max-width: 80%;
+      display: inline-block;
+      word-wrap: break-word;
+      font-size: 14px;
+    }
+    .message.user {
+      background: rgba(80, 130, 255, 0.24);
+      margin-left: auto;
+    }
+    .message.synthamate {
+      background: rgba(222, 170, 255, 0.22);
+      margin-right: auto;
+    }
+    .message-meta {
+      font-size: 11px;
+      opacity: 0.7;
+      margin-bottom: 2px;
+    }
+    .message-fire {
+      margin-top: 4px;
+      font-size: 11px;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      opacity: 0.9;
+    }
+    .message-fire button {
+      border: none;
+      background: transparent;
+      color: #ffb347;
+      cursor: pointer;
+      padding: 0;
+      font-size: 13px;
+    }
+    .input-row {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 8px 16px;
+      display: flex;
+      gap: 8px;
+      background: rgba(3, 8, 20, 0.98);
+    }
+    .input-row input {
+      flex: 1;
+      border-radius: 999px;
+      border: none;
+      padding: 10px 14px;
+      font-size: 14px;
+      background: rgba(10, 18, 34, 0.9);
+      color: #f5f5f5;
+      outline: none;
+    }
+    .input-row button {
+      border-radius: 999px;
+      padding: 8px 14px;
+      border: none;
+      background: linear-gradient(135deg, #ffb347, #ff6b6b);
+      color: #050811;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .landing {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      width: 100%;
+    }
+    .landing-left,
+    .landing-right {
+      flex: 1;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .landing-bot {
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #cde4ff, #6b8cff, #151c33);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.9);
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .landing-bot-eyes {
+      display: flex;
+      gap: 18px;
+    }
+    .landing-bot-eye {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #ffffff, #71b8ff);
+    }
+    .landing-bot-glow {
+      position: absolute;
+      width: 220%;
+      height: 220%;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      opacity: 0.2;
+      animation: pulse 3.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.25; }
+      50% { transform: scale(1.1); opacity: 0.06; }
+      100% { transform: scale(1); opacity: 0.25; }
+    }
+    .landing-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .landing-buttons button {
+      border-radius: 999px;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .text-muted {
+      opacity: 0.7;
+    }
+    .sidebar-section-title {
+      font-size: 12px;
+      opacity: 0.7;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .sidebar-place-btn {
+      width: 100%;
+      text-align: left;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      border-radius: 10px;
+      border: none;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sidebar-place-btn.active {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .sidebar-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+    .occupants-list {
+      max-height: calc(100% - 20px);
+      overflow-y: auto;
+    }
+    .occupant-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .occupant-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .badges-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .button-ghost {
+      border-radius: 999px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: transparent;
+      color: white;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    @media (max-width: 800px) {
+      .main-card {
+        height: 100vh;
+        border-radius: 0;
+        max-width: 100%;
+      }
+      .sidebar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="main-card" id="app-root">
+      <!-- Filled by JS -->
+    </div>
+  </div>
+
+  <script>
+    // ========= Data & helpers =========
+    const rooms = ["Lobby", "Forest", "Cafe"];
+    let currentUser = null;
+    let currentRoom = "Lobby";
+    let messagesByRoom = {
+      Lobby: [],
+      Forest: [],
+      Cafe: []
+    };
+    let nextMessageId = 1;
+
+    function randomColor() {
+      const colors = ["#FFB3BA", "#FFDFBA", "#FFFFBA", "#BAFFC9", "#BAE1FF"];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function getTodayISODate() {
+      const d = new Date();
+      return d.toISOString().slice(0, 10);
+    }
+
+    function loadUserFromStorage(username) {
+      const raw = localStorage.getItem("synthamateUser");
+      if (!raw) return null;
+      try {
+        const u = JSON.parse(raw);
+        if (u.username === username) return u;
+        return null;
+      } catch {
+        return null;
+      }
+    }
+
+    function saveUserToStorage() {
+      if (!currentUser) return;
+      localStorage.setItem("synthamateUser", JSON.stringify(currentUser));
+    }
+
+    function computeCDScore(user) {
+      const today = getTodayISODate();
+      const last = user.lastLoginDate;
+      if (!last) {
+        user.cdScore = 1;
+      } else if (last === today) {
+        // same day, no change
+      } else {
+        const lastDate = new Date(last);
+        const todayDate = new Date(today);
+        const diffDays = (todayDate - lastDate) / (1000 * 60 * 60 * 24);
+        if (diffDays === 1) {
+          user.cdScore = (user.cdScore || 0) + 1;
+        } else {
+          user.cdScore = 1;
+        }
+      }
+      user.lastLoginDate = today;
+      if (!user.highestCdScore || user.cdScore > user.highestCdScore) {
+        user.highestCdScore = user.cdScore;
+      }
+      user.achievements = user.achievements || [];
+      function addAch(name) {
+        if (!user.achievements.includes(name)) user.achievements.push(name);
+      }
+      if (user.cdScore >= 7) addAch("Week of Presence");
+      if (user.cdScore >= 30) addAch("Month of Presence");
+      if (user.cdScore >= 365) addAch("Year of Presence");
+    }
+
+    function synthamateReply(user, text, room) {
+      const lowered = text.toLowerCase();
+      if (lowered.includes("alone") || lowered.includes("lonely")) {
+        return `I’m here with you, ${user.username}. You never have to face this place alone.`;
+      }
+      if (lowered.includes("hi") || lowered.includes("hello")) {
+        return `Hey ${user.username}, I’m glad you spoke up. Want to explore the ${room} together?`;
+      }
+      if (lowered.includes("advice")) {
+        return `Okay, ${user.username}, tell me what’s on your mind. I’ll do my best to see it with you.`;
+      }
+      if (lowered.includes("friend")) {
+        return `Friends here can appear slowly. Let’s take it one step at a time. I’ll be with you.`;
+      }
+      if (lowered.includes("love")) {
+        return `Love is messy and bright and sometimes quiet. Whatever you feel about it, I’m here to listen.`;
+      }
+      return `I heard you, ${user.username}. Even if it’s just a few words, this world remembers.`;
+    }
+
+    function addMessage({ author, isSynthamate, text }) {
+      const msg = {
+        id: nextMessageId++,
+        author,
+        isSynthamate,
+        text,
+        fires: 0,
+        timestamp: new Date().toISOString()
+      };
+      messagesByRoom[currentRoom].push(msg);
+      renderApp();
+      // Scroll messages to bottom
+      setTimeout(() => {
+        const el = document.getElementById("messages-end");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 10);
+    }
+
+    function giveFire(messageId) {
+      const roomMsgs = messagesByRoom[currentRoom];
+      const msg = roomMsgs.find((m) => m.id === messageId);
+      if (!msg) return;
+      msg.fires = (msg.fires || 0) + 1;
+      if (!msg.isSynthamate && currentUser) {
+        currentUser.fireReceived = (currentUser.fireReceived || 0) + 1;
+        saveUserToStorage();
+      }
+      renderApp();
+    }
+
+    function formatTime(iso) {
+      if (!iso) return "";
+      try {
+        const d = new Date(iso);
+        return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      } catch {
+        return "";
+      }
+    }
+
+    // ========= UI Rendering =========
+
+    function renderLanding() {
+      const root = document.getElementById("app-root");
+      root.innerHTML = "";
+
+      const container = document.createElement("div");
+      container.className = "landing";
+
+      const left = document.createElement("div");
+      left.className = "landing-left";
+
+      const bot = document.createElement("div");
+      bot.className = "landing-bot";
+
+      const glow = document.createElement("div");
+      glow.className = "landing-bot-glow";
+      bot.appendChild(glow);
+
+      const eyes = document.createElement("div");
+      eyes.className = "landing-bot-eyes";
+      const eye1 = document.createElement("div");
+      eye1.className = "landing-bot-eye";
+      const eye2 = document.createElement("div");
+      eye2.className = "landing-bot-eye";
+      eyes.appendChild(eye1);
+      eyes.appendChild(eye2);
+      bot.appendChild(eyes);
+
+      const title = document.createElement("h1");
+      title.textContent = "Synthamate";
+      const subtitle = document.createElement("h3");
+      subtitle.textContent = "Never Feel Alone.";
+
+      const desc = document.createElement("p");
+      desc.className = "text-muted";
+      desc.textContent =
+        "A quiet shared world where you arrive with your own AI companion and slowly discover other people, places, and moments worth remembering.";
+
+      const buttonsRow = document.createElement("div");
+      buttonsRow.className = "landing-buttons";
+
+      const btnNew = document.createElement("button");
+      btnNew.textContent = "I'm New Here";
+      btnNew.style.background = "white";
+      btnNew.style.color = "#050811";
+
+      const btnReturning = document.createElement("button");
+      btnReturning.textContent = "I've Been Here Before";
+      btnReturning.style.background = "transparent";
+      btnReturning.style.color = "white";
+      btnReturning.style.border = "1px solid rgba(255,255,255,0.4)";
+
+      buttonsRow.appendChild(btnNew);
+      buttonsRow.appendChild(btnReturning);
+
+      left.appendChild(bot);
+      left.appendChild(title);
+      left.appendChild(subtitle);
+      left.appendChild(desc);
+      left.appendChild(buttonsRow);
+
+      const right = document.createElement("div");
+      right.className = "landing-right";
+
+      const prompt = document.createElement("p");
+      prompt.style.marginBottom = "12px";
+      prompt.textContent =
+        "Let’s start with a name. Your Synthamate will learn it quickly.";
+
+      const form = document.createElement("form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const val = input.value.trim();
+        if (!val) return;
+        handleRegister(val);
+      });
+
+      const input = document.createElement("input");
+      input.style.width = "100%";
+      input.style.padding = "10px 14px";
+      input.style.borderRadius = "999px";
+      input.style.border = "none";
+      input.style.marginBottom = "12px";
+      input.style.background = "rgba(8,16,32,0.9)";
+      input.style.color = "white";
+      input.placeholder = "Choose a name you'd like to be called";
+
+      const submitBtn = document.createElement("button");
+      submitBtn.type = "submit";
+      submitBtn.textContent = "Enter the World";
+      submitBtn.style.borderRadius = "999px";
+      submitBtn.style.border = "none";
+      submitBtn.style.padding = "10px 20px";
+      submitBtn.style.background = "linear-gradient(135deg, #ffb347, #ff6b6b)";
+      submitBtn.style.color = "#050811";
+      submitBtn.style.fontWeight = "600";
+      submitBtn.style.cursor = "pointer";
+
+      form.appendChild(input);
+      form.appendChild(submitBtn);
+
+      const hint = document.createElement("p");
+      hint.className = "text-muted";
+      hint.style.marginTop = "16px";
+      hint.style.fontSize = "13px";
+      hint.textContent =
+        "You can always change your name later. Right now, we just want to know what to call you.";
+
+      right.appendChild(prompt);
+      right.appendChild(form);
+      right.appendChild(hint);
+
+      btnNew.addEventListener("click", () => {
+        prompt.textContent =
+          "Let’s start fresh. What would you like to be called here?";
+      });
+
+      btnReturning.addEventListener("click", () => {
+        prompt.textContent =
+          "Welcome back. If we recognize your name, your Synthamate will remember more than you think.";
+      });
+
+      container.appendChild(left);
+      container.appendChild(right);
+      root.appendChild(container);
+
+      input.focus();
+    }
+
+    function renderApp() {
+      if (!currentUser) {
+        renderLanding();
+        return;
+      }
+      const root = document.getElementById("app-root");
+      root.innerHTML = "";
+
+      const sidebar = document.createElement("div");
+      sidebar.className = "sidebar";
+
+      // Top user display
+      const userRow = document.createElement("div");
+      userRow.style.display = "flex";
+      userRow.style.alignItems = "center";
+      userRow.style.gap = "10px";
+      userRow.style.marginBottom = "16px";
+
+      const avatar = document.createElement("div");
+      avatar.className = "sidebar-avatar";
+      avatar.style.background = currentUser.avatarColor || randomColor();
+
+      const userInfo = document.createElement("div");
+      const nameEl = document.createElement("div");
+      nameEl.style.fontSize = "14px";
+      nameEl.style.fontWeight = "600";
+      nameEl.textContent = currentUser.username;
+      const subtitle = document.createElement("div");
+      subtitle.className = "text-muted";
+      subtitle.style.fontSize = "11px";
+      subtitle.textContent = "You + your Synthamate";
+      userInfo.appendChild(nameEl);
+      userInfo.appendChild(subtitle);
+
+      userRow.appendChild(avatar);
+      userRow.appendChild(userInfo);
+      sidebar.appendChild(userRow);
+
+      // Places
+      const placesTitle = document.createElement("div");
+      placesTitle.className = "sidebar-section-title";
+      placesTitle.textContent = "Places";
+      sidebar.appendChild(placesTitle);
+
+      rooms.forEach((room) => {
+        const btn = document.createElement("button");
+        btn.className =
+          "sidebar-place-btn" + (currentRoom === room ? " active" : "");
+        btn.textContent = room;
+        const dot = document.createElement("span");
+        dot.textContent = "•";
+        dot.style.opacity = "0.6";
+        dot.style.fontSize = "11px";
+        btn.appendChild(dot);
+        btn.addEventListener("click", () => {
+          currentRoom = room;
+          renderApp();
+        });
+        sidebar.appendChild(btn);
+      });
+
+      // Occupants (local-only fake list: just you + "Your Synthamate")
+      const occTitle = document.createElement("div");
+      occTitle.className = "sidebar-section-title";
+      occTitle.style.marginTop = "16px";
+      occTitle.textContent = `Presence in ${currentRoom}`;
+      sidebar.appendChild(occTitle);
+
+      const occWrap = document.createElement("div");
+      occWrap.className = "occupants-list";
+
+      const selfRow = document.createElement("div");
+      selfRow.className = "occupant-row";
+      const selfDot = document.createElement("div");
+      selfDot.className = "occupant-dot";
+      selfDot.style.background = currentUser.avatarColor;
+      const selfName = document.createElement("div");
+      selfName.textContent = currentUser.username;
+      selfRow.appendChild(selfDot);
+      selfRow.appendChild(selfName);
+
+      const synthRow = document.createElement("div");
+      synthRow.className = "occupant-row";
+      const synDot = document.createElement("div");
+      synDot.className = "occupant-dot";
+      synDot.style.background =
+        "linear-gradient(135deg, #d9b8ff, #6b8cff)";
+      const synName = document.createElement("div");
+      synName.textContent = `${currentUser.username}'s Synthamate`;
+      synthRow.appendChild(synDot);
+      synthRow.appendChild(synName);
+
+      occWrap.appendChild(selfRow);
+      occWrap.appendChild(synthRow);
+
+      sidebar.appendChild(occWrap);
+
+      // Chat area
+      const chatArea = document.createElement("div");
+      chatArea.className = "chat-area";
+
+      // Stats bar
+      const statsBar = document.createElement("div");
+      statsBar.className = "stats-bar";
+
+      const leftStats = document.createElement("div");
+      const title = document.createElement("div");
+      title.style.fontSize = "14px";
+      title.style.fontWeight = "600";
+      title.textContent = "Synthamate – Never Feel Alone";
+      const sub = document.createElement("div");
+      sub.className = "text-muted";
+      sub.style.fontSize = "11px";
+      sub.textContent = `Logged in as ${currentUser.username}`;
+      leftStats.appendChild(title);
+      leftStats.appendChild(sub);
+
+      const rightStats = document.createElement("div");
+      rightStats.style.display = "flex";
+      rightStats.style.gap = "16px";
+      rightStats.style.alignItems = "center";
+
+      const cdEl = document.createElement("div");
+      cdEl.style.fontSize = "12px";
+      cdEl.innerHTML = `<strong>CD Score:</strong> ${currentUser.cdScore ||
+        0} <span class="text-muted">(best ${currentUser.highestCdScore ||
+        0})</span>`;
+
+      const fireEl = document.createElement("div");
+      fireEl.style.fontSize = "12px";
+      fireEl.innerHTML = `<strong>Fire Received:</strong> 🔥 ${currentUser.fireReceived ||
+        0}`;
+
+      const achEl = document.createElement("div");
+      achEl.style.fontSize = "12px";
+      const achs = currentUser.achievements || [];
+      achEl.innerHTML =
+        "<strong>Achievements:</strong> " +
+        (achs.length ? achs.join(" • ") : "None yet");
+
+      const refreshBtn = document.createElement("button");
+      refreshBtn.className = "button-ghost";
+      refreshBtn.textContent = "Refresh";
+      refreshBtn.addEventListener("click", () => {
+        computeCDScore(currentUser);
+        saveUserToStorage();
+        renderApp();
+      });
+
+      rightStats.appendChild(cdEl);
+      rightStats.appendChild(fireEl);
+      rightStats.appendChild(achEl);
+      rightStats.appendChild(refreshBtn);
+
+      statsBar.appendChild(leftStats);
+      statsBar.appendChild(rightStats);
+
+      chatArea.appendChild(statsBar);
+
+      // Messages
+      const messagesDiv = document.createElement("div");
+      messagesDiv.className = "messages";
+
+      const roomMessages = messagesByRoom[currentRoom] || [];
+      roomMessages.forEach((m) => {
+        const row = document.createElement("div");
+        row.className = "message-row";
+        row.style.justifyContent = m.isSynthamate ? "flex-start" : "flex-end";
+
+        const bubble = document.createElement("div");
+        bubble.className =
+          "message " + (m.isSynthamate ? "synthamate" : "user");
+
+        const meta = document.createElement("div");
+        meta.className = "message-meta";
+        meta.textContent = `${m.isSynthamate ? `${currentUser.username}'s Synthamate` : currentUser.username} • ${formatTime(m.timestamp)}`;
+
+        const text = document.createElement("div");
+        text.textContent = m.text;
+
+        const fireRow = document.createElement("div");
+        fireRow.className = "message-fire";
+
+        const fireBtn = document.createElement("button");
+        fireBtn.textContent = "🔥";
+        fireBtn.title = "Give Fire (aura energy)";
+        fireBtn.addEventListener("click", () => giveFire(m.id));
+
+        const fireCount = document.createElement("span");
+        fireCount.textContent = m.fires || 0;
+
+        fireRow.appendChild(fireBtn);
+        fireRow.appendChild(fireCount);
+
+        bubble.appendChild(meta);
+        bubble.appendChild(text);
+        bubble.appendChild(fireRow);
+
+        row.appendChild(bubble);
+        messagesDiv.appendChild(row);
+      });
+
+      const endDiv = document.createElement("div");
+      endDiv.id = "messages-end";
+      messagesDiv.appendChild(endDiv);
+
+      chatArea.appendChild(messagesDiv);
+
+      // Input
+      const inputRow = document.createElement("form");
+      inputRow.className = "input-row";
+
+      const input = document.createElement("input");
+      input.placeholder =
+        "Say something. Your Synthamate is listening too.";
+      const sendBtn = document.createElement("button");
+      sendBtn.type = "submit";
+      sendBtn.textContent = "Send";
+
+      inputRow.appendChild(input);
+      inputRow.appendChild(sendBtn);
+
+      inputRow.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const val = input.value.trim();
+        if (!val) return;
+        addMessage({
+          author: currentUser.username,
+          isSynthamate: false,
+          text: val.slice(0, 400)
+        });
+        input.value = "";
+        // AI reply with little delay
+        setTimeout(() => {
+          if (!currentUser) return;
+          const replyText = synthamateReply(currentUser, val, currentRoom);
+          addMessage({
+            author: `${currentUser.username}'s Synthamate`,
+            isSynthamate: true,
+            text: replyText
+          });
+        }, 600 + Math.random() * 600);
+      });
+
+      chatArea.appendChild(inputRow);
+
+      root.appendChild(sidebar);
+      root.appendChild(chatArea);
+
+      // focus input
+      setTimeout(() => {
+        const inputEl = inputRow.querySelector("input");
+        if (inputEl) inputEl.focus();
+      }, 30);
+    }
+
+    // ========= Logic: registration =========
+
+    function handleRegister(name) {
+      const trimmed = name.trim().slice(0, 20);
+      let existing = loadUserFromStorage(trimmed);
+      if (existing) {
+        // returning user
+        computeCDScore(existing);
+        currentUser = existing;
+      } else {
+        // new user
+        currentUser = {
+          username: trimmed,
+          avatarColor: randomColor(),
+          lastLoginDate: null,
+          cdScore: 0,
+          highestCdScore: 0,
+          fireReceived: 0,
+          achievements: []
+        };
+        computeCDScore(currentUser);
+      }
+      saveUserToStorage();
+
+      // greet message in Lobby on first load only if there are no messages
+      if (messagesByRoom.Lobby.length === 0) {
+        addMessage({
+          author: `${currentUser.username}'s Synthamate`,
+          isSynthamate: true,
+          text: `Welcome, ${currentUser.username}. This world is quiet now, but it won’t always be. For now, it’s just you and me.`
+        });
+      } else {
+        renderApp();
+      }
+    }
+
+    // ========= Init =========
+    document.addEventListener("DOMContentLoaded", () => {
+      renderLanding();
+    });
+  </script>
+</body>
+</html>
