@@ -9,43 +9,157 @@
 body {
   margin:0;
   font-family:sans-serif;
+  background:linear-gradient(145deg,#0A1B3D,#274B87,#7DA6E8);
+  background-size:300% 300%;
+  animation:bgMove 12s ease infinite;
   user-select:none;
-  background:black;
+}
+@keyframes bgMove {
+  0%{background-position:0% 30%;}
+  50%{background-position:100% 70%;}
+  100%{background-position:0% 30%;}
 }
 
-/* WORLD BACKGROUND USING YOUR IMAGE */
+.center-box {
+  width:100%;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.option-container {
+  display:flex;
+  gap:40px;
+}
+
+.option-box {
+  width:260px;
+  height:160px;
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.25);
+  border-radius:18px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:22px;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+  backdrop-filter:blur(6px);
+}
+
+.option-box:hover {
+  transform:scale(1.05);
+  background:rgba(255,255,255,0.18);
+}
+
+.form-box {
+  width:300px;
+  padding:20px;
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.22);
+  backdrop-filter:blur(6px);
+  border-radius:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  color:white;
+}
+
+input {
+  width:100%;
+  padding:10px;
+  border-radius:12px;
+  border:none;
+  outline:none;
+  box-sizing:border-box;
+}
+
+button {
+  padding:10px;
+  border:none;
+  border-radius:12px;
+  background:#fff;
+  color:#003;
+  font-weight:bold;
+  cursor:pointer;
+}
+
 #world {
   width:100%;
   height:100vh;
   position:relative;
   overflow:hidden;
-  background:url('synthamate-background1.jpg');
-  background-size:cover;
-  background-position:center;
 }
 
-/* AVATAR LAYER SYSTEM */
+/* Room background colors */
+#world.room-blue   { background:#0A1B3D; }
+#world.room-yellow { background:#F7D664; }
+#world.room-red    { background:#D14A4A; }
+#world.room-green  { background:#2E7D4F; }
+
+/* Bigger humanoid avatar */
 .avatar {
-  width:240px;        /* adjust if needed */
-  height:480px;       /* adjust if needed */
+  width:60px;
+  height:120px;
   position:absolute;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  pointer-events:none;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  transition:top 0.5s ease,left 0.5s ease;
 }
 
-/* Each layer stacked cleanly */
-.avatar img {
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
+.avatar-head {
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#ffe8c6;
+  box-shadow:0 0 0 2px rgba(0,0,0,0.15);
 }
 
-/* UI BUTTONS */
+.avatar-body {
+  width:46px;
+  height:46px;
+  background:#4AA8FF;
+  border-radius:10px;
+  margin-top:4px;
+}
+
+.avatar-legs {
+  display:flex;
+  gap:6px;
+  margin-top:6px;
+}
+
+.avatar-leg {
+  width:14px;
+  height:32px;
+  background:#333;
+  border-radius:5px;
+  transform-origin:top center;
+}
+
+/* Running animation */
+@keyframes leg-swing-left {
+  0%   { transform:rotate(20deg); }
+  100% { transform:rotate(-20deg); }
+}
+@keyframes leg-swing-right {
+  0%   { transform:rotate(-20deg); }
+  100% { transform:rotate(20deg); }
+}
+.avatar.running .avatar-leg.left {
+  animation:leg-swing-left 0.25s infinite alternate;
+}
+.avatar.running .avatar-leg.right {
+  animation:leg-swing-right 0.25s infinite alternate;
+}
+
+/* Top buttons */
 #ai-btn {
   position:absolute;
   top:10px;
@@ -57,9 +171,9 @@ body {
   cursor:pointer;
   font-weight:bold;
   border:none;
-  z-index:10;
 }
 
+/* Map button + menu */
 #map-btn {
   position:absolute;
   top:10px;
@@ -68,9 +182,9 @@ body {
   height:44px;
   border-radius:50%;
   border:none;
-  background:white;
+  background:rgba(255,255,255,0.9);
   cursor:pointer;
-  z-index:10;
+  font-size:20px;
 }
 
 #map-menu {
@@ -83,18 +197,89 @@ body {
   padding:8px;
   display:none;
   min-width:140px;
-  z-index:12;
+  z-index:5;
 }
-
+#map-menu.open {
+  display:block;
+}
 .map-room {
   padding:6px 10px;
   border-radius:8px;
   cursor:pointer;
+  font-size:14px;
+  margin-bottom:4px;
+}
+.map-room:last-child {
+  margin-bottom:0;
 }
 .map-room:hover {
-  background:rgba(255,255,255,0.15);
+  background:rgba(255,255,255,0.12);
 }
 
+/* Chat input + bubble */
+#chat-wrapper {
+  position:absolute;
+  bottom:10px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:8px;
+  align-items:center;
+  width:90%;
+  max-width:480px;
+  z-index:4;
+}
+
+#chat-input {
+  flex:1;
+  border-radius:20px;
+  padding:8px 12px;
+  border:none;
+  outline:none;
+}
+
+#chat-send {
+  padding:8px 14px;
+  border-radius:20px;
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* Right-facing chat bubble */
+#chat-bubble {
+  position:absolute;
+  bottom:70px;
+  left:50%;
+  transform:translateX(-50%);
+  max-width:70%;
+  background:#ffffff;
+  color:#222;
+  padding:10px 14px;
+  border-radius:16px;
+  border-top-right-radius:4px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.25);
+  font-size:14px;
+  display:none;
+  z-index:3;
+  word-wrap:break-word;
+  box-sizing:border-box;
+}
+
+#chat-bubble::after {
+  content:"";
+  position:absolute;
+  right:-10px;
+  top:14px;
+  border-width:8px 0 8px 10px;
+  border-style:solid;
+  border-color:transparent transparent transparent #ffffff;
+}
+
+/* So clicks on UI don’t move avatar */
+.ui-layer {
+  pointer-events:auto;
+}
 </style>
 </head>
 <body>
@@ -102,64 +287,173 @@ body {
 <div id="app"></div>
 
 <script>
-
 const app = document.getElementById("app");
+let avatar;
+let runTimeout = null;
+let chatHideTimeout = null;
 
-function showLogin() {
+function showMenu(){
   app.innerHTML = `
-    <div style="display:flex;justify-content:center;align-items:center;height:100vh;">
-      <button onclick="enterWorld()">Enter Synthamate</button>
+  <div class="center-box">
+    <div class="option-container">
+      <div class="option-box" onclick="showSignup()">New User</div>
+      <div class="option-box" onclick="showLogin()">Returning User</div>
     </div>
+  </div>
   `;
 }
 
-function enterWorld() {
+function showSignup(){
   app.innerHTML = `
-    <div id="world">
-      <button id="ai-btn">Talk to Synthamate</button>
-      <button id="map-btn">🗺️</button>
+  <div class="center-box">
+    <div class="form-box">
+      <h3>Create Account</h3>
+      <input id="name" placeholder="Username">
+      <input id="email" placeholder="Email">
+      <button onclick="enterWorld(true)">Join</button>
+    </div>
+  </div>
+  `;
+}
 
-      <div id="map-menu">
-        <div class="map-room">Blue Plaza</div>
-        <div class="map-room">Sunny Deck</div>
-        <div class="map-room">Red Arcade</div>
-        <div class="map-room">Green Garden</div>
-      </div>
+function showLogin(){
+  app.innerHTML = `
+  <div class="center-box">
+    <div class="form-box">
+      <h3>Welcome Back</h3>
+      <input id="name" placeholder="Username">
+      <button onclick="enterWorld(false)">Enter</button>
+    </div>
+  </div>
+  `;
+}
 
-      <!-- AVATAR WITH LAYERED CLOTHES -->
-      <div class="avatar" id="avatar">
-        <img src="synthamate-avatar1.png" id="base">
-        <img src="synthamate-shirt1.png" id="shirt">
-        <img src="synthamate-pants1.png" id="pants">
+function enterWorld(isNew){
+  let name = document.getElementById("name").value;
+  if (!name) return alert("Enter a name!");
+  localStorage.setItem("synthamateUser",name);
+
+  app.innerHTML = `
+  <div id="world" class="room-blue">
+    <button id="ai-btn" class="ui-layer">Talk to Synthamate</button>
+    <button id="map-btn" class="ui-layer">🗺️</button>
+    <div id="map-menu">
+      <div class="map-room" data-room="blue">Blue Plaza</div>
+      <div class="map-room" data-room="yellow">Sunny Deck</div>
+      <div class="map-room" data-room="red">Red Arcade</div>
+      <div class="map-room" data-room="green">Green Garden</div>
+    </div>
+
+    <div class="avatar" id="avatar">
+      <div class="avatar-head"></div>
+      <div class="avatar-body"></div>
+      <div class="avatar-legs">
+        <div class="avatar-leg left"></div>
+        <div class="avatar-leg right"></div>
       </div>
     </div>
+
+    <div id="chat-bubble"></div>
+
+    <div id="chat-wrapper" class="ui-layer">
+      <input id="chat-input" maxlength="100" placeholder="Say something (max 100 chars)..." />
+      <button id="chat-send">Send</button>
+    </div>
+  </div>
   `;
 
   const world = document.getElementById("world");
-  const avatar = document.getElementById("avatar");
+  avatar = document.getElementById("avatar");
   const mapBtn = document.getElementById("map-btn");
   const mapMenu = document.getElementById("map-menu");
+  const aiBtn = document.getElementById("ai-btn");
+  const chatInput = document.getElementById("chat-input");
+  const chatSend = document.getElementById("chat-send");
+  const chatBubble = document.getElementById("chat-bubble");
 
-  /* Movement: avatar moves to clicked spot */
+  // Click-to-move (only if clicking the world background)
   world.addEventListener("click", e => {
-    if (e.target !== world) return;
+    if (e.target !== world) return; // ignore clicks on UI / avatar
     const rect = world.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
+
     avatar.style.left = x + "px";
     avatar.style.top = y + "px";
+
+    // Start running animation
+    avatar.classList.add("running");
+    if (runTimeout) clearTimeout(runTimeout);
+    runTimeout = setTimeout(() => {
+      avatar.classList.remove("running");
+    }, 520); // slightly longer than CSS transition
   });
 
-  /* Map toggle */
+  aiBtn.addEventListener("click", () => {
+    alert("AI chat coming soon 🔥");
+  });
+
+  // Map button toggle
   mapBtn.addEventListener("click", e => {
     e.stopPropagation();
-    mapMenu.style.display = 
-      mapMenu.style.display === "block" ? "none" : "block";
+    mapMenu.classList.toggle("open");
   });
+
+  // Map room selection
+  mapMenu.querySelectorAll(".map-room").forEach(roomBtn => {
+    roomBtn.addEventListener("click", e => {
+      const room = e.currentTarget.getAttribute("data-room");
+      world.classList.remove("room-blue","room-yellow","room-red","room-green");
+      world.classList.add("room-" + room);
+      mapMenu.classList.remove("open");
+    });
+  });
+
+  // Chat sending logic
+  function sendChat() {
+    let text = chatInput.value.trim();
+    if (!text) return;
+    // Enforce 100-char limit again in JS just in case
+    if (text.length > 100) {
+      text = text.slice(0,100);
+    }
+    chatInput.value = "";
+
+    // Show bubble
+    chatBubble.textContent = text;
+    chatBubble.style.display = "block";
+
+    // Duration: min 3s, max 10s, scale with length
+    // Roughly +50ms per character
+    const base = 3000;
+    const extra = text.length * 50; // up to ~5000ms
+    let duration = base + extra;
+    if (duration < 3000) duration = 3000;
+    if (duration > 10000) duration = 10000;
+
+    if (chatHideTimeout) clearTimeout(chatHideTimeout);
+    chatHideTimeout = setTimeout(() => {
+      chatBubble.style.display = "none";
+    }, duration);
+  }
+
+  chatSend.addEventListener("click", e => {
+    e.stopPropagation();
+    sendChat();
+  });
+
+  chatInput.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      sendChat();
+    }
+  });
+
+  // Focus chat by default
+  chatInput.focus();
 }
 
-showLogin();
-
+showMenu();
 </script>
 </body>
 </html>
