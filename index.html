@@ -73,6 +73,7 @@ input {
   border-radius:12px;
   border:none;
   outline:none;
+  box-sizing:border-box;
 }
 
 button {
@@ -98,10 +99,10 @@ button {
 #world.room-red    { background:#D14A4A; }
 #world.room-green  { background:#2E7D4F; }
 
-/* Humanoid avatar */
+/* Bigger humanoid avatar */
 .avatar {
-  width:40px;
-  height:80px;
+  width:60px;
+  height:120px;
   position:absolute;
   top:50%;
   left:50%;
@@ -113,32 +114,32 @@ button {
 }
 
 .avatar-head {
-  width:24px;
-  height:24px;
+  width:34px;
+  height:34px;
   border-radius:50%;
   background:#ffe8c6;
   box-shadow:0 0 0 2px rgba(0,0,0,0.15);
 }
 
 .avatar-body {
-  width:30px;
-  height:30px;
+  width:46px;
+  height:46px;
   background:#4AA8FF;
-  border-radius:8px;
-  margin-top:2px;
+  border-radius:10px;
+  margin-top:4px;
 }
 
 .avatar-legs {
   display:flex;
-  gap:4px;
-  margin-top:4px;
+  gap:6px;
+  margin-top:6px;
 }
 
 .avatar-leg {
-  width:10px;
-  height:22px;
+  width:14px;
+  height:32px;
   background:#333;
-  border-radius:4px;
+  border-radius:5px;
   transform-origin:top center;
 }
 
@@ -196,6 +197,7 @@ button {
   padding:8px;
   display:none;
   min-width:140px;
+  z-index:5;
 }
 #map-menu.open {
   display:block;
@@ -214,6 +216,66 @@ button {
   background:rgba(255,255,255,0.12);
 }
 
+/* Chat input + bubble */
+#chat-wrapper {
+  position:absolute;
+  bottom:10px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:8px;
+  align-items:center;
+  width:90%;
+  max-width:480px;
+  z-index:4;
+}
+
+#chat-input {
+  flex:1;
+  border-radius:20px;
+  padding:8px 12px;
+  border:none;
+  outline:none;
+}
+
+#chat-send {
+  padding:8px 14px;
+  border-radius:20px;
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* Right-facing chat bubble */
+#chat-bubble {
+  position:absolute;
+  bottom:70px;
+  left:50%;
+  transform:translateX(-50%);
+  max-width:70%;
+  background:#ffffff;
+  color:#222;
+  padding:10px 14px;
+  border-radius:16px;
+  border-top-right-radius:4px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.25);
+  font-size:14px;
+  display:none;
+  z-index:3;
+  word-wrap:break-word;
+  box-sizing:border-box;
+}
+
+#chat-bubble::after {
+  content:"";
+  position:absolute;
+  right:-10px;
+  top:14px;
+  border-width:8px 0 8px 10px;
+  border-style:solid;
+  border-color:transparent transparent transparent #ffffff;
+}
+
 /* So clicks on UI don’t move avatar */
 .ui-layer {
   pointer-events:auto;
@@ -228,6 +290,7 @@ button {
 const app = document.getElementById("app");
 let avatar;
 let runTimeout = null;
+let chatHideTimeout = null;
 
 function showMenu(){
   app.innerHTML = `
@@ -280,6 +343,7 @@ function enterWorld(isNew){
       <div class="map-room" data-room="red">Red Arcade</div>
       <div class="map-room" data-room="green">Green Garden</div>
     </div>
+
     <div class="avatar" id="avatar">
       <div class="avatar-head"></div>
       <div class="avatar-body"></div>
@@ -287,6 +351,13 @@ function enterWorld(isNew){
         <div class="avatar-leg left"></div>
         <div class="avatar-leg right"></div>
       </div>
+    </div>
+
+    <div id="chat-bubble"></div>
+
+    <div id="chat-wrapper" class="ui-layer">
+      <input id="chat-input" maxlength="100" placeholder="Say something (max 100 chars)..." />
+      <button id="chat-send">Send</button>
     </div>
   </div>
   `;
@@ -296,6 +367,9 @@ function enterWorld(isNew){
   const mapBtn = document.getElementById("map-btn");
   const mapMenu = document.getElementById("map-menu");
   const aiBtn = document.getElementById("ai-btn");
+  const chatInput = document.getElementById("chat-input");
+  const chatSend = document.getElementById("chat-send");
+  const chatBubble = document.getElementById("chat-bubble");
 
   // Click-to-move (only if clicking the world background)
   world.addEventListener("click", e => {
@@ -334,6 +408,49 @@ function enterWorld(isNew){
       mapMenu.classList.remove("open");
     });
   });
+
+  // Chat sending logic
+  function sendChat() {
+    let text = chatInput.value.trim();
+    if (!text) return;
+    // Enforce 100-char limit again in JS just in case
+    if (text.length > 100) {
+      text = text.slice(0,100);
+    }
+    chatInput.value = "";
+
+    // Show bubble
+    chatBubble.textContent = text;
+    chatBubble.style.display = "block";
+
+    // Duration: min 3s, max 10s, scale with length
+    // Roughly +50ms per character
+    const base = 3000;
+    const extra = text.length * 50; // up to ~5000ms
+    let duration = base + extra;
+    if (duration < 3000) duration = 3000;
+    if (duration > 10000) duration = 10000;
+
+    if (chatHideTimeout) clearTimeout(chatHideTimeout);
+    chatHideTimeout = setTimeout(() => {
+      chatBubble.style.display = "none";
+    }, duration);
+  }
+
+  chatSend.addEventListener("click", e => {
+    e.stopPropagation();
+    sendChat();
+  });
+
+  chatInput.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      sendChat();
+    }
+  });
+
+  // Focus chat by default
+  chatInput.focus();
 }
 
 showMenu();
