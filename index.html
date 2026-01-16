@@ -3,392 +3,356 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MayaNut Font Sampler (200)</title>
+  <title>MayaNut Header Font Picker</title>
 
-  <!-- Google Fonts: 200 families -->
+  <!-- Google Fonts (bulk). If any font fails to load, it will fall back gracefully. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?display=swap&family=Abril+Fatface&family=Afacad&family=Alfa+Slab+One&family=Alice&family=Allura&family=Almarai&family=Amarante&family=Amatic+SC&family=Amiri&family=Anton&family=Archivo&family=Archivo+Black&family=Arima&family=Arimo&family=Arsenal&family=Assistant&family=Asul&family=Athiti&family=Atkinson+Hyperlegible&family=B612&family=Bai+Jamjuree&family=Bangers&family=Barlow&family=Barlow+Condensed&family=Barlow+Semi+Condensed&family=Baskervville&family=Be+Vietnam+Pro&family=Bebas+Neue&family=Bellota&family=BenchNine&family=Bitter&family=Black+Ops+One&family=Bonheur+Royale&family=Boogaloo&family=Bowlby+One+SC&family=Bree+Serif&family=Bruno+Ace&family=Brygada+1918&family=Bubblegum+Sans&family=Cabin&family=Cabin+Condensed&family=Cairo&family=Cantarell&family=Cardo&family=Carter+One&family=Catamaran&family=Caveat&family=Chakra+Petch&family=Charm&family=Chivo&family=Cinzel&family=Comfortaa&family=Commissioner&family=Concert+One&family=Cookie&family=Cormorant&family=Cormorant+Garamond&family=Courgette&family=Crimson+Pro&family=Crimson+Text&family=Cuprum&family=DM+Sans&family=DM+Serif+Display&family=DM+Serif+Text&family=Damion&family=Dancing+Script&family=Didact+Gothic&family=Dosis&family=EB+Garamond&family=Economica&family=Eczar&family=Exo&family=Exo+2&family=Figtree&family=Fira+Sans&family=Fira+Sans+Condensed&family=Fjalla+One&family=Fleur+De+Leah&family=Frank+Ruhl+Libre&family=Fredoka&family=Fugaz+One&family=GFS+Didot&family=Gabarito&family=Gelasio&family=Gilda+Display&family=Gloria+Hallelujah&family=Gloock&family=Gothic+A1&family=Great+Vibes&family=Hahmlet&family=Handlee&family=Heebo&family=Hind&family=Hind+Madurai&family=IBM+Plex+Mono&family=IBM+Plex+Sans&family=IBM+Plex+Serif&family=Inconsolata&family=Indie+Flower&family=Inter&family=Italiana&family=Jost&family=Josefin+Sans&family=Josefin+Slab&family=Julius+Sans+One&family=Kalam&family=Kanit&family=Karla&family=Khand&family=Kreon&family=Kristi&family=Lalezar&family=Lato&family=League+Spartan&family=Lexend&family=Libre+Baskerville&family=Libre+Franklin&family=Lilita+One&family=Lobster&family=Lora&family=Luckiest+Guy&family=M+PLUS+1p&family=M+PLUS+Rounded+1c&family=Manrope&family=Merriweather&family=Merriweather+Sans&family=Metal+Mania&family=Michroma&family=Modak&family=Montserrat&family=Montserrat+Alternates&family=Mukta&family=Mukta+Mahee&family=Mulish&family=NTR&family=Nanum+Gothic&family=Nanum+Myeongjo&family=Neuton&family=News+Cycle&family=Noto+Sans&family=Noto+Sans+Display&family=Noto+Sans+Mono&family=Noto+Serif&family=Noto+Serif+Display&family=Nunito&family=Nunito+Sans&family=Old+Standard+TT&family=Oleo+Script&family=Open+Sans&family=Orbitron&family=Oswald&family=Outfit&family=Oxygen&family=PT+Sans&family=PT+Sans+Caption&family=PT+Serif&family=Pacifico&family=Padauk&family=Passion+One&family=Pathway+Gothic+One&family=Patrick+Hand&family=Pattaya&family=Play&family=Playfair+Display&family=Plus+Jakarta+Sans&family=Poppins&family=Prata&family=Prompt&family=Public+Sans&family=Quicksand&family=Questrial&family=Rakkas&family=Raleway&family=Righteous&family=Roboto&family=Roboto+Condensed&family=Roboto+Mono&family=Roboto+Serif&family=Rokkitt&family=Rubik&family=Rubik+Mono+One&family=Russo+One&family=Sacramento&family=Saira&family=Saira+Condensed&family=Saira+Semi+Condensed&family=Sarala&family=Satisfy&family=Shadows+Into+Light&family=Signika&family=Signika+Negative&family=Slabo+27px&family=Source+Code+Pro&family=Source+Sans+3&family=Source+Serif+4&family=Space+Grotesk&family=Space+Mono&family=Spectral&family=Staatliches&family=Sulphur+Point&family=Syne&family=Tajawal&family=Tangerine&family=Teko&family=Tilt+Neon&family=Tinos&family=Titillium+Web&family=Ubuntu&family=Ubuntu+Condensed&family=Unbounded&family=Varela+Round&family=Vollkorn&family=Work+Sans&family=Yanone+Kaffeesatz&family=Zilla+Slab" rel="stylesheet">
+  <link id="gfLink" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap">
 
   <style>
     :root{
-      --bg:#0b0f14;
-      --panel:#121a23;
-      --text:#e6eef7;
-      --muted:#9bb0c6;
-      --border:rgba(255,255,255,.10);
-      --shadow: 0 12px 28px rgba(0,0,0,.35);
-      --radius: 16px;
+      --bg:#0b0f12;
+      --panel:#10171c;
+      --panel2:#0e1419;
+      --text:#e9f0f6;
+      --muted:#9fb0bf;
+      --stroke:rgba(255,255,255,.08);
+      --chip:rgba(255,255,255,.06);
+      --chip2:rgba(255,255,255,.09);
     }
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 20% 0%, rgba(83,213,233,.18), transparent 60%),
-                  radial-gradient(1200px 600px at 80% 0%, rgba(253,108,2,.14), transparent 60%),
-                  var(--bg);
+      background:linear-gradient(180deg,var(--bg),#071014);
       color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
     }
     header{
       position:sticky; top:0; z-index:10;
-      background: rgba(11,15,20,.75);
+      background:rgba(7,12,15,.9);
       backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--border);
+      border-bottom:1px solid var(--stroke);
+      padding:14px 18px;
     }
-    .wrap{max-width:1100px; margin:0 auto; padding:18px 16px;}
+    .row{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
     .title{
-      display:flex; gap:14px; align-items:baseline; justify-content:space-between; flex-wrap:wrap;
-    }
-    h1{margin:0; font-size:18px; letter-spacing:.2px;}
-    .sub{margin:0; color:var(--muted); font-size:13px}
-    .controls{
-      margin-top:12px;
-      display:grid;
-      grid-template-columns: 1.2fr .6fr .6fr .8fr;
-      gap:10px;
-    }
-    @media (max-width: 900px){
-      .controls{grid-template-columns:1fr 1fr; }
-    }
-    input, select, button{
-      width:100%;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background: rgba(18,26,35,.9);
-      color:var(--text);
-      outline:none;
-    }
-    input::placeholder{color:rgba(155,176,198,.65)}
-    button{
-      cursor:pointer;
-      background: linear-gradient(180deg, rgba(83,213,233,.22), rgba(18,26,35,.9));
-    }
-    button:active{transform: translateY(1px);}
-    main{padding:18px 0 40px;}
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-    }
-    @media (max-width: 900px){
-      .grid{grid-template-columns:1fr;}
-    }
-    .card{
-      background: rgba(18,26,35,.92);
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding:14px 14px 12px;
-      position:relative;
-      overflow:hidden;
-    }
-    .meta{
-      display:flex; gap:10px; align-items:center; justify-content:space-between;
-      margin-bottom:10px;
-      color:var(--muted);
-      font-size:12px;
-    }
-    .badge{
-      font-size:11px;
-      padding:4px 8px;
-      border:1px solid var(--border);
-      border-radius:999px;
-      color:var(--muted);
+      font-weight:800; letter-spacing:.2px;
+      margin:0 16px 0 0; font-size:18px;
       white-space:nowrap;
     }
+    .controls{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      width:100%;
+    }
+    input[type="search"]{
+      flex:1 1 260px;
+      background:var(--panel);
+      color:var(--text);
+      border:1px solid var(--stroke);
+      border-radius:10px;
+      padding:10px 12px;
+      outline:none;
+    }
+    select, button{
+      background:var(--panel);
+      color:var(--text);
+      border:1px solid var(--stroke);
+      border-radius:10px;
+      padding:10px 12px;
+      outline:none;
+      cursor:pointer;
+    }
+    button:hover{background:var(--panel2)}
+    .small{font-size:12px;color:var(--muted)}
+    main{padding:18px}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap:12px;
+    }
+    .card{
+      border:1px solid var(--stroke);
+      background:rgba(16,23,28,.65);
+      border-radius:14px;
+      padding:14px 14px 12px;
+      overflow:hidden;
+      transition:transform .08s ease;
+    }
+    .card:hover{transform:translateY(-1px)}
     .sample{
-      margin:0;
-      line-height:1.08;
-      font-size:48px;
-      letter-spacing:.2px;
+      font-size:28px;
+      line-height:1.15;
+      margin:0 0 10px 0;
       word-break:break-word;
     }
-    .tiny{
-      margin-top:10px;
-      display:flex; gap:10px; flex-wrap:wrap;
-      align-items:center;
-    }
-    .tiny code{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size:12px;
-      color: rgba(230,238,247,.9);
-      background: rgba(0,0,0,.25);
-      border:1px solid var(--border);
-      padding:6px 8px;
-      border-radius:10px;
-      overflow:auto;
-      max-width:100%;
-    }
-    .copy{
-      width:auto;
-      padding:6px 10px;
-      border-radius:10px;
-      font-size:12px;
-      border:1px solid var(--border);
-      background: rgba(0,0,0,.18);
-      color: var(--text);
-    }
-    .status{
-      margin-top:12px;
+    .meta{
+      display:flex; gap:8px; flex-wrap:wrap; align-items:center;
       color:var(--muted);
       font-size:12px;
     }
+    .chip{
+      background:var(--chip);
+      border:1px solid var(--stroke);
+      padding:4px 8px;
+      border-radius:999px;
+    }
+    .chip.copy{background:var(--chip2); color:var(--text)}
+    .chip.copy{cursor:pointer; user-select:none}
+    .chip.copy:active{transform:scale(.98)}
+    .footerNote{
+      margin-top:14px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.4;
+    }
+    .toast{
+      position:fixed; left:50%; bottom:16px; transform:translateX(-50%);
+      background:rgba(0,0,0,.75);
+      border:1px solid var(--stroke);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:12px;
+      font-size:12px;
+      opacity:0; pointer-events:none;
+      transition:opacity .18s ease;
+    }
+    .toast.show{opacity:1}
   </style>
 </head>
+
 <body>
   <header>
-    <div class="wrap">
-      <div class="title">
-        <div>
-          <h1>MayaNut header-font sampler</h1>
-          <p class="sub">200 Google Fonts • type a phrase, filter, and copy CSS for your header</p>
-        </div>
-        <div class="badge" id="countBadge">Showing 0 / 200</div>
-      </div>
+    <div class="row">
+      <div class="title">Header Font Picker</div>
+      <div class="small">Click “Copy CSS” on any card to grab the font-family.</div>
+    </div>
 
-      <div class="controls">
-        <input id="phrase" type="text" value="MayaNut is cool" placeholder="Type sample text..." />
-        <select id="category">
-          <option value="all">All categories</option>
-          <option value="serif">Serif</option>
-          <option value="sans">Sans</option>
-          <option value="display">Display</option>
-          <option value="handwriting">Handwriting</option>
-          <option value="mono">Monospace</option>
-        </select>
-        <select id="sort">
-          <option value="az">Sort: A → Z</option>
-          <option value="za">Sort: Z → A</option>
-        </select>
-        <input id="search" type="text" placeholder="Search font name (e.g., 'Montserrat')" />
-      </div>
-
-      <div class="controls" style="grid-template-columns: .8fr .8fr .8fr 1fr; margin-top:10px;">
-        <input id="size" type="number" min="18" max="140" step="1" value="52" />
-        <select id="weight">
-          <option value="300">Weight 300</option>
-          <option value="400" selected>Weight 400</option>
-          <option value="500">Weight 500</option>
-          <option value="600">Weight 600</option>
-          <option value="700">Weight 700</option>
-          <option value="800">Weight 800</option>
-        </select>
-        <button id="showMore">Show 40 more</button>
-        <button id="reset">Reset filters</button>
-      </div>
-
-      <div class="status" id="status"></div>
+    <div class="controls" style="margin-top:10px;">
+      <input id="q" type="search" placeholder="Search fonts (e.g., lora, playfair, garamond)..." />
+      <select id="sort">
+        <option value="az">Sort: A → Z</option>
+        <option value="za">Sort: Z → A</option>
+      </select>
+      <button id="loadMore">Load more fonts</button>
+      <button id="loadAll">Load all (heavy)</button>
     </div>
   </header>
 
   <main>
-    <div class="wrap">
-      <div class="grid" id="grid"></div>
+    <div id="count" class="small" style="margin:0 0 10px 2px;"></div>
+    <div id="grid" class="grid"></div>
+
+    <div class="footerNote">
+      Notes:
+      <ul>
+        <li>This page uses Google Fonts. Some fonts may not exist or may fail to load; they’ll fall back gracefully.</li>
+        <li>“Load all” requests many fonts at once and can be slow. Use “Load more” instead.</li>
+        <li>Once you choose a font, I can generate the exact CSS for your site header above your menu tabs.</li>
+      </ul>
     </div>
   </main>
 
+  <div id="toast" class="toast">Copied</div>
+
   <script>
-    // 200 fonts + rough category tags (good enough for filtering)
-    const FONTS = [
-      ["Abril Fatface","display"],["Afacad","sans"],["Alfa Slab One","display"],["Alice","serif"],
-      ["Allura","handwriting"],["Almarai","sans"],["Amarante","serif"],["Amatic SC","handwriting"],
-      ["Amiri","serif"],["Anton","display"],["Archivo","sans"],["Archivo Black","display"],
-      ["Arima","serif"],["Arimo","sans"],["Arsenal","sans"],["Assistant","sans"],
-      ["Asul","serif"],["Athiti","sans"],["Atkinson Hyperlegible","sans"],["B612","sans"],
-      ["Bai Jamjuree","sans"],["Bangers","display"],["Barlow","sans"],["Barlow Condensed","sans"],
-      ["Barlow Semi Condensed","sans"],["Baskervville","serif"],["Be Vietnam Pro","sans"],
-      ["Bebas Neue","display"],["Bellota","handwriting"],["BenchNine","sans"],["Bitter","serif"],
-      ["Black Ops One","display"],["Bonheur Royale","handwriting"],["Boogaloo","display"],
-      ["Bowlby One SC","display"],["Bree Serif","serif"],["Bruno Ace","display"],
-      ["Brygada 1918","serif"],["Bubblegum Sans","display"],["Cabin","sans"],
-      ["Cabin Condensed","sans"],["Cairo","sans"],["Cantarell","sans"],["Cardo","serif"],
-      ["Carter One","display"],["Catamaran","sans"],["Caveat","handwriting"],
-      ["Chakra Petch","sans"],["Charm","handwriting"],["Chivo","sans"],
-      ["Cinzel","serif"],["Comfortaa","sans"],["Commissioner","sans"],
-      ["Concert One","display"],["Cookie","handwriting"],["Cormorant","serif"],
-      ["Cormorant Garamond","serif"],["Courgette","handwriting"],["Crimson Pro","serif"],
-      ["Crimson Text","serif"],["Cuprum","sans"],["DM Sans","sans"],
-      ["DM Serif Display","serif"],["DM Serif Text","serif"],["Damion","handwriting"],
-      ["Dancing Script","handwriting"],["Didact Gothic","sans"],["Dosis","sans"],
-      ["EB Garamond","serif"],["Economica","sans"],["Eczar","serif"],
-      ["Exo","sans"],["Exo 2","sans"],["Figtree","sans"],["Fira Sans","sans"],
-      ["Fira Sans Condensed","sans"],["Fjalla One","display"],["Fleur De Leah","handwriting"],
-      ["Frank Ruhl Libre","serif"],["Fredoka","display"],["Fugaz One","display"],
-      ["GFS Didot","serif"],["Gabarito","sans"],["Gelasio","serif"],["Gilda Display","serif"],
-      ["Gloria Hallelujah","handwriting"],["Gloock","serif"],["Gothic A1","sans"],
-      ["Great Vibes","handwriting"],["Hahmlet","serif"],["Handlee","handwriting"],
-      ["Heebo","sans"],["Hind","sans"],["Hind Madurai","sans"],["IBM Plex Mono","mono"],
-      ["IBM Plex Sans","sans"],["IBM Plex Serif","serif"],["Inconsolata","mono"],
-      ["Indie Flower","handwriting"],["Inter","sans"],["Italiana","serif"],
-      ["Jost","sans"],["Josefin Sans","sans"],["Josefin Slab","serif"],
-      ["Julius Sans One","display"],["Kalam","handwriting"],["Kanit","sans"],
-      ["Karla","sans"],["Khand","sans"],["Kreon","serif"],["Kristi","handwriting"],
-      ["Lalezar","display"],["Lato","sans"],["League Spartan","sans"],["Lexend","sans"],
-      ["Libre Baskerville","serif"],["Libre Franklin","sans"],["Lilita One","display"],
-      ["Lobster","handwriting"],["Lora","serif"],["Luckiest Guy","display"],
-      ["M PLUS 1p","sans"],["M PLUS Rounded 1c","sans"],["Manrope","sans"],
-      ["Merriweather","serif"],["Merriweather Sans","sans"],["Metal Mania","display"],
-      ["Michroma","display"],["Modak","display"],["Montserrat","sans"],
-      ["Montserrat Alternates","sans"],["Mukta","sans"],["Mukta Mahee","sans"],
-      ["Mulish","sans"],["NTR","sans"],["Nanum Gothic","sans"],["Nanum Myeongjo","serif"],
-      ["Neuton","serif"],["News Cycle","sans"],["Noto Sans","sans"],
-      ["Noto Sans Display","sans"],["Noto Sans Mono","mono"],["Noto Serif","serif"],
-      ["Noto Serif Display","serif"],["Nunito","sans"],["Nunito Sans","sans"],
-      ["Old Standard TT","serif"],["Oleo Script","handwriting"],["Open Sans","sans"],
-      ["Orbitron","display"],["Oswald","sans"],["Outfit","sans"],["Oxygen","sans"],
-      ["PT Sans","sans"],["PT Sans Caption","sans"],["PT Serif","serif"],
-      ["Pacifico","handwriting"],["Padauk","sans"],["Passion One","display"],
-      ["Pathway Gothic One","display"],["Patrick Hand","handwriting"],["Pattaya","handwriting"],
-      ["Play","sans"],["Playfair Display","serif"],["Plus Jakarta Sans","sans"],
-      ["Poppins","sans"],["Prata","serif"],["Prompt","sans"],["Public Sans","sans"],
-      ["Quicksand","sans"],["Questrial","sans"],["Rakkas","display"],["Raleway","sans"],
-      ["Righteous","display"],["Roboto","sans"],["Roboto Condensed","sans"],
-      ["Roboto Mono","mono"],["Roboto Serif","serif"],["Rokkitt","serif"],
-      ["Rubik","sans"],["Rubik Mono One","display"],["Russo One","display"],
-      ["Sacramento","handwriting"],["Saira","sans"],["Saira Condensed","sans"],
-      ["Saira Semi Condensed","sans"],["Sarala","sans"],["Satisfy","handwriting"],
-      ["Shadows Into Light","handwriting"],["Signika","sans"],["Signika Negative","sans"],
-      ["Slabo 27px","serif"],["Source Code Pro","mono"],["Source Sans 3","sans"],
-      ["Source Serif 4","serif"],["Space Grotesk","sans"],["Space Mono","mono"],
-      ["Spectral","serif"],["Staatliches","display"],["Sulphur Point","sans"],
-      ["Syne","display"],["Tajawal","sans"],["Tangerine","handwriting"],["Teko","display"],
-      ["Tilt Neon","display"],["Tinos","serif"],["Titillium Web","sans"],
-      ["Ubuntu","sans"],["Ubuntu Condensed","display"],["Unbounded","display"],
-      ["Varela Round","sans"],["Vollkorn","serif"],["Work Sans","sans"],
-      ["Yanone Kaffeesatz","display"],["Zilla Slab","serif"]
+    // --- Core idea ---
+    // We keep a big list of candidate headline fonts (mostly Google Fonts).
+    // We load them in batches by updating the Google Fonts CSS URL.
+    // Each card previews: "The MayaNut Company" in that font.
+
+    const sampleText = "The MayaNut Company";
+
+    // 300 headline-ish fonts (mostly Google Fonts). Some may be missing; that's OK.
+    const ALL_FONTS = [
+      "Abril Fatface","Aclonica","Acme","Alegreya","Alegreya SC","Alfa Slab One","Alice","Alike","Allerta","Allerta Stencil",
+      "Amaranth","Amatic SC","Amiri","Antic","Anton","Arbutus","Arbutus Slab","Architects Daughter","Arimo","Arsenal",
+      "Artifika","Asap","Asap Condensed","Assistant","Astloch","Asul","Averia Libre","Averia Serif Libre","Azeret Mono","B612",
+      "B612 Mono","Bebas Neue","Belgrano","Belleza","Berkshire Swash","Bevan","Big Shoulders Display","Bitter","Black Ops One","Bodoni Moda",
+      "Bree Serif","Brygada 1918","Bubblegum Sans","Bungee","Bungee Inline","Cabin","Cabin Condensed","Cairo","Calistoga","Candal",
+      "Cantarell","Cantata One","Cantora One","Capriola","Cardo","Carme","Catamaran","Caudex","Caveat","Caveat Brush",
+      "Cedarville Cursive","Changa","Changa One","Charm","Chau Philomene One","Chela One","Cherry Cream Soda","Cherry Swash","Chewy","Chivo",
+      "Cinzel","Cinzel Decorative","Clicker Script","Coda","Coda Caption","Comfortaa","Concert One","Condiment","Cookie","Copse",
+      "Corben","Cormorant","Cormorant Garamond","Cormorant Infant","Cormorant SC","Cormorant Unicase","Cormorant Upright","Courgette","Cousine","Crete Round",
+      "Crimson Pro","Crimson Text","Croissant One","Cuprum","Cutive","Cutive Mono","DM Serif Display","DM Serif Text","DM Sans","Dancing Script",
+      "Darker Grotesque","David Libre","Della Respira","Dosis","DotGothic16","Duru Sans","Eczar","El Messiri","Electrolize","Elsie",
+      "Elsie Swash Caps","Emilys Candy","Encode Sans","Encode Sans Condensed","Encode Sans Expanded","Encode Sans Semi Condensed","Encode Sans Semi Expanded","Encode Sans Narrow","Englebert","Enriqueta",
+      "Erica One","Esteban","Euphoria Script","Exo","Exo 2","Fauna One","Fascinate","Fascinate Inline","Faster One","Fenix",
+      "Figtree","Fira Sans","Fira Sans Condensed","Fira Sans Extra Condensed","Fjalla One","Fleur De Leah","Forum","Francois One","Frank Ruhl Libre","Fraunces",
+      "Freckle Face","Fredericka the Great","Fredoka","GFS Didot","GFS Neohellenic","Gabriela","Gaegu","Gajraj One","Galada","Galdeano",
+      "Galindo","Gamja Flower","Gelasio","Gentium Book Plus","Gentium Plus","Geo","Geologica","Georgia (fallback)","Gideon Roman","Gilda Display",
+      "Girassol","Give You Glory","Gloria Hallelujah","Goblin One","Gochi Hand","Goldman","Gothic A1","Graduate","Grand Hotel","Gruppo",
+      "Gudea","Gwendolyn","Habibi","Hachi Maru Pop","Halant","Hammersmith One","Hanalei","Hanalei Fill","Handlee","Harmattan",
+      "Heebo","Henny Penny","Hepta Slab","Hind","Hind Madurai","Hind Siliguri","Holtwood One SC","Homemade Apple","Homenaje","IBM Plex Sans",
+      "IBM Plex Sans Condensed","IBM Plex Serif","IBM Plex Mono","IM Fell DW Pica","IM Fell English","Inconsolata","Inder","Indie Flower","Inika","Inknut Antiqua",
+      "Inter","Irish Grover","Istok Web","Italiana","Italianno","Jaldi","Jim Nightshade","Joan","Jockey One","Jolly Lodger",
+      "Jost","Joti One","Judson","Julee","Julius Sans One","Junge","Jura","Just Another Hand","K2D","Kadwa",
+      "Kalam","Kameron","Kanit","Karla","Karma","Kavivanar","Kavoon","Kelly Slab","Khand","Khula",
+      "Kirang Haerang","Kite One","Knewave","KoHo","Kotta One","Koulen","Kranky","Kreon","Kristi","Krona One",
+      "Krub","Kulim Park","Kumar One","Kumar One Outline","Kumbh Sans","La Belle Aurore","Labrada","Lacquer","Laila","Lakki Reddy",
+      "Lalezar","Lancelot","Lateef","Lato","Lavishly Yours","League Script","League Spartan","Ledger","Lekton","Lemon",
+      "Lemonada","Lexend","Lexend Deca","Libre Baskerville","Libre Bodoni","Libre Caslon Display","Libre Franklin","Licorice","Life Savers","Lilita One",
+      "Lily Script One","Limelight","Linden Hill","Literata","Liu Jian Mao Cao","Livvic","Lobster","Lobster Two","Londrina Outline","Londrina Shadow",
+      "Londrina Sketch","Londrina Solid","Lora","Love Ya Like A Sister","Loved by the King","Luckiest Guy","Lusitana","M PLUS 1p","M PLUS Rounded 1c","Macondo",
+      "Macondo Swash Caps","Mada","Magra","Maiden Orange","Maitree","Major Mono Display","Mako","Mali","Mallanna","Mandali",
+      "Manuale","Marcellus","Marcellus SC","Marck Script","Margarine","Markazi Text","Marko One","Marmelad","Martel","Martel Sans",
+      "Marvel","Mate","Mate SC","Maven Pro","McLaren","MedievalSharp","Medula One","Meera Inimai","Merienda","Merienda One",
+      "Merriweather","Merriweather Sans","Metal","Metal Mania","Metamorphous","Milonga","Mina","Mingzat","Miniver","Miriam Libre",
+      "Mitr","Modak","Modern Antiqua","Mogra","Molengo","Molle","Monda","Monoton","Monsieur La Doulaise","Montaga",
+      "Montserrat","Montserrat Alternates","Montserrat Subrayada","Moul","Moulpali","Mountains of Christmas","Mukta","Mukta Malar","Mukta Mahee","Mukta Vaani",
+      "Mulish","Neucha","Neuton","New Rocker","News Cycle","Niconne","Niramit","Nixie One","Nobile","Nokora",
+      "Norican","Noticia Text","Noto Serif","Noto Serif Display","Noto Sans","Noto Sans Display","Nova Cut","Nova Flat","Nova Mono","Nova Oval",
+      "Nova Round","Nova Script","Nova Slim","Nova Square","Numans","Nunito","Nunito Sans","Odibee Sans","Old Standard TT","Oleo Script",
+      "Oleo Script Swash Caps","Open Sans","Oranienbaum","Orbitron","Oregano","Orienta","Oswald","Outfit","Over the Rainbow","Overlock",
+      "Overlock SC","Ovo","Oxygen","PT Sans","PT Sans Caption","PT Sans Narrow","PT Serif","Pacifico","Padauk","Palanquin",
+      "Palanquin Dark","Pangolin","Paprika","Parisienne","Passero One","Passion One","Pathway Gothic One","Patrick Hand","Patrick Hand SC","Pattaya",
+      "Patua One","Pavanam","Paytone One","Peralta","Permanent Marker","Petit Formal Script","Petrona","Philosopher","Piazzolla","Pinyon Script",
+      "Pirata One","Plaster","Play","Playball","Playfair Display","Playfair Display SC","Plus Jakarta Sans","Podkova","Poiret One","Poller One",
+      "Poly","Pompiere","Pontano Sans","Poor Story","Poppins","Port Lligat Sans","Port Lligat Slab","Pragati Narrow","Prata","Preahvihear",
+      "Press Start 2P","Pridi","Princess Sofia","Prociono","Prompt","Prosto One","Public Sans","Puritan","Purple Purse","Qahiri",
+      "Quando","Quantico","Quattrocento","Quattrocento Sans","Questrial","Quicksand","Quintessential","Qwigley","Racing Sans One","Radley",
+      "Rajdhani","Rakkas","Raleway","Raleway Dots","Ramabhadra","Ramaraja","Rambla","Rammetto One","Ranchers","Rancho",
+      "Rasa","Rationale","Readex Pro","Red Hat Display","Red Hat Text","Redressed","Reem Kufi","Reenie Beanie","Revalia","Rhodium Libre",
+      "Ribeye","Ribeye Marrow","Righteous","Risque","Roboto","Roboto Condensed","Roboto Slab","Rokkitt","Romanesco","Ropa Sans",
+      "Rosario","Rosarivo","Rouge Script","Rowdies","Rozha One","Rubik","Rubik Mono One","Rubik One","Rufina","Ruge Boogie",
+      "Ruluko","Rum Raisin","Russo One","Ruthie","Rye","Sacramento","Sahitya","Sail","Saira","Saira Condensed",
+      "Saira Extra Condensed","Saira Semi Condensed","Saira Semi Expanded","Salsa","Sanchez","Sancreek","Sansita","Sansita Swashed","Sarala","Sarina",
+      "Sarpanch","Satisfy","Sawarabi Gothic","Sawarabi Mincho","Scada","Scheherazade New","Schoolbell","Scope One","Seaweed Script","Secular One",
+      "Sedgwick Ave","Sedgwick Ave Display","Seymour One","Shadows Into Light","Shadows Into Light Two","Shanti","Share","Share Tech","Share Tech Mono","Shippori Mincho",
+      "Shojumaru","Short Stack","Shrikhand","Sixtyfour","Sigmar","Signika","Signika Negative","Simonetta","Single Day","Sirin Stencil",
+      "Six Caps","Skranji","Slabo 13px","Slabo 27px","Smooch","Smooch Sans","Sofia","Sonsie One","Sorts Mill Goudy","Source Sans 3",
+      "Source Serif 4","Space Grotesk","Space Mono","Spartan (fallback)","Special Elite","Spectral","Spectral SC","Spicy Rice","Spinnaker","Spirax",
+      "Spline Sans","Squada One","Sree Krushnadevaraya","Staatliches","Stardos Stencil","Stint Ultra Condensed","Stint Ultra Expanded","Stoke","Strait","Style Script",
+      "Sue Ellen Francisco","Sulphur Point","Sumana","Sunflower","Supermercado One","Sura","Suranna","Suravaram","Syne","Tajawal",
+      "Tangerine","Tapestry","Tauri","Teko","Telex","Tenor Sans","Texturina","Thasadith","Tienne","Tillana",
+      "Timmana","Tinos","Titan One","Titillium Web","Tomorrow","Trade Winds","Trirong","Trocchi","Trykker","Tulpen One",
+      "Turret Road","Ubuntu","Ubuntu Condensed","Ubuntu Mono","Ultra","Uncial Antiqua","Underdog","Unica One","UnifrakturCook","UnifrakturMaguntia",
+      "Unkempt","Unlock","Unna","Urbanist","VT323","Varela","Varela Round","Vast Shadow","Vibur","Vidaloka",
+      "Viga","Volkhov","Vollkorn","Vollkorn SC","Voltaire","Vujahday Script","Waiting for the Sunrise","Wallpoet","Walter Turncoat","Warnes",
+      "Wellfleet","Wendy One","Whisper","WindSong","Wire One","Work Sans","Yanone Kaffeesatz","Yatra One","Yellowtail","Yeseva One",
+      "Yomogi","Yrsa","ZCOOL KuaiLe","ZCOOL QingKe HuangYou","Zeyada"
     ];
 
+    // Deduplicate while preserving order
+    const fonts = Array.from(new Set(ALL_FONTS));
+
+    // Batch loading so Google Fonts URL doesn't get absurd.
+    const BATCH_SIZE = 40; // load 40 at a time
+    let loadedCount = 0;
+
     const grid = document.getElementById("grid");
-    const phrase = document.getElementById("phrase");
-    const category = document.getElementById("category");
-    const sort = document.getElementById("sort");
-    const search = document.getElementById("search");
-    const size = document.getElementById("size");
-    const weight = document.getElementById("weight");
-    const showMoreBtn = document.getElementById("showMore");
-    const resetBtn = document.getElementById("reset");
-    const countBadge = document.getElementById("countBadge");
-    const status = document.getElementById("status");
+    const q = document.getElementById("q");
+    const sortSel = document.getElementById("sort");
+    const gfLink = document.getElementById("gfLink");
+    const countEl = document.getElementById("count");
+    const toast = document.getElementById("toast");
 
-    let limit = 40;
-
-    function fontToCssName(name){
-      // keep spaces; CSS wants quotes around family names with spaces
-      return name.includes(" ") ? `"${name}"` : name;
+    function encodeFontFamily(f){
+      // Google Fonts expects spaces as +
+      return f.replace(/ /g, "+");
     }
 
-    function getFiltered(){
-      const q = search.value.trim().toLowerCase();
-      const cat = category.value;
-      let list = [...FONTS];
+    function buildGoogleFontsHref(list){
+      // Use wght 400/600/800 to make headline comparison meaningful when available.
+      // If a font doesn't support those weights, Google will ignore unsupported weights.
+      const families = list
+        .filter(f => !/fallback\)/.test(f)) // don't send fake entries
+        .map(f => `family=${encodeFontFamily(f)}:wght@400;600;800`);
+      // Always include Inter as UI fallback
+      families.unshift("family=Inter:wght@400;600;800");
+      return `https://fonts.googleapis.com/css2?${families.join("&")}&display=swap`;
+    }
 
-      if (cat !== "all"){
-        list = list.filter(([n,c]) => c === cat);
-      }
-      if (q){
-        list = list.filter(([n]) => n.toLowerCase().includes(q));
-      }
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(()=>toast.classList.remove("show"), 900);
+    }
 
-      list.sort((a,b) => {
-        const A = a[0].toLowerCase(), B = b[0].toLowerCase();
-        return sort.value === "az" ? (A.localeCompare(B)) : (B.localeCompare(A));
-      });
-
-      return list;
+    function copyText(t){
+      navigator.clipboard.writeText(t).then(()=>showToast("Copied")).catch(()=>showToast("Copy failed"));
     }
 
     function render(){
-      const txt = phrase.value || "MayaNut is cool";
-      const px = Math.max(18, Math.min(140, parseInt(size.value || "52", 10)));
-      const w = parseInt(weight.value, 10);
+      const query = q.value.trim().toLowerCase();
+      let list = fonts.slice(0, loadedCount);
 
-      const filtered = getFiltered();
-      const showing = filtered.slice(0, limit);
+      if (sortSel.value === "az") list = list.slice().sort((a,b)=>a.localeCompare(b));
+      if (sortSel.value === "za") list = list.slice().sort((a,b)=>b.localeCompare(a));
+
+      if (query){
+        list = list.filter(f => f.toLowerCase().includes(query));
+      }
+
+      countEl.textContent = `${list.length} shown • ${loadedCount} loaded • ${fonts.length} total candidates`;
 
       grid.innerHTML = "";
-      showing.forEach(([name,cat], idx) => {
-        const cssFamily = fontToCssName(name);
-
+      for (const f of list){
         const card = document.createElement("div");
         card.className = "card";
 
-        card.innerHTML = `
-          <div class="meta">
-            <div><strong style="color:var(--text)">${name}</strong> <span style="opacity:.7">• ${cat}</span></div>
-            <div class="badge">#${String(idx+1).padStart(3,"0")}</div>
-          </div>
-          <p class="sample" style="font-family:${cssFamily}, system-ui, sans-serif; font-size:${px}px; font-weight:${w};">
-            ${escapeHtml(txt)}
-          </p>
-          <div class="tiny">
-            <button class="copy" data-copy='font-family:${cssFamily}; font-weight:${w};'>Copy CSS</button>
-            <code>font-family: ${cssFamily}; font-weight: ${w};</code>
-          </div>
-        `;
+        const sample = document.createElement("div");
+        sample.className = "sample";
+        // If it's a fallback label, keep it readable.
+        sample.style.fontFamily = /fallback\)/.test(f)
+          ? "Inter, system-ui, sans-serif"
+          : `"${f}", Inter, system-ui, sans-serif`;
+        sample.textContent = sampleText;
+
+        const meta = document.createElement("div");
+        meta.className = "meta";
+
+        const chip1 = document.createElement("span");
+        chip1.className = "chip";
+        chip1.textContent = f;
+
+        const copyBtn = document.createElement("span");
+        copyBtn.className = "chip copy";
+        const cssLine = `font-family: "${f}", Inter, system-ui, sans-serif;`;
+        copyBtn.textContent = "Copy CSS";
+        copyBtn.title = cssLine;
+        copyBtn.addEventListener("click", ()=>copyText(cssLine));
+
+        const copyName = document.createElement("span");
+        copyName.className = "chip copy";
+        copyName.textContent = "Copy name";
+        copyName.title = f;
+        copyName.addEventListener("click", ()=>copyText(f));
+
+        meta.appendChild(chip1);
+        meta.appendChild(copyBtn);
+        meta.appendChild(copyName);
+
+        card.appendChild(sample);
+        card.appendChild(meta);
         grid.appendChild(card);
-      });
-
-      countBadge.textContent = `Showing ${Math.min(limit, filtered.length)} / ${filtered.length}`;
-      status.textContent = filtered.length < FONTS.length
-        ? `Filtered from 200 fonts → ${filtered.length} match(es).`
-        : `All 200 fonts available.`;
-
-      // bind copy buttons
-      document.querySelectorAll(".copy").forEach(btn => {
-        btn.onclick = async () => {
-          const text = btn.getAttribute("data-copy");
-          try{
-            await navigator.clipboard.writeText(text);
-            btn.textContent = "Copied!";
-            setTimeout(() => btn.textContent = "Copy CSS", 900);
-          }catch(e){
-            // fallback
-            const ta = document.createElement("textarea");
-            ta.value = text;
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand("copy");
-            ta.remove();
-            btn.textContent = "Copied!";
-            setTimeout(() => btn.textContent = "Copy CSS", 900);
-          }
-        };
-      });
-
-      // show more button state
-      showMoreBtn.disabled = limit >= filtered.length;
-      showMoreBtn.textContent = showMoreBtn.disabled ? "All shown" : "Show 40 more";
+      }
     }
 
-    function escapeHtml(str){
-      return String(str)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-    }
+    function loadNextBatch(){
+      const next = fonts.slice(loadedCount, loadedCount + BATCH_SIZE);
+      loadedCount += next.length;
 
-    // events
-    [phrase, category, sort, search, size, weight].forEach(el => {
-      el.addEventListener("input", () => { limit = 40; render(); });
-      el.addEventListener("change", () => { limit = 40; render(); });
-    });
-
-    showMoreBtn.addEventListener("click", () => { limit += 40; render(); });
-    resetBtn.addEventListener("click", () => {
-      phrase.value = "MayaNut is cool";
-      category.value = "all";
-      sort.value = "az";
-      search.value = "";
-      size.value = "52";
-      weight.value = "400";
-      limit = 40;
+      // Update Google Fonts href with ALL loaded fonts so far.
+      const toLoad = fonts.slice(0, loadedCount);
+      gfLink.href = buildGoogleFontsHref(toLoad);
       render();
-    });
+    }
 
-    render();
+    function loadAll(){
+      loadedCount = fonts.length;
+      gfLink.href = buildGoogleFontsHref(fonts);
+      render();
+    }
+
+    // Initial load
+    loadNextBatch();
+
+    document.getElementById("loadMore").addEventListener("click", loadNextBatch);
+    document.getElementById("loadAll").addEventListener("click", loadAll);
+
+    q.addEventListener("input", render);
+    sortSel.addEventListener("change", render);
   </script>
 </body>
 </html>
