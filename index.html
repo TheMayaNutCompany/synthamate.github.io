@@ -1,222 +1,67 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MayaNut Footer Wave Demo</title>
-  <style>
-    :root{
-      --lime-1:#9BFF4A;
-      --lime-2:#57E35A;
-      --green-1:#1E8A48;
-      --green-2:#0F5B34;
-      --green-3:#083A23;
-      --text:#f4fff6;
-    }
+/* ===================== FOOTER BACKGROUND (Synthamate-style wave) ===================== */
+/* Apply ONLY to the bottom tab/footer container you’re using. 
+   If your footer class is different, replace `.cfa-footer` with your footer class. */
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:#071b12;
-      color:var(--text);
-    }
+.cfa-footer{
+  position: relative;
+  overflow: hidden;
+  /* keep your existing layout/spacing; only background changes */
+  background: linear-gradient(to bottom, #d8ff6a 0%, #7ae78a 52%, #066100 100%);
+}
 
-    /* Fake content above footer to show transition */
-    .page{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-    }
-    .hero{
-      padding:64px 20px 120px;
-      background: radial-gradient(900px 500px at 20% 10%, rgba(155,255,74,.22), transparent 60%),
-                  radial-gradient(900px 500px at 80% 20%, rgba(87,227,90,.18), transparent 60%),
-                  linear-gradient(180deg, #062115 0%, #071b12 100%);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .hero-inner{
-      width:min(1100px, 92vw);
-      margin:0 auto;
-    }
-    .hero h1{margin:0 0 10px; font-size:clamp(26px, 4vw, 44px); letter-spacing:.2px}
-    .hero p{margin:0; max-width:70ch; opacity:.9; line-height:1.45}
+/* upside-down dark wave sitting on TOP of the gradient */
+.cfa-footer::before{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  top:0;
+  height: 140px;          /* adjust “wave depth” */
+  pointer-events:none;
+  background-repeat: repeat-x;
+  background-position: top left;
+  background-size: 520px 140px;
+  /* wave SVG is already “dark”, then flipped vertically via transform */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='140' viewBox='0 0 520 140'%3E%3Cpath fill='%230b3b17' d='M0 90 C 40 30, 80 30, 120 90 S 200 150, 240 90 S 320 30, 360 90 S 440 150, 480 90 S 520 30, 520 30 L520 0 L0 0 Z'/%3E%3C/svg%3E");
+  transform: scaleY(-1);  /* upside down */
+  transform-origin: top;
+  opacity: 0.95;
+}
 
-    /* Footer band with wave */
-    .footer-band{
-      position:relative;
-      overflow:hidden; /* keeps wave clean */
-      padding:58px 0 28px;
-      background:
-        radial-gradient(900px 420px at 15% 0%, rgba(155,255,74,.25), transparent 55%),
-        radial-gradient(900px 420px at 85% 0%, rgba(87,227,90,.18), transparent 55%),
-        linear-gradient(180deg, var(--lime-1) 0%, var(--lime-2) 38%, var(--green-1) 72%, var(--green-2) 100%);
-    }
+/* subtle darkening behind the text columns so each “spike” reads darker */
+.cfa-footer::after{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  top:0; bottom:0;
+  pointer-events:none;
+  /* dark at the top blending into the green gradient below */
+  background:
+    linear-gradient(to bottom, rgba(11,59,23,0.55) 0%, rgba(11,59,23,0.18) 22%, rgba(11,59,23,0.0) 48%);
+}
 
-    .footer-wave{
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:-1px;     /* avoid seam */
-      width:100%;
-      height:240px;    /* adjust for more/less “rise” */
-      z-index:1;
-      opacity:.98;
-      pointer-events:none;
-      filter: drop-shadow(0 -12px 22px rgba(0,0,0,.22));
-    }
+/* Keep footer text white so it pops over the dark wave */
+.cfa-footer,
+.cfa-footer a,
+.cfa-footer .cfa-footer-col-title,
+.cfa-footer .cfa-footer-link,
+.cfa-footer .cfa-footer-tagline,
+.cfa-footer .cfa-email,
+.cfa-footer .cfa-footer-bottom{
+  color:#ffffff !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+}
 
-    .footer-content{
-      position:relative;
-      z-index:2;
-      width:min(1200px, 92vw);
-      margin:0 auto;
-      display:grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap:18px;
-      align-items:start;
-    }
-
-    .footer-col{
-      padding:16px 16px 14px;
-      border-radius:18px;
-      background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.14);
-      backdrop-filter: blur(6px);
-    }
-
-    .footer-col h3{
-      margin:0 0 10px;
-      font-size:15px;
-      letter-spacing:.25px;
-      text-transform:uppercase;
-      opacity:.95;
-    }
-
-    .footer-col a{
-      display:block;
-      color:rgba(255,255,255,.92);
-      text-decoration:none;
-      padding:7px 10px;
-      border-radius:12px;
-      transition: background .15s ease, transform .15s ease;
-    }
-    .footer-col a:hover{
-      background:rgba(0,0,0,.14);
-      transform: translateY(-1px);
-    }
-
-    .footer-bottom{
-      position:relative;
-      z-index:2;
-      width:min(1200px, 92vw);
-      margin:18px auto 0;
-      padding-top:14px;
-      border-top:1px solid rgba(255,255,255,.18);
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px 18px;
-      justify-content:space-between;
-      align-items:center;
-      font-size:13px;
-      color:rgba(255,255,255,.9);
-    }
-
-    .pill{
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(0,0,0,.14);
-      border:1px solid rgba(255,255,255,.16);
-      white-space:nowrap;
-    }
-
-    @media (max-width: 860px){
-      .footer-content{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (max-width: 520px){
-      .footer-content{ grid-template-columns: 1fr; }
-      .footer-band{ padding-top:44px; }
-      .footer-wave{ height:210px; }
-    }
-  </style>
-</head>
-<body>
-  <div class="page">
-    <section class="hero">
-      <div class="hero-inner">
-        <h1>Demo page</h1>
-        <p>
-          This is a standalone bottom-tab/footer section with a wave-shaped dark green layer that rises behind the columns.
-          Replace link text + colors to match mayanut.com.
-        </p>
-      </div>
-    </section>
-
-    <footer class="footer-band">
-      <!-- Wave layer behind the columns -->
-      <svg class="footer-wave" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
-        <defs>
-          <linearGradient id="footerWaveGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="var(--green-2)"></stop>
-            <stop offset="55%" stop-color="var(--green-3)"></stop>
-            <stop offset="100%" stop-color="#052818"></stop>
-          </linearGradient>
-        </defs>
-
-        <!-- Wave: adjust control points to change “rises behind each column” -->
-        <path fill="url(#footerWaveGrad)" d="
-          M0,240
-          C120,200 240,190 360,220
-          C480,250 600,290 720,240
-          C840,190 960,140 1080,182
-          C1200,224 1320,275 1440,232
-          L1440,320 L0,320 Z
-        "></path>
-      </svg>
-
-      <div class="footer-content">
-        <div class="footer-col">
-          <h3>Started in South Florida</h3>
-          <a href="#">Our story</a>
-          <a href="#">Why MayaNut</a>
-          <a href="#">Farm vision</a>
-        </div>
-
-        <div class="footer-col">
-          <h3>Who We Are</h3>
-          <a href="#">Mission</a>
-          <a href="#">Team</a>
-          <a href="#">Contact</a>
-        </div>
-
-        <div class="footer-col">
-          <h3>Support</h3>
-          <a href="#">Newsletter</a>
-          <a href="#">Donate / sponsor</a>
-          <a href="#">Partners</a>
-        </div>
-
-        <div class="footer-col">
-          <h3>Follow</h3>
-          <a href="#">Instagram</a>
-          <a href="#">YouTube</a>
-          <a href="#">X / Twitter</a>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span class="pill">© <span id="yr"></span> The MayaNut Company</span>
-        <span class="pill">Privacy</span>
-        <span class="pill">Terms</span>
-      </div>
-    </footer>
-  </div>
-
-  <script>
-    document.getElementById("yr").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+/* If you want the big logo/tagline area to stay readable on top of the wave */
+.cfa-footer-left{
+  position: relative;
+  z-index: 1;
+}
+.cfa-footer-right{
+  position: relative;
+  z-index: 1;
+}
+.cfa-footer-bottom{
+  position: relative;
+  z-index: 1;
+  border-top: 2px solid rgba(255,255,255,0.18);
+}
