@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Social World Prototype</title>
+  <title>Prototype World</title>
   <style>
     * {
       box-sizing: border-box;
@@ -15,11 +15,11 @@
       height: 100%;
       overflow: hidden;
       font-family: Arial, Helvetica, sans-serif;
-      background: #111;
     }
 
     body {
       user-select: none;
+      background: #111;
     }
 
     .page {
@@ -30,18 +30,43 @@
     }
 
     #worldPage {
-      background: #ff7000;
+      overflow: hidden;
+      display: block;
+      background: #ffd400;
+    }
+
+    #worldViewport {
+      position: absolute;
+      inset: 0;
       overflow: hidden;
     }
 
+    #worldInner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300vw;
+      height: 100vh;
+      background: linear-gradient(
+        to right,
+        #d91f1f 0%,
+        #d91f1f 33.3333%,
+        #ffd400 33.3333%,
+        #ffd400 66.6666%,
+        #ff7000 66.6666%,
+        #ff7000 100%
+      );
+      will-change: transform;
+    }
+
     #homePage {
-      display: none;
       background: #d91f1f;
-      color: #fff;
+      color: white;
+      display: none;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      gap: 16px;
+      gap: 18px;
     }
 
     #homePage.active {
@@ -53,54 +78,54 @@
     }
 
     .homeTitle {
-      font-size: clamp(32px, 7vw, 72px);
+      font-size: clamp(36px, 7vw, 72px);
       font-weight: 700;
-      letter-spacing: 1px;
     }
 
     .homeSub {
-      font-size: clamp(16px, 2vw, 22px);
-      opacity: 0.9;
+      font-size: 20px;
+      opacity: 0.92;
     }
 
-    .returnBtn {
+    .backBtn {
       border: none;
       border-radius: 999px;
-      padding: 14px 26px;
-      font-size: 16px;
-      cursor: pointer;
-      background: #fff;
+      background: white;
       color: #d91f1f;
+      padding: 14px 22px;
+      font-size: 16px;
       font-weight: 700;
+      cursor: pointer;
     }
 
     #player {
       position: absolute;
-      width: 56px;
-      height: 56px;
+      left: 0;
+      top: 0;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
-      background: #fff;
-      left: 200px;
-      top: 200px;
-      z-index: 2;
+      background: white;
+      z-index: 5;
+      cursor: pointer;
     }
 
     #chatBubble {
       position: absolute;
-      left: 8px;
-      bottom: 72px;
-      max-width: 240px;
-      min-width: 60px;
-      padding: 10px 14px;
-      background: #fff;
-      color: #111;
+      left: 6px;
+      bottom: 74px;
+      max-width: 260px;
+      min-width: 70px;
+      padding: 11px 14px;
       border-radius: 18px;
+      background: white;
+      color: #111;
       font-size: 15px;
-      line-height: 1.3;
+      line-height: 1.35;
       display: none;
       white-space: pre-wrap;
-      word-wrap: break-word;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+      word-break: break-word;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
       user-select: text;
     }
 
@@ -111,57 +136,227 @@
       bottom: -10px;
       width: 0;
       height: 0;
-      border-top: 12px solid #fff;
+      border-top: 12px solid white;
       border-right: 12px solid transparent;
     }
 
-    .topRightButtons {
-      position: fixed;
-      top: 18px;
-      right: 18px;
-      display: flex;
-      gap: 12px;
-      z-index: 20;
+    #profilePopup {
+      position: absolute;
+      left: -26px;
+      bottom: 146px;
+      width: 220px;
+      padding: 14px 14px 12px;
+      border-radius: 20px;
+      background: white;
+      color: #111;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+      display: none;
+      z-index: 8;
+      user-select: text;
     }
 
-    .iconBtn,
-    .mapBtn,
-    .closeBtn,
-    .navBtn {
+    #profilePopup.active {
+      display: block;
+    }
+
+    #profilePopup::after {
+      content: "";
+      position: absolute;
+      left: 34px;
+      bottom: -11px;
+      width: 0;
+      height: 0;
+      border-top: 13px solid white;
+      border-right: 13px solid transparent;
+    }
+
+    .profileTop {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .profileName {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .profileMini {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .profileLine {
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .meterLabelRow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .meterTrack {
+      width: 100%;
+      height: 12px;
+      border-radius: 999px;
+      background: #ececec;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .meterFill {
+      width: 68%;
+      height: 100%;
+      background: linear-gradient(to right, #ffb300, #ff7000);
+      border-radius: 999px;
+      transition: width 0.18s ease;
+    }
+
+    .profileStats {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .statBox {
+      flex: 1;
+      background: #f6f6f6;
+      border-radius: 14px;
+      padding: 8px 10px;
+    }
+
+    .statNumber {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .statLabel {
+      font-size: 11px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .profileButtons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .profileBtn {
+      flex: 1;
       border: none;
+      border-radius: 999px;
+      padding: 10px 12px;
+      background: #111;
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
       cursor: pointer;
-      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .profileBtn.secondary {
+      background: #f0f0f0;
       color: #111;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+    }
+
+    .topBar {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .topBarLeft,
+    .topBarRight {
+      display: flex;
+      gap: 10px;
+      pointer-events: auto;
+    }
+
+    .pillBtn,
+    .iconBtn {
+      border: none;
+      background: rgba(255, 255, 255, 0.97);
+      color: #111;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+      cursor: pointer;
+    }
+
+    .pillBtn {
+      height: 50px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
     }
 
     .iconBtn {
-      width: 52px;
-      height: 52px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       font-size: 22px;
       display: grid;
       place-items: center;
     }
 
-    .mapBtn {
-      min-width: 92px;
-      height: 52px;
-      border-radius: 999px;
-      font-size: 16px;
-      font-weight: 700;
-      padding: 0 20px;
+    #friendsPanel {
+      position: fixed;
+      top: 78px;
+      right: 16px;
+      width: 250px;
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 20px;
+      padding: 14px 16px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 25;
     }
 
-    .bottomBarWrap {
+    #friendsPanel.active {
+      display: block;
+    }
+
+    .friendsTitle {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    .friend {
+      padding: 10px 0;
+      border-bottom: 1px solid #ececec;
+      color: #222;
+      font-size: 15px;
+    }
+
+    .friend:last-child {
+      border-bottom: none;
+    }
+
+    .bottomBar {
       position: fixed;
       left: 50%;
-      bottom: 24px;
+      bottom: 22px;
       transform: translateX(-50%);
-      width: min(860px, calc(100vw - 32px));
+      width: min(900px, calc(100vw - 24px));
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 12px;
       z-index: 20;
     }
@@ -172,31 +367,30 @@
       height: 56px;
       border: none;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, 0.97);
       color: #111;
-      font-size: 22px;
+      font-size: 23px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
       cursor: pointer;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     }
 
     #chatForm {
       flex: 1;
       display: flex;
       align-items: center;
-      gap: 12px;
     }
 
     #chatInput {
-      flex: 1;
+      width: 100%;
       height: 56px;
       border: none;
       outline: none;
       border-radius: 999px;
       padding: 0 22px;
       font-size: 16px;
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, 0.97);
       color: #111;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
     }
 
     #chatInput::placeholder {
@@ -209,8 +403,8 @@
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 50;
       background: rgba(0, 0, 0, 0.22);
+      z-index: 40;
     }
 
     .overlay.active {
@@ -223,14 +417,14 @@
       max-width: 1200px;
       max-height: 900px;
       background: #6c2bd9;
-      border-radius: 30px;
+      color: white;
+      border-radius: 28px;
       padding: 28px;
       position: relative;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
-      color: #fff;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
     }
 
-    .panelTitle {
+    .panelHeading {
       font-size: clamp(28px, 4vw, 44px);
       font-weight: 700;
       margin-bottom: 26px;
@@ -239,60 +433,63 @@
     .mapLinks {
       display: flex;
       flex-direction: column;
-      gap: 18px;
-      margin-top: 24px;
+      gap: 16px;
     }
 
     .mapLink {
-      display: inline-flex;
-      align-items: center;
+      display: inline-block;
       width: fit-content;
-      padding: 16px 22px;
+      padding: 15px 20px;
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.14);
-      color: #fff;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
       text-decoration: none;
       font-size: 22px;
       font-weight: 700;
     }
 
     .mapLink:hover {
-      background: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.24);
     }
 
     .closeBtn {
       position: absolute;
-      top: 18px;
-      right: 18px;
+      top: 16px;
+      right: 16px;
       width: 48px;
       height: 48px;
+      border: none;
       border-radius: 50%;
+      background: white;
+      color: #111;
       font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
     }
 
     #socialOverlay {
-      background: rgba(0, 0, 0, 0.16);
-      align-items: stretch;
       justify-content: center;
+      align-items: stretch;
+      background: rgba(0, 0, 0, 0.16);
     }
 
     #socialPanel {
       width: 66.666vw;
       min-width: 320px;
-      max-width: 980px;
+      max-width: 960px;
       height: 100vh;
-      background: #fff;
-      box-shadow: 0 0 50px rgba(0, 0, 0, 0.18);
+      background: white;
       position: relative;
-      padding: 24px 24px 32px;
+      padding: 24px;
       overflow-y: auto;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.18);
     }
 
     .socialHeader {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      margin-bottom: 20px;
+      align-items: center;
+      margin-bottom: 22px;
     }
 
     .socialTitle {
@@ -301,116 +498,126 @@
       color: #111;
     }
 
-    .protoCard {
-      border: 1px solid #e7e7e7;
+    .postCard {
+      border: 1px solid #e9e9e9;
       border-radius: 22px;
       padding: 18px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
     }
 
-    .protoName {
-      font-size: 20px;
+    .postName {
       font-weight: 700;
+      font-size: 19px;
       margin-bottom: 8px;
       color: #111;
     }
 
-    .protoPost {
+    .postText {
       font-size: 15px;
       line-height: 1.45;
       color: #333;
     }
 
-    #friendsPanel {
-      position: fixed;
-      top: 82px;
-      right: 18px;
-      width: 260px;
-      background: rgba(255, 255, 255, 0.98);
-      color: #111;
-      border-radius: 22px;
-      padding: 16px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
-      z-index: 30;
-      display: none;
-    }
-
-    #friendsPanel.active {
-      display: block;
-    }
-
-    .friendsTitle {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .friendRow {
-      padding: 10px 0;
-      border-bottom: 1px solid #ececec;
-      font-size: 15px;
-    }
-
-    .friendRow:last-child {
-      border-bottom: none;
-    }
-
-    @media (max-width: 700px) {
-      .bottomBarWrap {
-        width: calc(100vw - 18px);
+    @media (max-width: 720px) {
+      .bottomBar {
         gap: 8px;
+        width: calc(100vw - 14px);
       }
 
       .roundBtn {
-        flex-basis: 50px;
         width: 50px;
         height: 50px;
+        flex-basis: 50px;
       }
 
       #chatInput {
         height: 50px;
       }
 
+      #mapPanel {
+        width: 90vw;
+        height: 82vh;
+      }
+
       #socialPanel {
         width: 86vw;
       }
 
-      #mapPanel {
-        width: 90vw;
-        height: 82vh;
+      #profilePopup {
+        width: 200px;
+        left: -18px;
       }
     }
   </style>
 </head>
 <body>
   <div id="worldPage" class="page">
-    <div class="topRightButtons">
-      <button id="mapOpenBtn" class="mapBtn" type="button">Map</button>
-      <button id="friendsBtn" class="iconBtn" type="button" aria-label="Friends">☺</button>
+    <div id="worldViewport">
+      <div id="worldInner">
+        <div id="player">
+          <div id="profilePopup">
+            <div class="profileTop">
+              <div>
+                <div class="profileName">August</div>
+                <div class="profileMini" id="zoneLabel">Center Zone</div>
+              </div>
+            </div>
+
+            <div class="profileLine">Prototype profile card with a like meter and quick stats.</div>
+
+            <div class="meterLabelRow">
+              <span>Like Meter</span>
+              <span id="likePercentLabel">68%</span>
+            </div>
+            <div class="meterTrack">
+              <div id="likeMeterFill" class="meterFill"></div>
+            </div>
+
+            <div class="profileStats">
+              <div class="statBox">
+                <div id="likesCount" class="statNumber">68</div>
+                <div class="statLabel">Likes</div>
+              </div>
+              <div class="statBox">
+                <div class="statNumber">12</div>
+                <div class="statLabel">Friends</div>
+              </div>
+            </div>
+
+            <div class="profileButtons">
+              <button id="likeBtn" class="profileBtn" type="button">Like +</button>
+              <button id="closeProfileBtn" class="profileBtn secondary" type="button">Close</button>
+            </div>
+          </div>
+
+          <div id="chatBubble"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="topBar">
+      <div class="topBarLeft">
+        <button id="mapBtn" class="pillBtn" type="button">Map</button>
+      </div>
+
+      <div class="topBarRight">
+        <button id="friendsBtn" class="iconBtn" type="button" aria-label="Friends">☺</button>
+      </div>
     </div>
 
     <div id="friendsPanel">
       <div class="friendsTitle">Friends</div>
-      <div class="friendRow">MayaSky</div>
-      <div class="friendRow">OrangeOrbit</div>
-      <div class="friendRow">Sunline23</div>
+      <div class="friend">MayaSky</div>
+      <div class="friend">OrangeOrbit</div>
+      <div class="friend">Sunline23</div>
     </div>
 
-    <div id="player">
-      <div id="chatBubble"></div>
-    </div>
-
-    <div class="bottomBarWrap">
+    <div class="bottomBar">
       <button id="homeBtn" class="roundBtn" type="button" aria-label="Home">⌂</button>
 
       <form id="chatForm" autocomplete="off">
-        <input
-          id="chatInput"
-          type="text"
-          placeholder="Type here and press Enter..."
-          maxlength="140"
-        />
+        <input id="chatInput" type="text" maxlength="220" placeholder="Type here and press Enter..." />
       </form>
 
       <button id="socialBtn" class="roundBtn" type="button" aria-label="Social">🔍</button>
@@ -420,17 +627,17 @@
   <div id="homePage" class="page">
     <div class="homeTitle">Home</div>
     <div class="homeSub">Red page prototype</div>
-    <button id="returnToWorldBtn" class="returnBtn" type="button">Return to World</button>
+    <button id="worldBtn" class="backBtn" type="button">Return to World</button>
   </div>
 
   <div id="mapOverlay" class="overlay">
     <div id="mapPanel">
-      <button id="mapCloseBtn" class="closeBtn" type="button" aria-label="Close map">×</button>
-      <div class="panelTitle">Map</div>
+      <button id="mapCloseBtn" class="closeBtn" type="button" aria-label="Close">×</button>
+      <div class="panelHeading">Map</div>
       <div class="mapLinks">
-        <a href="#" class="mapLink" data-map="north-pole">North Pole</a>
-        <a href="#" class="mapLink" data-map="desert">Desert</a>
-        <a href="#" class="mapLink" data-map="jungle">Jungle</a>
+        <a href="#" class="mapLink" data-name="North Pole">North Pole</a>
+        <a href="#" class="mapLink" data-name="Desert">Desert</a>
+        <a href="#" class="mapLink" data-name="Jungle">Jungle</a>
       </div>
     </div>
   </div>
@@ -439,136 +646,250 @@
     <div id="socialPanel">
       <div class="socialHeader">
         <div class="socialTitle">Proto Social Media</div>
-        <button id="socialCloseBtn" class="closeBtn" type="button" aria-label="Close social panel">×</button>
+        <button id="socialCloseBtn" class="closeBtn" type="button" aria-label="Close">×</button>
       </div>
 
-      <div class="protoCard">
-        <div class="protoName">OrangeOrbit</div>
-        <div class="protoPost">Late-night lounge energy tonight. Who is on?</div>
+      <div class="postCard">
+        <div class="postName">OrangeOrbit</div>
+        <div class="postText">Late-night lounge energy tonight. Who is on?</div>
       </div>
 
-      <div class="protoCard">
-        <div class="protoName">Sunline23</div>
-        <div class="protoPost">I want rare jungle items when that map opens.</div>
+      <div class="postCard">
+        <div class="postName">Sunline23</div>
+        <div class="postText">I want the jungle map first.</div>
       </div>
 
-      <div class="protoCard">
-        <div class="protoName">MayaSky</div>
-        <div class="protoPost">This white panel is the early social feed concept.</div>
+      <div class="postCard">
+        <div class="postName">MayaSky</div>
+        <div class="postText">This centered white panel is the proto social layer.</div>
       </div>
     </div>
   </div>
 
   <script>
+    const worldInner = document.getElementById("worldInner");
     const player = document.getElementById("player");
     const chatBubble = document.getElementById("chatBubble");
     const chatForm = document.getElementById("chatForm");
     const chatInput = document.getElementById("chatInput");
 
+    const profilePopup = document.getElementById("profilePopup");
+    const closeProfileBtn = document.getElementById("closeProfileBtn");
+    const likeBtn = document.getElementById("likeBtn");
+    const likeMeterFill = document.getElementById("likeMeterFill");
+    const likePercentLabel = document.getElementById("likePercentLabel");
+    const likesCount = document.getElementById("likesCount");
+    const zoneLabel = document.getElementById("zoneLabel");
+
     const worldPage = document.getElementById("worldPage");
     const homePage = document.getElementById("homePage");
     const homeBtn = document.getElementById("homeBtn");
-    const returnToWorldBtn = document.getElementById("returnToWorldBtn");
+    const worldBtn = document.getElementById("worldBtn");
 
+    const mapBtn = document.getElementById("mapBtn");
     const mapOverlay = document.getElementById("mapOverlay");
-    const mapOpenBtn = document.getElementById("mapOpenBtn");
     const mapCloseBtn = document.getElementById("mapCloseBtn");
 
-    const socialOverlay = document.getElementById("socialOverlay");
     const socialBtn = document.getElementById("socialBtn");
+    const socialOverlay = document.getElementById("socialOverlay");
     const socialCloseBtn = document.getElementById("socialCloseBtn");
 
     const friendsBtn = document.getElementById("friendsBtn");
     const friendsPanel = document.getElementById("friendsPanel");
 
-    let x = 200;
-    let y = 200;
-    const size = 56;
-    const speed = 220;
+    const size = 58;
+    const speed = 240;
 
-    let targetX = x;
-    let targetY = y;
+    let worldWidth = window.innerWidth * 3;
+    let worldHeight = window.innerHeight;
+
+    let x = 0;
+    let y = 0;
+    let targetX = 0;
+    let targetY = 0;
+    let cameraX = 0;
+    let bubbleTimeout = null;
+    let likeValue = 68;
 
     const keys = {};
+
+    const bannedWords = [
+      "fuck",
+      "fuk",
+      "shit",
+      "bitch",
+      "asshole",
+      "cunt",
+      "dick",
+      "pussy",
+      "slut",
+      "whore"
+    ];
 
     function clamp(value, min, max) {
       return Math.max(min, Math.min(max, value));
     }
 
+    function updateLikeMeter() {
+      const percent = clamp(likeValue, 0, 100);
+      likeMeterFill.style.width = percent + "%";
+      likePercentLabel.textContent = percent + "%";
+      likesCount.textContent = likeValue;
+    }
+
+    function currentZoneName() {
+      const viewportWidth = window.innerWidth;
+      if (x < viewportWidth) return "Left Zone";
+      if (x < viewportWidth * 2) return "Center Zone";
+      return "Right Zone";
+    }
+
+    function updateProfileInfo() {
+      zoneLabel.textContent = currentZoneName();
+    }
+
+    function openProfile() {
+      updateProfileInfo();
+      profilePopup.classList.add("active");
+    }
+
+    function closeProfile() {
+      profilePopup.classList.remove("active");
+    }
+
+    function toggleProfile() {
+      updateProfileInfo();
+      profilePopup.classList.toggle("active");
+    }
+
+    function setupStartPosition() {
+      worldWidth = window.innerWidth * 3;
+      worldHeight = window.innerHeight;
+
+      worldInner.style.width = worldWidth + "px";
+      worldInner.style.height = worldHeight + "px";
+
+      x = window.innerWidth * 1.5 - size / 2;
+      y = window.innerHeight / 2 - size / 2;
+
+      targetX = x;
+      targetY = y;
+
+      renderPlayer();
+      updateLikeMeter();
+      updateProfileInfo();
+    }
+
     function renderPlayer() {
-      const maxX = window.innerWidth - size;
-      const maxY = window.innerHeight - size;
+      const maxX = worldWidth - size;
+      const maxY = worldHeight - size;
+
       x = clamp(x, 0, maxX);
       y = clamp(y, 0, maxY);
       targetX = clamp(targetX, 0, maxX);
       targetY = clamp(targetY, 0, maxY);
+
+      cameraX = clamp(
+        x - window.innerWidth / 2 + size / 2,
+        0,
+        worldWidth - window.innerWidth
+      );
+
+      worldInner.style.transform = `translateX(${-cameraX}px)`;
       player.style.left = x + "px";
       player.style.top = y + "px";
+
+      updateProfileInfo();
     }
 
-    function isTyping() {
-      return document.activeElement === chatInput;
+    function showBubble(text) {
+      clearTimeout(bubbleTimeout);
+      chatBubble.textContent = text;
+      chatBubble.style.display = "block";
+
+      const longTextThreshold = 55;
+      const duration = text.length > longTextThreshold ? 10000 : 5000;
+
+      bubbleTimeout = setTimeout(() => {
+        chatBubble.style.display = "none";
+      }, duration);
     }
 
-    function anyOverlayOpen() {
+    function overlaysOpen() {
       return mapOverlay.classList.contains("active") ||
              socialOverlay.classList.contains("active") ||
              homePage.classList.contains("active");
     }
 
-    function switchToHome() {
+    function typing() {
+      return document.activeElement === chatInput;
+    }
+
+    function goHome() {
       worldPage.classList.add("hidden");
       homePage.classList.add("active");
       mapOverlay.classList.remove("active");
       socialOverlay.classList.remove("active");
       friendsPanel.classList.remove("active");
+      closeProfile();
     }
 
-    function switchToWorld() {
+    function goWorld() {
       worldPage.classList.remove("hidden");
       homePage.classList.remove("active");
     }
 
-    function openMap() {
-      mapOverlay.classList.add("active");
-      friendsPanel.classList.remove("active");
-    }
-
-    function closeMap() {
-      mapOverlay.classList.remove("active");
-    }
-
-    function openSocial() {
-      socialOverlay.classList.add("active");
-      friendsPanel.classList.remove("active");
-    }
-
-    function closeSocial() {
-      socialOverlay.classList.remove("active");
-    }
-
-    function toggleFriends() {
-      friendsPanel.classList.toggle("active");
-    }
-
-    function setMoveTarget(clientX, clientY) {
-      targetX = clientX - size / 2;
+    function setTargetFromClick(clientX, clientY) {
+      targetX = clientX + cameraX - size / 2;
       targetY = clientY - size / 2;
-      const maxX = window.innerWidth - size;
-      const maxY = window.innerHeight - size;
-      targetX = clamp(targetX, 0, maxX);
-      targetY = clamp(targetY, 0, maxY);
+      renderPlayer();
     }
+
+    function hasDisallowedCharacters(text) {
+      return /[^a-zA-Z0-9 ]/.test(text);
+    }
+
+    function normalizeForFilter(text) {
+      return text
+        .toLowerCase()
+        .replace(/\s+/g, "");
+    }
+
+    function containsBadWord(text) {
+      const normalized = normalizeForFilter(text);
+      return bannedWords.some((word) => normalized.includes(word));
+    }
+
+    chatInput.addEventListener("input", () => {
+      chatInput.value = chatInput.value.replace(/[^a-zA-Z0-9 ]/g, "");
+    });
+
+    window.addEventListener("resize", () => {
+      const prevSectionRatioX = worldWidth ? x / worldWidth : 0.5;
+      const prevSectionRatioY = worldHeight ? y / worldHeight : 0.5;
+
+      worldWidth = window.innerWidth * 3;
+      worldHeight = window.innerHeight;
+      worldInner.style.width = worldWidth + "px";
+      worldInner.style.height = worldHeight + "px";
+
+      x = clamp(prevSectionRatioX * worldWidth, 0, worldWidth - size);
+      y = clamp(prevSectionRatioY * worldHeight, 0, worldHeight - size);
+      targetX = x;
+      targetY = y;
+
+      renderPlayer();
+    });
 
     window.addEventListener("keydown", (e) => {
-      if (isTyping()) {
+      const key = e.key.toLowerCase();
+
+      if (typing()) {
         if (e.key === "Escape") {
           chatInput.blur();
         }
         return;
       }
-
-      const key = e.key.toLowerCase();
 
       if (["arrowup", "arrowdown", "arrowleft", "arrowright", "w", "a", "s", "d"].includes(key)) {
         keys[key] = true;
@@ -577,7 +898,7 @@
         e.preventDefault();
       }
 
-      if (e.key === "Enter" && !anyOverlayOpen()) {
+      if (e.key === "Enter" && !overlaysOpen()) {
         chatInput.focus();
         e.preventDefault();
       }
@@ -587,17 +908,16 @@
       keys[e.key.toLowerCase()] = false;
     });
 
-    window.addEventListener("resize", renderPlayer);
-
     document.addEventListener("click", (e) => {
-      const clickedUI = e.target.closest(
-        "#chatForm, .roundBtn, .iconBtn, .mapBtn, .closeBtn, .mapLink, #friendsPanel, .returnBtn"
+      const onUi = e.target.closest(
+        "#chatForm, #homeBtn, #socialBtn, #mapBtn, #friendsBtn, #friendsPanel, .closeBtn, .mapLink, #worldBtn, #player, #profilePopup"
       );
 
-      if (clickedUI || anyOverlayOpen()) return;
+      if (onUi || overlaysOpen()) return;
 
-      setMoveTarget(e.clientX, e.clientY);
+      closeProfile();
       friendsPanel.classList.remove("active");
+      setTargetFromClick(e.clientX, e.clientY);
     });
 
     chatForm.addEventListener("submit", (e) => {
@@ -605,37 +925,90 @@
       const text = chatInput.value.trim();
       if (!text) return;
 
-      chatBubble.textContent = text;
-      chatBubble.style.display = "block";
+      if (hasDisallowedCharacters(text)) {
+        showBubble("No symbols allowed");
+        chatInput.value = "";
+        chatInput.blur();
+        return;
+      }
+
+      if (containsBadWord(text)) {
+        showBubble("Message blocked");
+        chatInput.value = "";
+        chatInput.blur();
+        return;
+      }
+
+      showBubble(text);
       chatInput.value = "";
+      chatInput.blur();
     });
 
-    homeBtn.addEventListener("click", switchToHome);
-    returnToWorldBtn.addEventListener("click", switchToWorld);
+    player.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleProfile();
+    });
 
-    mapOpenBtn.addEventListener("click", openMap);
-    mapCloseBtn.addEventListener("click", closeMap);
+    profilePopup.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
 
-    socialBtn.addEventListener("click", openSocial);
-    socialCloseBtn.addEventListener("click", closeSocial);
+    closeProfileBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeProfile();
+    });
 
-    friendsBtn.addEventListener("click", toggleFriends);
+    likeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      likeValue = clamp(likeValue + 1, 0, 100);
+      updateLikeMeter();
+    });
+
+    homeBtn.addEventListener("click", goHome);
+    worldBtn.addEventListener("click", goWorld);
+
+    mapBtn.addEventListener("click", () => {
+      mapOverlay.classList.add("active");
+      friendsPanel.classList.remove("active");
+      closeProfile();
+    });
+
+    mapCloseBtn.addEventListener("click", () => {
+      mapOverlay.classList.remove("active");
+    });
+
+    socialBtn.addEventListener("click", () => {
+      socialOverlay.classList.add("active");
+      friendsPanel.classList.remove("active");
+      closeProfile();
+    });
+
+    socialCloseBtn.addEventListener("click", () => {
+      socialOverlay.classList.remove("active");
+    });
+
+    friendsBtn.addEventListener("click", () => {
+      friendsPanel.classList.toggle("active");
+      closeProfile();
+    });
 
     mapOverlay.addEventListener("click", (e) => {
-      if (e.target === mapOverlay) closeMap();
+      if (e.target === mapOverlay) {
+        mapOverlay.classList.remove("active");
+      }
     });
 
     socialOverlay.addEventListener("click", (e) => {
-      if (e.target === socialOverlay) closeSocial();
+      if (e.target === socialOverlay) {
+        socialOverlay.classList.remove("active");
+      }
     });
 
     document.querySelectorAll(".mapLink").forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
-        const selected = link.dataset.map;
-        chatBubble.textContent = "Selected: " + selected.replace("-", " ");
-        chatBubble.style.display = "block";
-        closeMap();
+        showBubble("Selected: " + link.dataset.name);
+        mapOverlay.classList.remove("active");
       });
     });
 
@@ -662,7 +1035,7 @@
       return true;
     }
 
-    function moveTowardTarget(dt) {
+    function moveToTarget(dt) {
       const dx = targetX - x;
       const dy = targetY - y;
       const distance = Math.hypot(dx, dy);
@@ -686,23 +1059,23 @@
 
     let lastTime = performance.now();
 
-    function gameLoop(now) {
+    function loop(now) {
       const dt = (now - lastTime) / 1000;
       lastTime = now;
 
       if (!homePage.classList.contains("active")) {
         const usedKeys = moveWithKeys(dt);
         if (!usedKeys) {
-          moveTowardTarget(dt);
+          moveToTarget(dt);
         }
         renderPlayer();
       }
 
-      requestAnimationFrame(gameLoop);
+      requestAnimationFrame(loop);
     }
 
-    renderPlayer();
-    requestAnimationFrame(gameLoop);
+    setupStartPosition();
+    requestAnimationFrame(loop);
   </script>
 </body>
 </html>
