@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Top Menu Test | The MayaNut Company</title>
+  <title>Top Menu Language Test | The MayaNut Company</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,14 +18,18 @@
       --ink:#000;
       --bg:#fff;
       --orange:#ff7000;
+      --orange-press:#d95e00;
+      --soft-outline:rgba(0,0,0,0.14);
 
       --headerTopH:78px;
       --headerSubH:38px;
       --headerH:calc(var(--headerTopH) + var(--headerSubH));
 
-      --containerW:1200px;
       --padX:16px;
       --scrollbarW:0px;
+
+      /* constant language control width */
+      --langTriggerW:84px;
     }
 
     *{ box-sizing:border-box; }
@@ -33,8 +37,8 @@
     html, body{
       margin:0;
       padding:0;
-      background:var(--bg);
-      color:var(--ink);
+      background:#fff;
+      color:#000;
       max-width:100%;
       overflow-x:hidden;
       font-family:var(--font-ui);
@@ -82,7 +86,6 @@
       width:100%;
       padding-left:var(--padX);
       padding-right:var(--padX);
-      max-width:none;
       margin:0;
     }
 
@@ -95,7 +98,7 @@
     }
 
     .header-bottom{
-      border-top:1px solid rgba(0,0,0,0.16);
+      border-top:1px solid rgba(0,0,0,0.14);
       border-bottom:0;
     }
 
@@ -221,8 +224,8 @@
 
     .header-cart:hover{
       transform:translateY(-1px);
-      background:#d95e00;
-      border-color:#d95e00;
+      background:var(--orange-press);
+      border-color:var(--orange-press);
     }
 
     .header-cart svg{
@@ -286,15 +289,13 @@
       min-width:0;
     }
 
-    /* language closed state like Contact */
+    /* language like Contact, constant width */
     .lang-menu{
       position:relative;
       justify-self:end;
       align-self:center;
       z-index:1002;
-      width:auto;
-      min-width:0;
-      max-width:none;
+      width:var(--langTriggerW);
       transform:translateY(-4px);
     }
 
@@ -306,17 +307,17 @@
       font-size:13px;
       font-weight:500;
       line-height:1;
-      letter-spacing:.01em;
       min-height:28px;
+      width:100%;
       padding:0;
-      display:inline-flex;
+      display:grid;
+      grid-template-columns:13px 1fr 10px;
       align-items:center;
-      justify-content:flex-end;
-      gap:7px;
+      column-gap:7px;
       cursor:pointer;
       white-space:nowrap;
       position:relative;
-      border-radius:8px;
+      text-align:left;
     }
 
     .lang-btn:hover,
@@ -325,12 +326,13 @@
       outline:none;
     }
 
+    /* underline closer to text, same feel as other menu items */
     .lang-btn::after{
       content:"";
       position:absolute;
       left:0;
       right:0;
-      bottom:-6px;
+      bottom:-3px;
       height:2px;
       background:transparent;
       transition:background .12s ease;
@@ -358,9 +360,10 @@
     #langBtnLabel{
       color:inherit;
       font-size:13px;
-      font-weight:500;
-      letter-spacing:.01em;
+      font-weight:600;
+      letter-spacing:.04em;
       white-space:nowrap;
+      text-align:left;
     }
 
     .lang-caret{
@@ -368,19 +371,19 @@
       line-height:1;
       transform:translateY(-1px);
       color:currentColor;
+      text-align:right;
     }
 
-    /* popup */
+    /* popup exactly same width as trigger */
     .lang-dropdown{
       position:absolute;
-      right:0;
-      left:auto;
-      top:calc(100% + 8px);
-      min-width:240px;
+      left:0;
+      top:calc(100% + 6px);
+      width:100%;
       display:none;
       background:#fff;
-      border:1.5px solid var(--orange);
-      border-radius:16px;
+      border:1px solid var(--soft-outline);
+      border-radius:14px;
       padding:8px;
       z-index:1003;
     }
@@ -394,20 +397,25 @@
       gap:6px;
     }
 
+    /* popup rows are grey straight rectangles */
     .lang-item{
       position:relative;
       display:block;
       width:100%;
-      padding:11px 14px 11px 18px;
+      min-height:36px;
+      padding:0 10px;
       background:#eceff3;
       border:0;
       border-radius:0;
       color:#000;
       font-size:13px;
-      font-weight:600;
-      line-height:1.2;
-      white-space:nowrap;
+      font-weight:700;
+      line-height:1;
+      letter-spacing:.04em;
       text-align:left;
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
     }
 
     .lang-item:hover{
@@ -416,155 +424,31 @@
 
     .lang-item.active{
       color:var(--orange);
-    }
-
-    .lang-item.active::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:0;
-      bottom:0;
-      width:3px;
-      background:var(--orange);
+      border:1px solid rgba(255,112,0,0.35);
     }
 
     main{
       padding-top:calc(var(--headerH) + 20px);
     }
 
-    .test-wrap{
-      max-width:var(--containerW);
-      margin:0 auto;
-      padding:0 var(--padX) 48px;
+    .test-area{
+      padding:24px 16px 60px;
     }
 
-    .bw-block{
-      border:1px solid #000;
-      background:#fff;
-      color:#000;
-      padding:24px;
-      margin-bottom:18px;
-    }
-
-    .bw-hero{
-      display:grid;
-      grid-template-columns:420px 1fr;
-      gap:28px;
-      align-items:stretch;
-      min-height:520px;
-    }
-
-    .bw-left,
-    .bw-right{
+    .bw-box{
       border:1px solid #000;
       padding:20px;
-      min-height:100%;
+      margin-bottom:18px;
+      background:#fff;
+      color:#000;
     }
 
-    .bw-left{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
+    .bw-box.large{
+      min-height:220px;
     }
 
-    .bw-image{
-      aspect-ratio:1 / 1;
-      border:1px solid #000;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
-    }
-
-    .bw-controls,
-    .bw-thumbs{
-      border:1px solid #000;
-      padding:12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:16px;
-      min-height:52px;
-    }
-
-    .bw-thumbs{
-      justify-content:space-between;
-    }
-
-    .bw-thumb{
-      width:31%;
-      aspect-ratio:1 / 1;
-      border:1px solid #000;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:12px;
-      font-weight:700;
-    }
-
-    .bw-right{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-
-    .bw-title{
-      font-family:var(--font-display);
-      font-size:36px;
-      line-height:1.05;
-      margin:0;
-    }
-
-    .bw-line{
-      border:1px solid #000;
-      min-height:42px;
-      padding:10px 12px;
-      display:flex;
-      align-items:center;
-    }
-
-    .bw-fill{
-      flex:1 1 auto;
-      border:1px solid #000;
-      padding:12px;
-    }
-
-    .bw-options{
-      display:grid;
-      gap:10px;
-      margin-top:auto;
-    }
-
-    .bw-roast{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-    }
-
-    .bw-roast div,
-    .bw-bottom-row > div{
-      border:1px solid #000;
-      min-height:42px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 12px;
-      font-weight:700;
-    }
-
-    .bw-bottom-row{
-      display:grid;
-      grid-template-columns:160px 1fr 180px;
-      gap:10px;
-      align-items:end;
-    }
-
-    @media (max-width:980px){
+    @media (max-width:1180px){
       .subnav{ display:none; }
-      .lang-menu{ transform:none; }
-      .bw-hero{
-        grid-template-columns:1fr;
-      }
     }
 
     @media (max-width:760px){
@@ -572,6 +456,7 @@
         --headerTopH:72px;
         --headerSubH:34px;
         --headerH:calc(var(--headerTopH) + var(--headerSubH));
+        --langTriggerW:74px;
       }
 
       .brand-link img{
@@ -602,21 +487,14 @@
         gap:6px;
       }
 
-      .lang-btn{
+      .lang-menu{
+        transform:none;
+      }
+
+      .lang-btn,
+      #langBtnLabel,
+      .lang-item{
         font-size:12px;
-        gap:6px;
-      }
-
-      #langBtnLabel{
-        font-size:12px;
-      }
-
-      .lang-dropdown{
-        min-width:220px;
-      }
-
-      .bw-bottom-row{
-        grid-template-columns:1fr;
       }
     }
   </style>
@@ -686,19 +564,19 @@
               <svg class="lang-globe" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 9h-3.1a15.9 15.9 0 0 0-1.1-5A8.03 8.03 0 0 1 18.9 11ZM12 4.1c.8 1 1.8 3.1 2.2 6H9.8c.4-2.9 1.4-5 2.2-6ZM9.3 6A15.9 15.9 0 0 0 8.2 11H5.1A8.03 8.03 0 0 1 9.3 6ZM5.1 13h3.1c.2 1.8.6 3.5 1.1 5A8.03 8.03 0 0 1 5.1 13Zm6.9 6.9c-.8-1-1.8-3.1-2.2-6h4.4c-.4 2.9-1.4 5-2.2 6Zm2.7-1.9c.5-1.5.9-3.2 1.1-5h3.1A8.03 8.03 0 0 1 14.7 18Z"/>
               </svg>
-              <span id="langBtnLabel">Language: English</span>
+              <span id="langBtnLabel">EN</span>
               <span class="lang-caret" aria-hidden="true">▾</span>
             </button>
 
             <div class="lang-dropdown" id="langDropdown" role="menu" aria-label="Language selector">
               <div class="lang-list">
-                <a class="lang-item active" href="#" role="menuitem">English</a>
-                <a class="lang-item" href="#" role="menuitem">Español</a>
-                <a class="lang-item" href="#" role="menuitem">Français</a>
-                <a class="lang-item" href="#" role="menuitem">Português</a>
-                <a class="lang-item" href="#" role="menuitem">Русский</a>
-                <a class="lang-item" href="#" role="menuitem">简体中文</a>
-                <a class="lang-item" href="#" role="menuitem">हिन्दी</a>
+                <a class="lang-item active" href="#" role="menuitem" data-code="EN">EN</a>
+                <a class="lang-item" href="#" role="menuitem" data-code="ES">ES</a>
+                <a class="lang-item" href="#" role="menuitem" data-code="FR">FR</a>
+                <a class="lang-item" href="#" role="menuitem" data-code="PT">PT</a>
+                <a class="lang-item" href="#" role="menuitem" data-code="RU">RU</a>
+                <a class="lang-item" href="#" role="menuitem" data-code="ZH">ZH</a>
+                <a class="lang-item" href="#" role="menuitem" data-code="HI">HI</a>
               </div>
             </div>
           </div>
@@ -708,49 +586,10 @@
   </header>
 
   <main>
-    <div class="test-wrap">
-      <section class="bw-block">
-        <div class="bw-hero">
-          <div class="bw-left">
-            <div class="bw-image">BIG IMAGE AREA</div>
-            <div class="bw-controls">← &nbsp; Click to view full image &nbsp; →</div>
-            <div class="bw-thumbs">
-              <div class="bw-thumb">THUMB 1</div>
-              <div class="bw-thumb">THUMB 2</div>
-              <div class="bw-thumb">THUMB 3</div>
-            </div>
-          </div>
-
-          <div class="bw-right">
-            <h1 class="bw-title">MayaNut™ Flour</h1>
-            <div class="bw-line">Reviews row</div>
-            <div class="bw-line">Price / stock row</div>
-            <div class="bw-line">Short description row</div>
-            <div class="bw-fill">Ingredients / Storage flexible fill area</div>
-
-            <div class="bw-options">
-              <div class="bw-roast">
-                <div>Light Roast</div>
-                <div>Dark Roast</div>
-              </div>
-
-              <div class="bw-bottom-row">
-                <div>Wt: 1/4 LB ▼</div>
-                <div>Quantity</div>
-                <div>Add to Cart</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="bw-block">
-        <strong>Black/white test area below header.</strong>
-      </section>
-
-      <section class="bw-block" style="height:520px;">
-        Extra vertical space for scrolling test.
-      </section>
+    <div class="test-area">
+      <div class="bw-box">Black/white test block</div>
+      <div class="bw-box large">Extra black/white area for spacing and scroll test</div>
+      <div class="bw-box large">Another black/white test block</div>
     </div>
   </main>
 
@@ -759,8 +598,10 @@
       const langMenu = document.getElementById("langMenu");
       const langBtn = document.getElementById("langBtn");
       const langDropdown = document.getElementById("langDropdown");
+      const langBtnLabel = document.getElementById("langBtnLabel");
+      const langItems = Array.from(document.querySelectorAll(".lang-item"));
 
-      if (!langMenu || !langBtn || !langDropdown) return;
+      if (!langMenu || !langBtn || !langDropdown || !langBtnLabel) return;
 
       function openLangMenu(){
         langDropdown.classList.add("open");
@@ -787,6 +628,16 @@
 
       document.addEventListener("keydown", function(e){
         if (e.key === "Escape") closeLangMenu();
+      });
+
+      langItems.forEach(function(item){
+        item.addEventListener("click", function(e){
+          e.preventDefault();
+          langItems.forEach(function(i){ i.classList.remove("active"); });
+          item.classList.add("active");
+          langBtnLabel.textContent = item.dataset.code || item.textContent.trim();
+          closeLangMenu();
+        });
       });
     })();
   </script>
