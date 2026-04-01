@@ -1,49 +1,65 @@
-<button class="cart-btn" aria-label="Open cart. 0 items">
-  <svg class="cart-icon" viewBox="0 0 16 16" aria-hidden="true">
-    <path d="M1.8 3.2h1.4"></path>
-    <path d="M3.2 3.2 4.2 8.2"></path>
-    <path d="M4.2 8.2h7.6"></path>
-    <path d="M11.8 8.2 13 3.8"></path>
-    <circle cx="5.4" cy="12.4" r=".9"></circle>
-    <circle cx="10.6" cy="12.4" r=".9"></circle>
-  </svg>
-  <span class="cart-count">0</span>
-</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart Test</title>
+  <style>
+    body{
+      margin:40px;
+      font-family:Arial,sans-serif;
+      background:#fff;
+    }
 
-<style>
-  .cart-btn{
-    position:relative;
-    width:56px;
-    height:56px;
-    border:1px solid #ff7000;
-    border-radius:14px;
-    background:#ff7000;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    overflow:hidden;
-  }
+    .cart-btn{
+      position:relative;
+      width:56px;
+      height:56px;
+      border:1px solid #ff7000;
+      border-radius:14px;
+      background:#ff7000;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      overflow:hidden;
+    }
 
-  .cart-icon{
-    width:56px;
-    height:56px;
-    stroke:#fff;
-    fill:none;
-    stroke-width:1.5;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-  }
+    .cart-icon{
+      width:56px;
+      height:56px;
+      stroke:#fff;
+      fill:none;
+      stroke-width:1.5;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      transform:translateY(4px);
+    }
 
-  .cart-count{
-    position:absolute;
-    left:50%;
-    top:46%;
-    transform:translate(-50%,-50%);
-    color:#fff;
-    font-size:11px;
-    font-weight:900;
-    line-height:1;
-    pointer-events:none;
-  }
-</style>
+    .cart-count{
+      position:absolute;
+      left:50%;
+      top:46%;
+      transform:translate(-50%,-50%);
+      color:#fff;
+      font-size:11px;
+      font-weight:900;
+      line-height:1;
+      pointer-events:none;
+    }
+  </style>
+</head>
+<body>
+  <button class="cart-btn" aria-label="Open cart. 0 items">
+    <svg class="cart-icon" viewBox="0 0 16 16" aria-hidden="true">
+      <path d="M1.8 3.2h1.4"></path>
+      <path d="M3.2 3.2 4.2 8.2"></path>
+      <path d="M4.2 8.2h7.6"></path>
+      <path d="M11.8 8.2 13 3.8"></path>
+      <circle cx="5.4" cy="12.4" r=".9"></circle>
+      <circle cx="10.6" cy="12.4" r=".9"></circle>
+    </svg>
+    <span class="cart-count">0</span>
+  </button>
+</body>
+</html>
