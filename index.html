@@ -3,107 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Header Cart Test</title>
+  <title>Cart Test</title>
   <style>
     :root{
       --orange:#ff7000;
       --orange-press:#d95e00;
       --ink:#0b1220;
       --line:rgba(11,18,32,0.12);
-      --bg:#ffffff;
     }
 
     *{ box-sizing:border-box; }
-    html,body{ margin:0; padding:0; background:#fff; color:var(--ink); font-family:Inter,Arial,sans-serif; }
-
-    .header{
-      width:100%;
-      border-bottom:1px solid var(--line);
-      background:var(--bg);
+    body{
+      margin:0;
+      font-family:Inter, Arial, sans-serif;
+      background:#fff;
+      color:var(--ink);
     }
 
-    .header-inner{
-      max-width:1400px;
-      margin:0 auto;
-      padding:14px 12px;
+    .header{
+      border-bottom:1px solid var(--line);
+      padding:14px 10px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:18px;
+      gap:16px;
     }
 
     .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
-    }
-
-    .logo{
-      width:44px;
-      height:44px;
-      border-radius:12px;
-      background:linear-gradient(180deg,#ff8d2f 0%, #ff7000 100%);
-      flex:0 0 auto;
-    }
-
-    .brand-name{
-      font-family:Georgia,"Times New Roman",serif;
+      font-family:Georgia, "Times New Roman", serif;
       font-size:28px;
       line-height:1;
-      white-space:nowrap;
     }
 
     .nav{
       display:flex;
-      align-items:center;
       gap:18px;
       margin-left:auto;
       margin-right:8px;
-      flex-wrap:wrap;
     }
 
     .nav a{
-      color:var(--ink);
       text-decoration:none;
+      color:var(--ink);
       font-size:16px;
-      font-weight:500;
-      position:relative;
-      padding:6px 0;
-    }
-
-    .nav a.active{ color:var(--orange); }
-
-    .nav a::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:0;
-      width:0;
-      height:2px;
-      background:currentColor;
-      transition:width .16s ease;
-    }
-
-    .nav a:hover::after,
-    .nav a.active::after{
-      width:100%;
     }
 
     .cart-btn{
-      position:relative;
       width:52px;
       height:52px;
       border:1px solid var(--orange);
       border-radius:14px;
       background:var(--orange);
-      color:#fff;
-      display:inline-flex;
+      display:flex;
       align-items:center;
       justify-content:center;
       cursor:pointer;
+      position:relative;
       transition:transform .12s ease, background .12s ease, border-color .12s ease;
-      flex:0 0 auto;
     }
 
     .cart-btn:hover{
@@ -112,90 +68,49 @@
       border-color:var(--orange-press);
     }
 
-    .cart-icon{
-      width:28px;
-      height:28px;
-      stroke:#fff;
-      fill:none;
-      stroke-width:2.15;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-    }
-
-    .cart-badge{
+    .cart-count{
       position:absolute;
-      top:-5px;
-      right:-5px;
-      min-width:18px;
-      height:18px;
-      padding:0 4px;
-      border-radius:999px;
-      background:#fff;
-      color:var(--orange);
-      border:1px solid rgba(11,18,32,0.08);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      top:6px;
+      left:50%;
+      transform:translateX(-50%);
+      color:#fff;
       font-size:10px;
       font-weight:900;
       line-height:1;
       pointer-events:none;
     }
 
-    @media (max-width:900px){
-      .header-inner{
-        padding:12px 10px;
-      }
-
-      .brand-name{
-        font-size:22px;
-      }
-
-      .nav{
-        gap:12px;
-        margin-right:2px;
-      }
-
-      .nav a{
-        font-size:14px;
-      }
-
-      .cart-btn{
-        width:48px;
-        height:48px;
-      }
-
-      .cart-icon{
-        width:26px;
-        height:26px;
-      }
+    .cart-icon{
+      width:26px;
+      height:26px;
+      margin-top:8px;
+      stroke:#fff;
+      fill:none;
+      stroke-width:2.1;
+      stroke-linecap:round;
+      stroke-linejoin:round;
     }
   </style>
 </head>
 <body>
   <header class="header">
-    <div class="header-inner">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div class="brand-name">The MayaNut Company</div>
-      </div>
+    <div class="brand">The MayaNut Company</div>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="#">Home</a>
-        <a href="#">Buy</a>
-        <a href="#">About</a>
-        <a href="#">FAQ</a>
-        <a href="#" class="active">Recipes</a>
-      </nav>
+    <nav class="nav" aria-label="Primary">
+      <a href="#">Home</a>
+      <a href="#">Buy</a>
+      <a href="#">About</a>
+      <a href="#">FAQ</a>
+      <a href="#">Recipes</a>
+    </nav>
 
-      <button class="cart-btn" aria-label="Open cart. 0 items">
-        <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7 9h10l-1.4 7H8.4L7 9Z"></path>
-          <path d="M9.3 9 12 6.3 14.7 9"></path>
-        </svg>
-        <span class="cart-badge">0</span>
-      </button>
-    </div>
+    <button class="cart-btn" aria-label="Open cart. 0 items">
+      <span class="cart-count">0</span>
+      <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 10h10l-1.4 6H8.4L7 10Z"></path>
+        <path d="M9.5 10 12 7.5 14.5 10"></path>
+      </svg>
+    </button>
   </header>
 </body>
 </html>
