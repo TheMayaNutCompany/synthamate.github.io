@@ -23,6 +23,13 @@
       justify-content:center;
       cursor:pointer;
       overflow:hidden;
+      transition:background .14s ease, border-color .14s ease, transform .12s ease;
+    }
+
+    .cart-btn:hover{
+      background:#d95e00;
+      border-color:#d95e00;
+      transform:translateY(-1px);
     }
 
     .cart-icon{
@@ -60,9 +67,9 @@
       <path d="M1.8 3.2h1.4"></path>
       <path d="M3.2 3.2 4.2 9.6"></path>
       <path d="M4.2 9.6h7.6"></path>
-      <path d="M11.8 9.6 13 3.8"></path>
-      <circle class="wheel" cx="5.4" cy="12.4" r=".9"></circle>
-      <circle class="wheel" cx="10.6" cy="12.4" r=".9"></circle>
+      <path d="M11.8 9.6 13 4.2"></path>
+      <circle class="wheel" cx="5.4" cy="12.6" r=".91"></circle>
+      <circle class="wheel" cx="10.6" cy="12.6" r=".91"></circle>
     </svg>
     <span class="cart-count">0</span>
   </button>
