@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cart Test</title>
+  <title>Amazon-Style Cart Test</title>
   <style>
     :root{
       --orange:#ff7000;
@@ -22,7 +22,7 @@
 
     .header{
       border-bottom:1px solid var(--line);
-      padding:14px 10px;
+      padding:14px 8px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -49,8 +49,8 @@
     }
 
     .cart-btn{
-      width:52px;
-      height:52px;
+      width:50px;
+      height:50px;
       border:1px solid var(--orange);
       border-radius:14px;
       background:var(--orange);
@@ -60,6 +60,8 @@
       cursor:pointer;
       position:relative;
       transition:transform .12s ease, background .12s ease, border-color .12s ease;
+      overflow:hidden;
+      flex:0 0 auto;
     }
 
     .cart-btn:hover{
@@ -81,12 +83,12 @@
     }
 
     .cart-icon{
-      width:26px;
-      height:26px;
+      width:28px;
+      height:28px;
       margin-top:8px;
       stroke:#fff;
       fill:none;
-      stroke-width:2.1;
+      stroke-width:2.15;
       stroke-linecap:round;
       stroke-linejoin:round;
     }
@@ -107,8 +109,11 @@
     <button class="cart-btn" aria-label="Open cart. 0 items">
       <span class="cart-count">0</span>
       <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M7 10h10l-1.4 6H8.4L7 10Z"></path>
-        <path d="M9.5 10 12 7.5 14.5 10"></path>
+        <path d="M6 9H18"></path>
+        <path d="M7.3 9 8.9 15.8H15.9L17.6 9"></path>
+        <path d="M8.8 15.8H16"></path>
+        <path d="M9.1 9 6.8 6.7"></path>
+        <path d="M14.8 9 17.1 6.7"></path>
       </svg>
     </button>
   </header>
