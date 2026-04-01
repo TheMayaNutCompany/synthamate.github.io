@@ -1,121 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amazon-Style Cart Test</title>
-  <style>
-    :root{
-      --orange:#ff7000;
-      --orange-press:#d95e00;
-      --ink:#0b1220;
-      --line:rgba(11,18,32,0.12);
-    }
+<button class="cart-btn" aria-label="Open cart. 0 items">
+  <span class="cart-count">0</span>
+  <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M4.5 7.5H6l1.5 7h8.7l1.6-5.8H8.1"></path>
+    <path d="M8.8 14.5h6.5"></path>
+    <path d="M9.3 16.2h.01"></path>
+    <path d="M14.8 16.2h.01"></path>
+  </svg>
+</button>
 
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family:Inter, Arial, sans-serif;
-      background:#fff;
-      color:var(--ink);
-    }
+<style>
+  .cart-btn{
+    position:relative;
+    width:48px;
+    height:48px;
+    border:1px solid #ff7000;
+    border-radius:14px;
+    background:#ff7000;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    overflow:hidden;
+  }
 
-    .header{
-      border-bottom:1px solid var(--line);
-      padding:14px 8px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-    }
+  .cart-count{
+    position:absolute;
+    top:6px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#fff;
+    font-size:10px;
+    font-weight:900;
+    line-height:1;
+    pointer-events:none;
+  }
 
-    .brand{
-      font-family:Georgia, "Times New Roman", serif;
-      font-size:28px;
-      line-height:1;
-    }
-
-    .nav{
-      display:flex;
-      gap:18px;
-      margin-left:auto;
-      margin-right:8px;
-    }
-
-    .nav a{
-      text-decoration:none;
-      color:var(--ink);
-      font-size:16px;
-    }
-
-    .cart-btn{
-      width:50px;
-      height:50px;
-      border:1px solid var(--orange);
-      border-radius:14px;
-      background:var(--orange);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      position:relative;
-      transition:transform .12s ease, background .12s ease, border-color .12s ease;
-      overflow:hidden;
-      flex:0 0 auto;
-    }
-
-    .cart-btn:hover{
-      transform:translateY(-1px);
-      background:var(--orange-press);
-      border-color:var(--orange-press);
-    }
-
-    .cart-count{
-      position:absolute;
-      top:6px;
-      left:50%;
-      transform:translateX(-50%);
-      color:#fff;
-      font-size:10px;
-      font-weight:900;
-      line-height:1;
-      pointer-events:none;
-    }
-
-    .cart-icon{
-      width:28px;
-      height:28px;
-      margin-top:8px;
-      stroke:#fff;
-      fill:none;
-      stroke-width:2.15;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-    }
-  </style>
-</head>
-<body>
-  <header class="header">
-    <div class="brand">The MayaNut Company</div>
-
-    <nav class="nav" aria-label="Primary">
-      <a href="#">Home</a>
-      <a href="#">Buy</a>
-      <a href="#">About</a>
-      <a href="#">FAQ</a>
-      <a href="#">Recipes</a>
-    </nav>
-
-    <button class="cart-btn" aria-label="Open cart. 0 items">
-      <span class="cart-count">0</span>
-      <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M6 9H18"></path>
-        <path d="M7.3 9 8.9 15.8H15.9L17.6 9"></path>
-        <path d="M8.8 15.8H16"></path>
-        <path d="M9.1 9 6.8 6.7"></path>
-        <path d="M14.8 9 17.1 6.7"></path>
-      </svg>
-    </button>
-  </header>
-</body>
-</html>
+  .cart-icon{
+    width:25px;
+    height:25px;
+    margin-top:8px;
+    stroke:#fff;
+    fill:none;
+    stroke-width:2.1;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+</style>
