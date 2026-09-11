@@ -1,77 +1,3757 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-US">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cart Test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Music Lessons in Jupiter, FL | Jupiter Academy of Music</title>
+  <meta name="description" content="Music lessons in Jupiter, FL for kids, teens and adults: piano, guitar, drums, voice, strings, woodwinds, brass, school band, Rock Band and more. Homeschool-friendly scheduling.">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#008CFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#071F33">
+  <meta name="author" content="Jupiter Academy of Music">
+  <meta name="application-name" content="Jupiter Academy of Music">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="apple-mobile-web-app-title" content="Jupiter Academy of Music">
+  <meta name="format-detection" content="telephone=yes">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!--
+    SECURITY / ANTI-ABUSE — PRODUCTION DEPLOYMENT
+    ------------------------------------------------
+    Public HTML/CSS/JS cannot be made secret: anything rendered by a browser can be inspected.
+    Do NOT use fake protections such as blocking right-click or keyboard shortcuts.
+
+    V31 includes client-side spam friction (honeypots, timing/submission IDs, field limits).
+    Before launch, protect the real POST endpoints server-side:
+      1) Cloudflare Turnstile on lesson + newsletter submissions, validated server-side.
+      2) Rate-limit POST /api/lesson-request and /api/newsletter-signup.
+      3) Validate/sanitize every field again on the server; never trust browser validation.
+      4) Reject oversized bodies and unexpected fields; normalize phone/email safely.
+      5) Keep mail/API/Turnstile SECRET keys only in server environment variables.
+      6) Add CDN/WAF bot protection while allowing legitimate search crawlers for SEO.
+      7) Configure production security headers (CSP, HSTS, nosniff, referrer policy,
+         permissions policy) at the edge/server after all real asset/API origins are known.
+      8) Log abuse without logging unnecessary personal form data.
+
+    Important: robots.txt is advisory and is NOT an anti-scraping security control.
+  -->
+  <meta name="copyright" content="© 2026 Jupiter Academy of Music">
+  <link rel="canonical" href="https://jupiteracademyofmusic.com/">
+  <!-- When /es/ is a complete Spanish page, add reciprocal hreflang links on both pages:
+       <link rel="alternate" hreflang="en-US" href="https://jupiteracademyofmusic.com/">
+       <link rel="alternate" hreflang="es-US" href="https://jupiteracademyofmusic.com/es/">
+       <link rel="alternate" hreflang="x-default" href="https://jupiteracademyofmusic.com/"> -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jupiter Academy of Music">
+  <meta property="og:title" content="Music Lessons in Jupiter, FL | Jupiter Academy of Music">
+  <meta property="og:description" content="Private and group music lessons in Jupiter, Florida for kids, teens and adults, with school-band, Rock Band, after-school and homeschool-friendly options.">
+  <meta property="og:url" content="https://jupiteracademyofmusic.com/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://jupiteracademyofmusic.com/wp-content/uploads/2020/01/JAM-logo-new-art-white.png">
+  <meta property="og:image:alt" content="Jupiter Academy of Music logo">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Music Lessons in Jupiter, FL | Jupiter Academy of Music">
+  <meta name="twitter:description" content="Private and group music lessons in Jupiter, Florida for kids, teens and adults, including school-band, Rock Band and homeschool-friendly options.">
+  <meta name="twitter:image" content="https://jupiteracademyofmusic.com/wp-content/uploads/2020/01/JAM-logo-new-art-white.png">
+  <meta name="twitter:image:alt" content="Jupiter Academy of Music logo">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23008CFF'/%3E%3Ctext x='32' y='38' font-family='Georgia,serif' font-size='20' text-anchor='middle' fill='white'%3EJAM%3C/text%3E%3C/svg%3E">
+
+  <!--
+  ==============================================================================
+  JAM HOME V38 — BOSS REVIEW / GOOGLE REVIEW ATTRIBUTION / REFINED REVIEW CARDS
+  ==============================================================================
+  Design direction:
+  - Thin white fixed header
+  - 11px outer wall
+  - Logo hard-left
+  - Marcellus display type + Montserrat UI type
+  - White canvas, blue JAM accent, soft grey controls
+  - Centered photo hero + focused signup flow
+  - No WordPress/plugin dependencies
+  ==============================================================================
+  -->
+
+
+    <!--
+  BEFORE PRODUCTION LAUNCH:
+  1) Confirm JAM's exact suite/address against Google Business Profile.
+  2) Backend data model: one Account/Household ID per payer/contact, one unique Student ID per enrolled student; issue a temporary Request ID at inquiry submission and permanent IDs only after enrollment.
+  2) Replace interim historic JAM hero imagery with the approved professional JAM photo set when available.
+  3) Keep the verified review fallback current until the live Google review endpoint is connected.
+  4) Connect the lesson-info form endpoint, analytics, Search Console, Tag Manager and conversion tracking.
+  5) Connect /api/reviews to a secure server-side Google Business Profile integration.
+  6) Preserve/redirect legacy URLs before DNS cutover.
+  7) Replace the temporary lighthouse image and, when ready, the interim historic hero set with approved current photography.
+  8) Wire form confirmation email so users who opt in receive a copy of their submitted request.
+  9) Connect official Facebook, Instagram, Threads, YouTube, X and TikTok URLs when JAM confirms them.
+  10) Add Cloudflare Turnstile sitekeys to lesson/newsletter forms and validate tokens server-side.
+  11) Rate-limit form/API POST routes and enable appropriate bot/WAF protections.
+  12) Add production response security headers after final asset/API origins are known.
+  13) Keep legitimate search-engine crawling enabled; do not block SEO crawlers globally.
+  -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["EducationalOrganization","LocalBusiness"],"@id":"https://jupiteracademyofmusic.com/#organization","name":"Jupiter Academy of Music","alternateName":"JAM","url":"https://jupiteracademyofmusic.com/","telephone":"+1-561-747-6878","email":"brad@jupiteracademyofmusic.com","foundingDate":"2003","description":"Music school in Jupiter, Florida offering private and group music instruction for students of all ages, including after-school and homeschool-friendly options for piano, guitar, bass, drums and percussion, voice, strings, woodwinds, brass, school band instruments, rock band and ukulele.","address":{"@type":"PostalAddress","streetAddress":"500 Commerce Way W #8 & 9","addressLocality":"Jupiter","addressRegion":"FL","postalCode":"33458","addressCountry":"US"},"areaServed":[{"@type":"City","name":"Jupiter, Florida"},{"@type":"City","name":"Tequesta, Florida"},{"@type":"City","name":"Palm Beach Gardens, Florida"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Music Lessons and Classes","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Piano lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Guitar lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Bass guitar lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Drum lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Percussion lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Voice lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Violin lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"String instrument lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Flute lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Clarinet lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Saxophone lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Woodwind lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Trumpet lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Trombone lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Brass lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"School band instrument lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Rock band classes","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Ukulele lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Group music lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Private music lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"After-school music lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Homeschool music lessons","areaServed":"Jupiter, Florida"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"School band support","areaServed":"Jupiter, Florida"}}]},"knowsAbout":["Piano","Acoustic guitar","Electric guitar","Bass guitar","Ukulele","Drum set","Snare drum","Percussion","Mallet percussion","Voice","Singing","Violin","Viola","Cello","Double bass","Flute","Piccolo","Clarinet","Bass clarinet","Saxophone","Alto saxophone","Tenor saxophone","Baritone saxophone","Oboe","Bassoon","Trumpet","Cornet","French horn","Trombone","Baritone horn","Euphonium","Tuba","School band","Rock band"],"contactPoint":{"@type":"ContactPoint","name":"Brad Schechter","contactType":"lesson information","telephone":"+1-561-747-6878","email":"brad@jupiteracademyofmusic.com","availableLanguage":"English"},"logo":{"@type":"ImageObject","url":"https://jupiteracademyofmusic.com/wp-content/uploads/2020/01/JAM-logo-new-art-white.png","caption":"Jupiter Academy of Music logo"},"image":"https://jupiteracademyofmusic.com/wp-content/uploads/2020/01/JAM-logo-new-art-white.png"},{"@type":"WebSite","@id":"https://jupiteracademyofmusic.com/#website","url":"https://jupiteracademyofmusic.com/","name":"Jupiter Academy of Music","alternateName":"JAM","publisher":{"@id":"https://jupiteracademyofmusic.com/#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://jupiteracademyofmusic.com/#webpage","url":"https://jupiteracademyofmusic.com/","name":"Music Lessons in Jupiter, FL | Jupiter Academy of Music","description":"Jupiter Academy of Music offers private, group, after-school and homeschool-friendly music lessons in Jupiter, Florida for piano, guitar, drums and percussion, voice, strings, woodwinds, brass, school band instruments, rock band and more.","isPartOf":{"@id":"https://jupiteracademyofmusic.com/#website"},"about":{"@id":"https://jupiteracademyofmusic.com/#organization"},"inLanguage":"en-US"}]}</script>
+
+  <link rel="preconnect" href="https://images.squarespace-cdn.com" crossorigin>
+  <link rel="preload" as="image" href="https://images.squarespace-cdn.com/content/v1/573390dc62cd94aa377f85b7/1555092823499-NEEP34HMD208VCA0XDJA/ke17ZwdGBToddI8pDm48kN_COZbtNkqMzT3m5ronlRMUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcausNyiYwo0r6B3DRayItOqwc6x-iORy-JVjjXfVrLjLsUni7Ml6Pj0L-knUBD3sS/2%2BSummer%2BCamp%2BFlyer.jpg?format=original" fetchpriority="high">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    body{
-      margin:40px;
-      font-family:Arial,sans-serif;
-      background:#fff;
+    *,*::before,*::after{box-sizing:border-box}
+    :root{
+      --jam-blue:#008CFF;
+      --jam-blue-2:#00A8FF;
+      --jam-blue-3:#73D7FF;
+      --jam-deep:#071F33;
+      --ink:#0b1220;
+      --muted:rgba(11,18,32,.70);
+      --line:#e9edf0;
+      --soft:#f6f8fa;
+      --page:#f1f3f5;
+      --surface:#fff;
+      --surface-2:#f7f9fb;
+      --surface-3:#eaf0f4;
+      --hover:#edf2f5;
+      --white:#fff;
+      --pad-x:11px;
+      --gap:16px;
+      --header-h:58px;
+      --announcement-h:30px;
+      --radius:22px;
+      --shadow:0 18px 44px rgba(15,23,42,.10);
+      --soft-shadow:0 10px 28px rgba(15,23,42,.07);
+      --font-ui:"Montserrat",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+      --font-display:"Marcellus",Georgia,"Times New Roman",serif;
+      --electric-gradient:linear-gradient(145deg,#73D7FF 0%,#19BFFF 28%,#008CFF 68%,#006BD6 100%);
+      --corner-shine:radial-gradient(circle at 100% 100%,rgba(255,255,255,.70) 0%,rgba(255,255,255,.34) 18%,rgba(255,255,255,.10) 38%,rgba(255,255,255,0) 64%);
     }
 
-    .cart-btn{
+    html{
+      scroll-behavior:smooth;
+      background:var(--page);
+      scrollbar-gutter:stable;
+    }
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--page);
+      font-family:var(--font-ui);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+    }
+    body.menu-open{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea,select{font:inherit}
+    button{color:inherit}
+    img,svg{display:block;max-width:100%}
+    .sr-only{
+      position:absolute!important;width:1px!important;height:1px!important;
+      padding:0!important;margin:-1px!important;overflow:hidden!important;
+      clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important
+    }
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{
+      position:fixed;left:12px;top:12px;width:auto;height:auto;padding:10px 12px;
+      z-index:9999;background:#fff;border:1px solid var(--jam-blue);border-radius:10px
+    }
+
+    /* =========================================================
+       SUBTLE INSTRUMENT RIBBON
+       ========================================================= */
+    .instrument-ribbon{
+      position:fixed;
+      inset:0 0 auto 0;
+      z-index:1001;
+      height:var(--announcement-h);
+      overflow:hidden;
+      background:var(--jam-deep);
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.10)
+    }
+    .instrument-ribbon-track{
+      height:100%;
+      width:max-content;
+      display:flex;
+      align-items:center;
+      animation:jamInstrumentRibbon 72s linear infinite;
+      will-change:transform
+    }
+    .instrument-ribbon-group{
+      display:flex;
+      align-items:center;
+      white-space:nowrap;
+      flex:0 0 auto;
+      font-size:10.5px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase
+    }
+    .instrument-ribbon-group span{
+      display:inline-flex;
+      align-items:center;
+      min-height:var(--announcement-h)
+    }
+    .instrument-ribbon-group span::after{
+      content:"♪";
+      margin:0 17px;
+      color:var(--jam-blue-3);
+      font-size:13px;
+      line-height:1;
+      transform:translateY(-1px)
+    }
+    @keyframes jamInstrumentRibbon{
+      from{transform:translateX(0)}
+      to{transform:translateX(-50%)}
+    }
+
+    /* =========================================================
+       THIN MAYANUT-STYLE HEADER
+       ========================================================= */
+    .site-header{
+      position:fixed;
+      inset:var(--announcement-h) 0 auto 0;
+      z-index:1000;
+      height:var(--header-h);
+      background:rgba(255,255,255,.97);
+      border-bottom:1px solid #dce3e8;
+      box-shadow:0 1px 0 rgba(7,31,51,.035);
+      backdrop-filter:saturate(1.2) blur(12px);
+    }
+    .header-row{
       position:relative;
-      width:56px;
-      height:56px;
-      border:1px solid #ff7000;
-      border-radius:14px;
-      background:#ff7000;
+      height:100%;
+      width:100%;
+      display:grid;
+      grid-template-columns:auto minmax(0,1fr) auto;
+      align-items:center;
+      gap:14px;
+      padding-left:max(var(--pad-x),env(safe-area-inset-left));
+      padding-right:max(var(--pad-x),env(safe-area-inset-right));
+    }
+    .brand{
+      justify-self:start;
+      display:flex;
+      align-items:center;
+      min-width:0;
+      margin:0;
+    }
+    .brand-link{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      height:46px;
+      min-width:0;
+    }
+    .brand-logo-shell{
+      width:92px;
+      height:46px;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      background:linear-gradient(145deg,#075f9d 0%,#008CFF 74%,#1aa8ff 100%);
+      border:1px solid rgba(0,140,255,.20);
+      border-radius:9px;
+      flex:0 0 92px;
+      padding:4px 6px;
+      box-shadow:0 5px 16px rgba(14,111,174,.20),inset 0 0 0 1px rgba(255,255,255,.10);
+    }
+    .brand-logo-shell img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+
+    .desktop-nav{
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      gap:16px;
+      min-width:0;
+    }
+    .desktop-nav a{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      height:44px;
+      color:rgba(11,18,32,.66);
+      font-size:13px;
+      font-weight:600;
+      white-space:nowrap;
+      transition:color .14s ease,transform .14s ease;
+    }
+    .desktop-nav a:hover,
+    .desktop-nav a:focus-visible{color:#000;transform:translateY(-1px)}
+    .desktop-nav a.active{color:var(--jam-blue)}
+    .desktop-nav a.active::after{
+      content:"";
+      position:absolute;
+      left:0;right:0;bottom:5px;
+      height:2px;border-radius:999px;background:var(--jam-blue)
+    }
+
+    .header-actions{
+      justify-self:end;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .header-contact-link{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      min-height:38px;
+      color:var(--jam-deep);
+      font-size:11.5px;
+      font-weight:700;
+      white-space:nowrap;
+      transition:color .14s ease,transform .14s ease;
+    }
+    .header-contact-link:hover{color:var(--jam-blue);transform:translateY(-1px)}
+    .header-contact-link svg{width:16px;height:16px;stroke:var(--jam-blue);fill:none;flex:0 0 auto}
+    .header-socials{display:flex;align-items:center;gap:4px}
+    .social-placeholder{
+      width:28px;height:28px;border:1px solid var(--line);border-radius:50%;
+      display:grid;place-items:center;background:#fff;color:var(--jam-deep);
+      cursor:default;transition:border-color .14s ease,color .14s ease,transform .14s ease,background .14s ease
+    }
+    .social-placeholder:hover{border-color:rgba(0,140,255,.36);color:var(--jam-blue);background:#f7fbff;transform:translateY(-1px)}
+    .social-placeholder svg{width:14px;height:14px;fill:currentColor;stroke:currentColor}
+    .social-placeholder .brand-glyph{font-size:12px;font-weight:900;line-height:1;font-family:Arial,sans-serif}
+    .get-started-btn{
+      min-height:38px;padding:0 16px;border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;
+      background:var(--jam-blue);border:1px solid var(--jam-blue);color:#fff;
+      font-size:11.5px;font-weight:800;white-space:nowrap;
+      box-shadow:0 6px 18px rgba(0,140,255,.18);
+      transition:transform .14s ease,background .14s ease,border-color .14s ease
+    }
+    .get-started-btn:hover,.get-started-btn:focus-visible{background:var(--jam-blue-2);border-color:var(--jam-blue-2);transform:translateY(-1px)}
+
+    .menu-btn{
+      display:none;
+      width:42px;height:42px;
+      border:0;background:transparent;border-radius:10px;
+      align-items:center;justify-content:center;cursor:pointer
+    }
+    .hamburger{
+      position:relative;width:25px;height:18px;display:block
+    }
+    .hamburger i{
+      position:absolute;left:0;width:25px;height:2px;background:var(--ink);
+      border-radius:999px;transition:.18s ease
+    }
+    .hamburger i:nth-child(1){top:0}
+    .hamburger i:nth-child(2){top:8px}
+    .hamburger i:nth-child(3){top:16px}
+    .menu-btn[aria-expanded="true"] .hamburger i:nth-child(1){top:8px;transform:rotate(45deg);background:var(--jam-blue)}
+    .menu-btn[aria-expanded="true"] .hamburger i:nth-child(2){opacity:0}
+    .menu-btn[aria-expanded="true"] .hamburger i:nth-child(3){top:8px;transform:rotate(-45deg);background:var(--jam-blue)}
+
+    /* mobile drawer */
+    .menu-overlay{
+      position:fixed;inset:0;z-index:1200;
+      opacity:0;visibility:hidden;pointer-events:none;
+      transition:opacity .17s ease,visibility .17s ease
+    }
+    .menu-overlay.open{opacity:1;visibility:visible;pointer-events:auto}
+    .menu-backdrop{position:absolute;inset:0;background:rgba(11,18,32,.32)}
+    .menu-panel{
+      position:absolute;top:0;left:0;bottom:0;
+      width:min(390px,86vw);
+      background:#fff;
+      transform:translateX(-100%);
+      transition:transform .2s cubic-bezier(.22,.75,.25,1);
+      box-shadow:var(--shadow);
+      padding:14px;
+      overflow:auto
+    }
+    .menu-overlay.open .menu-panel{transform:translateX(0)}
+    .menu-panel-head{
+      display:flex;align-items:center;justify-content:space-between;
+      min-height:48px;border-bottom:1px solid var(--line);padding-bottom:10px
+    }
+    .menu-panel-head strong{
+      font-family:var(--font-display);
+      font-size:26px;
+      color:var(--jam-blue);
+      font-weight:400
+    }
+    .menu-close{
+      border:0;background:transparent;width:40px;height:40px;border-radius:10px;
+      cursor:pointer;font-size:26px
+    }
+    .menu-links{display:grid;gap:4px;padding:14px 0}
+    .menu-links a{
+      padding:12px 10px;border-radius:12px;
+      font-weight:700;color:rgba(11,18,32,.74)
+    }
+    .menu-links a:hover{background:var(--hover);color:#000}
+    .menu-links a.active{background:rgba(14,111,174,.09);color:var(--jam-blue)}
+    .menu-contact{
+      border-top:1px solid var(--line);
+      margin-top:10px;padding-top:16px;
+      display:grid;gap:9px;
+      color:var(--muted);font-size:13px
+    }
+    .menu-socials{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+    .menu-socials .social-placeholder{width:36px;height:36px}
+
+
+    /* =========================================================
+       PAGE
+       ========================================================= */
+    main{padding-top:calc(var(--announcement-h) + var(--header-h))}
+    .content{
+      width:100%;
+      max-width:1560px;
+      margin:0 auto;
+      padding-left:22px;
+      padding-right:22px
+    }
+
+    .hero{
+      position:relative;
+      min-height:clamp(500px,64vh,690px);
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      color:#fff;
+      background:#071f33;
+      isolation:isolate
+    }
+    .hero-media{position:absolute;inset:0;z-index:-3;overflow:hidden;background:#071f33}
+    .hero-slide{
+      position:absolute;inset:-3%;
+      z-index:0;
+      opacity:0;
+      background-size:cover;
+      background-position:center 45%;
+      /* Match the first animation frame so a newly activated slide never snaps in size. */
+      transform:scale(1.055) translate3d(-.7%,0,0);
+      transition:opacity 1.35s ease;
+      will-change:opacity,transform
+    }
+    .hero-slide.active,
+    .hero-slide.leaving{animation:jamHeroPan 10s linear both}
+    .hero-slide.active{z-index:2;opacity:1}
+    .hero-slide.leaving{z-index:1;opacity:0}
+    .hero-slide:nth-child(1){background-position:center 48%}
+    .hero-slide:nth-child(2){background-position:center 44%}
+    .hero-slide:nth-child(3){background-position:center 46%}
+    .hero-slide:nth-child(4){background-position:center 50%}
+    @keyframes jamHeroPan{
+      0%{transform:scale(1.055) translate3d(-.7%,0,0)}
+      100%{transform:scale(1.105) translate3d(.7%,-.35%,0)}
+    }
+    .hero-shade{
+      position:absolute;inset:0;z-index:-2;pointer-events:none;
+      background:
+        linear-gradient(180deg,rgba(4,19,31,.42),rgba(4,19,31,.62)),
+        radial-gradient(circle at 50% 42%,rgba(0,140,255,.15),transparent 48%)
+    }
+    .hero-copy{
+      position:relative;z-index:2;
+      width:100%;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      padding:74px 20px 54px
+    }
+    .hero-badges{
+      position:absolute;z-index:3;
+      top:11px;left:11px;right:11px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:10px;
+      margin:0;
+      pointer-events:none
+    }
+    .hero-badges .badge:nth-child(1){justify-self:start}
+    .hero-badges .badge:nth-child(2){justify-self:center}
+    .hero-badges .badge:nth-child(3){justify-self:end}
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      color:#fff;font-size:11px;font-weight:800;
+      letter-spacing:.075em;text-transform:uppercase;white-space:nowrap;
+      text-shadow:0 1px 2px rgba(0,0,0,.72),0 3px 12px rgba(0,0,0,.46)
+    }
+    .badge::before{content:"✓";color:#7fd1ff;font-size:16px;font-weight:900;text-shadow:0 1px 8px rgba(0,0,0,.42)}
+    .hero-kicker{
+      margin:0 0 8px;font-family:var(--font-display);
+      font-size:clamp(21px,2vw,30px);font-weight:400;color:rgba(255,255,255,.98);
+      text-shadow:0 2px 3px rgba(0,0,0,.74),0 8px 22px rgba(0,0,0,.34)
+    }
+    .hero-title{
+      margin:0 0 14px;font-family:var(--font-display);
+      font-size:clamp(58px,7.4vw,104px);font-weight:400;line-height:.95;letter-spacing:-.02em;
+      color:#fff;text-shadow:0 2px 4px rgba(0,0,0,.76),0 9px 30px rgba(0,0,0,.40)
+    }
+    .hero-copy p{
+      max-width:760px;margin:0;font-size:clamp(16px,1.4vw,20px);line-height:1.6;font-weight:600;
+      color:rgba(255,255,255,.98);text-shadow:0 2px 3px rgba(0,0,0,.74),0 7px 20px rgba(0,0,0,.36)
+    }
+    .hero-location{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      margin-top:13px;padding:8px 14px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.42);
+      background:
+        linear-gradient(120deg,rgba(0,126,229,.66),rgba(88,196,255,.43) 48%,rgba(0,140,255,.60));
+      box-shadow:0 8px 28px rgba(0,95,170,.22),inset 0 1px 0 rgba(255,255,255,.18);
+      color:#fff;font-size:12px;font-weight:800;line-height:1.25;
+      text-shadow:0 2px 12px rgba(0,0,0,.46);
+      backdrop-filter:blur(10px) saturate(1.22);
+      -webkit-backdrop-filter:blur(10px) saturate(1.22);
+      transition:filter .14s ease,border-color .14s ease,transform .14s ease,box-shadow .14s ease
+    }
+    .hero-location:hover{
+      filter:saturate(1.08) brightness(1.04);
+      border-color:rgba(255,255,255,.68);
+      transform:translateY(-1px);
+      box-shadow:0 11px 32px rgba(0,95,170,.27),inset 0 1px 0 rgba(255,255,255,.22)
+    }
+    .hero-location svg{width:15px;height:15px;flex:none;fill:none;stroke:currentColor;stroke-width:1.9}
+    .hero-actions{
+      display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:24px
+    }
+    .btn{
+      min-height:44px;display:inline-flex;align-items:center;justify-content:center;
+      padding:0 19px;border-radius:999px;border:1px solid var(--line);
+      background:#fff;color:#000;font-size:13px;font-weight:800;
+      cursor:pointer;transition:transform .14s ease,background .14s ease,border-color .14s ease
+    }
+    .btn:hover{transform:translateY(-1px);background:var(--hover)}
+    .btn-primary{background:var(--jam-blue);border-color:var(--jam-blue);color:#fff}
+    .btn-primary:hover{background:var(--jam-blue-2);border-color:var(--jam-blue-2)}
+    .hero .btn:not(.btn-primary){
+      background:rgba(255,255,255,.95);border-color:rgba(255,255,255,.95);color:#071f33
+    }
+    .hero .btn:not(.btn-primary):hover{background:#fff;border-color:#fff}
+    .music-note-pop{position:fixed;z-index:3000;pointer-events:none;color:var(--jam-blue-3);font-size:16px;font-weight:900;text-shadow:0 2px 8px rgba(0,0,0,.20);animation:jamNotePop .72s ease-out forwards}
+    @keyframes jamNotePop{0%{opacity:0;transform:translate3d(0,5px,0) scale(.75) rotate(0deg)}18%{opacity:1}100%{opacity:0;transform:translate3d(var(--note-x),-52px,0) scale(1.15) rotate(var(--note-r))}}
+
+    /* three MayaNut-style navigation cards */
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+      margin-top:16px
+    }
+    .feature-card{
+      position:relative;
+      min-height:220px;
+      padding:18px;
+      border-radius:var(--radius);
+      color:#fff;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      overflow:hidden;
+      background:var(--electric-gradient);
+      box-shadow:0 10px 25px rgba(0,140,255,.14)
+    }
+    .feature-card::after{
+      content:"";
+      position:absolute;
+      right:-5%;
+      bottom:-10%;
+      width:68%;
+      height:72%;
+      background:var(--corner-shine);
+      pointer-events:none;
+      opacity:.88
+    }
+    .feature-card > *{position:relative;z-index:1}
+    .feature-card h2{
+      margin:0;
+      font-family:var(--font-display);
+      font-size:clamp(27px,2.4vw,38px);
+      font-weight:400;
+      line-height:1.08
+    }
+    .feature-card p{
+      margin:10px 0 0;
+      font-size:13px;font-weight:700;line-height:1.5;
+      letter-spacing:.02em;
+      color:rgba(255,255,255,.94)
+    }
+    .feature-card .btn{
+      align-self:flex-start;
+      margin-top:auto;
+      background:#fff;border-color:#fff;color:#000
+    }
+    .feature-grid-single{grid-template-columns:1fr}
+    .feature-grid-single .feature-card{min-height:175px}
+
+    /* lesson strip */
+    .section{margin-top:16px}
+    #reviews{scroll-margin-top:118px}
+    .section-head{
+      display:flex;align-items:flex-end;justify-content:space-between;
+      gap:20px;margin-bottom:14px
+    }
+    .section-head h2{
+      margin:0;font-family:var(--font-display);
+      font-size:clamp(34px,3.2vw,50px);font-weight:400;color:var(--jam-deep)
+    }
+    .section-head p{margin:0;max-width:62ch;color:var(--muted);line-height:1.6}
+    .reviews-head{align-items:center}
+    .reviews-head-copy{min-width:0}
+    .reviews-head-copy p{margin-top:7px}
+    .review-sort{
+      flex:0 0 auto;display:flex;align-items:center;gap:8px;
+      min-height:42px;padding:5px 6px 5px 12px;
+      border:1px solid #d8dfe4;border-radius:12px;background:#eef1f3;
+      color:#53616c;font-size:11px;font-weight:800;letter-spacing:.02em
+    }
+    .review-sort select{
+      min-height:32px;border:0;border-left:1px solid #d3dadd;border-radius:0 8px 8px 0;
+      background:#fff;color:var(--jam-deep);padding:0 31px 0 10px;
+      font-size:11px;font-weight:800;cursor:pointer;outline:none
+    }
+    .review-sort select:focus-visible{box-shadow:0 0 0 3px rgba(0,140,255,.16)}
+
+    .lesson-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px
+    }
+    .lesson{
+      position:relative;
+      min-height:178px;
+      padding:17px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+      overflow:hidden;
+      display:flex;flex-direction:column;
+      transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease
+    }
+    .lesson:hover{
+      transform:translateY(-2px);
+      box-shadow:var(--soft-shadow);
+      border-color:rgba(14,111,174,.24)
+    }
+    .lesson-icon{
+      width:42px;height:42px;border-radius:13px;
+      display:grid;place-items:center;
+      background:rgba(14,111,174,.09);
+      color:var(--jam-blue);
+      font-size:22px;
+      margin-bottom:20px
+    }
+    .lesson h3{
+      margin:0 0 5px;font-family:var(--font-display);font-size:26px;font-weight:400
+    }
+    .lesson span{margin-top:auto;color:var(--jam-blue);font-size:12px;font-weight:800}
+
+
+    .instrument-band{
+      margin-top:12px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:17px;
+      background:linear-gradient(180deg,#fff,#fbfdff)
+    }
+    .instrument-band h3{
+      margin:0 0 7px;
+      font-family:var(--font-display);
+      font-size:26px;
+      font-weight:400
+    }
+    .instrument-band p{
+      margin:0;color:var(--muted);font-size:13px;line-height:1.65
+    }
+    .instrument-tags{
+      display:flex;flex-wrap:wrap;gap:7px;margin-top:12px
+    }
+    .instrument-tag{
+      display:inline-flex;align-items:center;
+      min-height:30px;padding:0 10px;
+      border:1px solid rgba(0,140,255,.18);
+      border-radius:999px;background:rgba(0,140,255,.055);
+      color:#075f9d;font-size:11px;font-weight:700
+    }
+
+    /* local relevance: useful to families, readable first, search context second */
+    .local-schools{
+      border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#fff,#fbfdff);padding:20px;
+      display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.72fr);gap:22px;align-items:start
+    }
+    .local-schools .eyebrow{margin:0 0 6px;color:var(--jam-blue);font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .local-schools h2{
+      margin:0 0 8px;font-family:var(--font-display);font-size:30px;font-weight:400;color:var(--jam-deep)
+    }
+    .local-schools p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
+    .school-disclosure{border:1px solid var(--line);background:#fff}
+    .school-disclosure summary{list-style:none;position:relative;cursor:pointer;padding:14px 42px 14px 14px;color:var(--jam-deep);font-size:11px;font-weight:800}
+    .school-disclosure summary::-webkit-details-marker{display:none}
+    .school-disclosure summary::after{content:'+';position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--jam-blue);font-size:18px;font-weight:500}
+    .school-disclosure[open] summary::after{content:'−'}
+    .school-disclosure[open] summary{border-bottom:1px solid var(--line)}
+    .school-disclosure .school-list{padding:13px 14px 0;color:#40505d;font-size:11.5px;line-height:1.72}
+    .school-disclosure small{display:block;padding:8px 14px 14px;color:var(--muted);font-size:9.5px;line-height:1.5}
+
+    /* trust / mission */
+    .story{
+      display:grid;
+      grid-template-columns:minmax(320px,.82fr) minmax(0,1.18fr);
+      gap:16px;align-items:stretch
+    }
+    .story-art{
+      position:relative;
+      min-height:380px;
+      border-radius:var(--radius);
+      overflow:hidden;
+      background:linear-gradient(145deg,#102433,#173d56)
+    }
+    .story-art .ring{
+      position:absolute;border:2px solid rgba(255,255,255,.18);border-radius:50%
+    }
+    .story-art .r1{width:260px;height:260px;left:-50px;top:-30px}
+    .story-art .r2{width:190px;height:190px;right:-45px;bottom:15px}
+    .story-art .big-jam{
+      position:absolute;inset:0;display:grid;place-items:center;
+      font-family:var(--font-display);font-size:clamp(92px,12vw,178px);
+      letter-spacing:-.05em;color:rgba(255,255,255,.94)
+    }
+    .story-copy{
+      border:1px solid var(--line);border-radius:var(--radius);
+      padding:clamp(24px,4vw,54px);
+      display:flex;flex-direction:column;justify-content:center
+    }
+    .story-copy .eyebrow{
+      margin:0 0 8px;color:var(--jam-blue);
+      font-size:11px;font-weight:800;letter-spacing:.075em;text-transform:uppercase
+    }
+    .story-copy h2{
+      margin:0 0 16px;font-family:var(--font-display);
+      font-size:clamp(38px,4vw,58px);font-weight:400;line-height:1.05
+    }
+    .story-copy p{
+      margin:0;color:var(--muted);font-size:16px;line-height:1.7;font-weight:500
+    }
+    .story-copy .btn{align-self:flex-start;margin-top:20px}
+
+    /* registration callout */
+    .register-band{
+      position:relative;
+      overflow:hidden;
+      border-radius:var(--radius);
+      background:var(--electric-gradient);
+      color:#fff;padding:26px;
+      display:flex;align-items:center;justify-content:space-between;gap:22px
+    }
+    .register-band::after{
+      content:"";
+      position:absolute;right:-3%;bottom:-28%;
+      width:52%;height:140%;
+      background:var(--corner-shine);
+      pointer-events:none;opacity:.86
+    }
+    .register-band > *{position:relative;z-index:1}
+    .register-band h2{
+      margin:0 0 5px;font-family:var(--font-display);font-size:34px;font-weight:400
+    }
+    .register-band p{margin:0;color:rgba(255,255,255,.90);font-weight:600}
+    .register-band .btn{background:#fff;border-color:#fff;color:#000;flex:0 0 auto}
+
+    /* inquiry */
+    .inquiry{
+      background:var(--soft);
+      border-radius:var(--radius);
+      padding:clamp(20px,3vw,34px)
+    }
+    .inquiry-grid{
+      display:grid;
+      grid-template-columns:.72fr 1.28fr;
+      gap:28px
+    }
+    .inquiry-copy h2{
+      margin:0 0 9px;font-family:var(--font-display);font-size:44px;font-weight:400
+    }
+    .inquiry-copy p{margin:0;color:var(--muted);line-height:1.65}
+    .contact-points{display:grid;gap:8px;margin-top:18px;font-size:13px;font-weight:700}
+    .contact-points a{color:var(--jam-blue)}
+
+    .form{
+      background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px
+    }
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .field{display:grid;gap:6px;margin-bottom:12px}
+    .field.full{grid-column:1/-1}
+    label{font-size:12px;font-weight:800}
+    input,select,textarea{
+      width:100%;border:1px solid #d8dfe4;border-radius:0;background:#fff;
+      color:var(--ink);padding:11px 12px;outline:none;
+      text-align:left;direction:ltr;caret-color:var(--jam-blue);
+      transition:border-color .14s ease,box-shadow .14s ease
+    }
+    select{
+      -webkit-appearance:none;
+      appearance:none;
+      padding-right:44px;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23008CFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;
+      background-position:right 16px center;
+      background-size:14px 14px;
+      cursor:pointer
+    }
+    input:focus,select:focus,textarea:focus{
+      border-color:var(--jam-blue);box-shadow:0 0 0 3px rgba(14,111,174,.12)
+    }
+    textarea{min-height:104px;resize:vertical}
+    .choice-grid{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px
+    }
+    .choice{
+      display:flex;align-items:center;gap:8px;
+      min-height:40px;padding:8px 10px;border:1px solid var(--line);
+      border-radius:10px;background:#fff;font-size:12px;font-weight:600
+    }
+    .choice input{width:auto;margin:0;accent-color:var(--jam-blue)}
+    .compact-check{min-height:44px;display:flex;align-items:center;gap:9px;border:1px solid #d8dfe4;background:#fff;padding:0 12px;font-size:12px;font-weight:600;cursor:pointer}
+    .compact-check input{width:17px;height:17px;margin:0;padding:0;accent-color:var(--jam-blue)}
+    .form-note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:8px}
+    .field-helper{display:block;margin-top:5px;color:var(--muted);font-size:10.5px;line-height:1.45}
+
+
+
+    /* anti-spam honeypots: intentionally invisible to humans, still present in markup */
+    .bot-trap{
+      position:absolute!important;
+      width:1px!important;height:1px!important;
+      overflow:hidden!important;
+      clip:rect(0 0 0 0)!important;
+      clip-path:inset(50%)!important;
+      white-space:nowrap!important;
+      margin:-1px!important;padding:0!important;border:0!important
+    }
+
+    /* validation + segmented phone formatting */
+    .req{
+      color:#c8002d;
+      font-weight:900;
+      display:inline-block;
+      transition:color .14s ease,transform .14s ease
+    }
+    .field.invalid label,
+    .instrument-select.invalid .instrument-main-label{color:#c8002d}
+    .field.invalid .req,
+    .instrument-select.invalid .req{
+      color:#ff0038;
+      transform:scale(1.18)
+    }
+    .field.invalid input,
+    .field.invalid select,
+    .field.invalid textarea,
+    .instrument-select.invalid select{
+      border-color:#e20032!important;
+      box-shadow:0 0 0 3px rgba(226,0,50,.16)!important
+    }
+    .validation-message{
+      display:none;
+      margin-top:4px;
+      color:#c8002d;
+      font-size:10.5px;
+      font-weight:700;
+      line-height:1.35
+    }
+    .field.invalid .validation-message,
+    .instrument-select.invalid .validation-message{display:block}
+
+    .phone-shell{
+      width:100%;
+      min-height:44px;
+      display:flex;
+      align-items:center;
+      border:1px solid #d8dfe4;
+      border-radius:0;
+      background:#fff;
+      padding:0 12px;
+      transition:border-color .14s ease,box-shadow .14s ease
+    }
+    .phone-shell:focus-within{
+      border-color:var(--jam-blue);
+      box-shadow:0 0 0 3px rgba(0,140,255,.12)
+    }
+    .field.invalid .phone-shell{
+      border-color:#e20032!important;
+      box-shadow:0 0 0 3px rgba(226,0,50,.09)!important
+    }
+    .phone-part{
+      min-width:0;
+      border:0!important;
+      box-shadow:none!important;
+      border-radius:0!important;
+      padding:10px 0!important;
+      background:transparent!important;
+      text-align:left;
+      font-variant-numeric:tabular-nums;
+      letter-spacing:.04em
+    }
+    .phone-part:focus{outline:none}
+    .phone-part.p3{width:3.6ch}
+    .phone-part.p4{width:4.8ch}
+    .phone-sep{
+      width:1.15ch;
+      color:#9aa6ae;
+      font-weight:600;
+      text-align:center;
+      opacity:0;
+      user-select:none;
+      pointer-events:none;
+      transition:opacity .08s ease
+    }
+    .phone-sep.show{opacity:1}
+    .phone-hidden{display:none}
+
+    /* fast onboarding */
+    .signup-shell{
+      border:1px solid #dfe5e9;
+      border-radius:var(--radius);
+      background:var(--surface);
+      overflow:hidden;
+      box-shadow:0 18px 44px rgba(15,23,42,.08)
+    }
+    .signup-intro{
+      padding:26px 24px 20px;
+      background:linear-gradient(135deg,#fbfcfd 0%,#f2f6f9 56%,#edf4f9 100%)
+    }
+    .signup-intro .eyebrow{
+      margin:0 0 7px;color:var(--jam-blue);
+      font-size:11px;font-weight:800;letter-spacing:.075em;text-transform:uppercase
+    }
+    .signup-intro h2{
+      margin:0;font-family:var(--font-display);
+      font-size:clamp(30px,3.2vw,44px);font-weight:400;line-height:1.08
+    }
+    .signup-quick-facts{
+      display:flex;flex-wrap:wrap;gap:7px;margin-top:0
+    }
+    .signup-quick-facts span{
+      display:inline-flex;align-items:center;min-height:29px;padding:0 10px;
+      border:1px solid rgba(0,140,255,.18);border-radius:999px;
+      background:rgba(0,140,255,.055);color:#075f9d;font-size:10.5px;font-weight:800
+    }
+    .signup-after-form{
+      padding:17px 20px 18px;
+      border-top:1px solid #dfe5e9;
+      background:linear-gradient(180deg,#f8fafb 0%,#f2f6f8 100%)
+    }
+    .signup-schedule-note{margin:9px 0 0;color:var(--muted);font-size:11px;line-height:1.5}
+    .signup-primary-contact{margin:6px 0 0;color:var(--muted);font-size:11px;line-height:1.5}
+    .signup-primary-contact strong{color:var(--jam-deep)}
+    .signup-primary-contact a{color:var(--jam-blue);font-weight:800}
+    .availability-nudge{
+      display:flex;align-items:flex-start;gap:9px;margin:12px 0 0;padding:10px 12px;
+      border:1px solid rgba(0,140,255,.18);border-radius:12px;
+      background:linear-gradient(135deg,rgba(0,140,255,.06),rgba(0,140,255,.025));
+      color:#184a6b;font-size:11px;line-height:1.5
+    }
+    .availability-nudge::before{content:"↗";display:grid;place-items:center;flex:none;width:22px;height:22px;border-radius:50%;background:var(--jam-blue);color:#fff;font-size:12px;font-weight:900;margin-top:1px}
+    .availability-nudge strong{color:var(--jam-deep)}
+    .onboarding-steps{
+      display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background:var(--soft)
+    }
+    .onboarding-step{
+      display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;
+      padding:14px 18px;border-right:1px solid var(--line)
+    }
+    .onboarding-step:last-child{border-right:0}
+    .step-num{
+      width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+      background:var(--electric-gradient);color:#fff;font-size:12px;font-weight:800;box-shadow:0 5px 14px rgba(0,140,255,.18)
+    }
+    .onboarding-step strong{display:block;font-size:12px}
+    .onboarding-step span:last-child{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+    .instrument-select{
+      width:100%;
+      margin:0;
+      padding:22px 20px;
+      background:linear-gradient(180deg,#f8fafb 0%,#f3f6f8 100%);
+      border-bottom:1px solid #dfe5e9
+    }
+    .instrument-select h3{
+      margin:0;
+      font-family:var(--font-display);
+      font-size:21px;
+      line-height:1.15;
+      font-weight:400;
+      white-space:nowrap
+    }
+    .instrument-duo{
+      display:grid;
+      grid-template-columns:minmax(0,1.18fr) minmax(230px,.82fr);
+      gap:12px;
+      align-items:end
+    }
+    .instrument-control{min-width:0}
+    .instrument-label-row{
+      min-height:30px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin:0 0 8px
+    }
+    .instrument-label-row .req{flex:none}
+    .instrument-choice-shell{
+      min-height:46px;
+      display:grid;
+      grid-template-columns:46px minmax(0,1fr);
+      border:1px solid #d8dfe4;
+      background:#fff
+    }
+    .instrument-icon{
+      display:grid;
+      place-items:center;
+      border-right:1px solid #e1e6ea;
+      color:var(--jam-blue);
+      background:linear-gradient(180deg,#f8fbfd,#f1f7fb)
+    }
+    .instrument-icon svg{width:27px;height:27px;display:block}
+    .instrument-select select{
+      min-height:44px;
+      border:0;
+      border-radius:0;
+      background:#fff;
+      cursor:pointer
+    }
+    .rock-band-toggle{
+      position:relative;
+      display:block;
+      min-height:46px;
+      cursor:pointer
+    }
+    .rock-band-toggle input{
+      position:absolute;
+      opacity:0;
+      pointer-events:none
+    }
+    .rock-band-toggle > .rock-band-label{
+      min-height:46px;
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      padding:0 13px;
+      border:1px solid #d8dfe4;
+      background:#fff;
+      color:var(--ink);
+      font-size:12px;
+      font-weight:800;
+      text-align:center;
+      transition:background .14s ease,border-color .14s ease,color .14s ease,box-shadow .14s ease,transform .14s ease
+    }
+    .rock-band-icon{width:22px;height:22px;display:block;flex:none}
+    .rock-band-toggle:hover > .rock-band-label{border-color:rgba(0,140,255,.45);transform:translateY(-1px)}
+    .rock-band-toggle input:focus-visible + .rock-band-label{
+      border-color:var(--jam-blue);
+      box-shadow:0 0 0 3px rgba(0,140,255,.12)
+    }
+    .rock-band-toggle input:checked + .rock-band-label{
+      background:var(--jam-blue);
+      border-color:var(--jam-blue);
+      color:#fff;
+      box-shadow:0 7px 18px rgba(0,140,255,.16)
+    }
+    .rock-band-toggle input:checked + .rock-band-label::after{
+      content:"✓";
+      font-weight:900;
+      margin-left:2px
+    }
+    .instrument-select .form-note{
+      max-width:650px;
+      margin:8px 0 0
+    }
+    .other-instrument-field{
+      margin-top:10px;
+      width:calc((100% - 12px)/2)
+    }
+    .other-instrument-field label{display:block;margin-bottom:6px}
+    .conditional-field{
+      grid-column:1/-1;
+      margin-top:-2px;
+      padding:12px;
+      border:1px solid rgba(0,140,255,.14);
+      background:linear-gradient(180deg,#fff,#fbfdff)
+    }
+    .conditional-field[hidden]{display:none}
+    .conditional-field label{margin:0}
+    .conditional-field input{background:#fff}
+    .quick-form-wrap{
+      width:100%;
+      margin:0;
+      display:grid;
+      grid-template-columns:.72fr 1.28fr;
+      gap:22px;
+      padding:24px 20px 22px;
+      background:linear-gradient(180deg,#eaf0f4 0%,#f1f4f6 100%)
+    }
+    .quick-form-note{
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+      color:var(--ink);
+      padding:20px;
+      box-shadow:0 8px 24px rgba(15,23,42,.045)
+    }
+    .quick-form-note h3{
+      margin:0 0 7px;
+      font-family:var(--font-display);
+      font-size:28px;
+      font-weight:400;
+      color:var(--jam-blue)
+    }
+    .quick-form-note p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6
+    }
+    .quick-form-note .mini{
+      margin-top:16px;
+      font-size:11px;
+      color:var(--muted)
+    }
+    .quick-form-note .mini a{
+      color:var(--jam-blue)!important;
+      text-decoration:underline;
+      text-underline-offset:3px
+    }
+    .registration-methods{
+      display:grid;
+      gap:8px;
+      margin:15px 0 0;
+      padding:0;
+      list-style:none
+    }
+    .registration-methods li{
+      display:grid;
+      grid-template-columns:24px 1fr;
+      gap:9px;
+      align-items:start;
+      padding:9px 10px;
+      border:1px solid #e1e7eb;
+      background:#f8fafb;
+      color:var(--ink);
+      font-size:12px;
+      line-height:1.42
+    }
+    .registration-methods b{
+      width:24px;height:24px;border-radius:50%;
+      display:grid;place-items:center;
+      background:rgba(0,140,255,.10);
+      color:var(--jam-blue);
+      font-size:11px
+    }
+    .registration-preview{
+      width:100%;
+      aspect-ratio:16/9;
+      margin-top:16px;
+      border:1px solid #d8dfe4;
+      background:linear-gradient(145deg,#f8fbfd,#edf5fa);
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      color:inherit;
+      text-align:left;
+      transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease
+    }
+    .registration-preview:hover,.registration-preview:focus-visible{
+      transform:translateY(-2px);
+      border-color:rgba(0,140,255,.55);
+      box-shadow:0 12px 26px rgba(15,23,42,.08);
+      outline:none
+    }
+    .reg-preview-sheet{
+      width:86%;height:82%;padding:10px 12px;display:flex;flex-direction:column;gap:7px;
+      background:#fff;border:1px solid #e4e9ed;box-shadow:0 7px 18px rgba(15,23,42,.07)
+    }
+    .reg-preview-head{display:flex;align-items:center;gap:8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+    .reg-preview-head b{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--jam-blue);color:#fff;font:700 8px/1 var(--font-ui)}
+    .reg-preview-head i{font:400 13px/1.1 var(--font-display);font-style:normal;color:var(--jam-deep)}
+    .reg-preview-row,.reg-preview-columns span{display:block;height:8px;border-radius:999px;background:#e7edf1}
+    .reg-preview-row.wide{width:100%}.reg-preview-row{width:78%}.reg-preview-row.short{width:54%}
+    .reg-preview-columns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .reg-preview-button{margin-top:auto;align-self:flex-start;color:var(--jam-blue);font-size:8px;font-weight:900;letter-spacing:.03em}
+    .registration-button{margin-top:12px;border-radius:10px}
+    .req{color:#d00000;font-weight:900}
+
+
+    .student-id-info{
+      grid-column:1/-1;
+      display:grid;
+      grid-template-columns:34px 1fr;
+      gap:10px;
+      align-items:center;
+      padding:9px 10px;
+      margin:-3px 0 1px;
+      border:1px solid rgba(0,140,255,.18);
+      background:linear-gradient(90deg,rgba(0,140,255,.055),rgba(88,196,255,.035));
+      color:#3c4c58;
+      font-size:11px;
+      line-height:1.42
+    }
+    .student-id-info-mark{
+      width:34px;height:34px;
+      display:grid;place-items:center;
+      border-radius:50%;
+      background:var(--jam-blue);
+      color:#fff;
+      font-weight:900;
+      letter-spacing:.04em
+    }
+    .student-id-info strong{color:var(--ink)}
+    .enrollment-result{
+      grid-column:1/-1;
+      display:grid;
+      gap:5px;
+      padding:13px 14px;
+      border:1px solid rgba(0,140,255,.24);
+      background:linear-gradient(120deg,rgba(0,140,255,.08),rgba(88,196,255,.05));
+      color:var(--ink)
+    }
+    .enrollment-result[hidden]{display:none}
+    .enrollment-result strong{
+      font-family:var(--font-display);
+      font-size:18px;
+      font-weight:400
+    }
+    .student-id-result{
+      display:flex;
+      gap:7px;
+      flex-wrap:wrap;
+      margin-top:3px
+    }
+    .student-id-chip{
+      display:inline-flex;
+      align-items:center;
+      min-height:31px;
+      padding:0 10px;
+      border:1px solid rgba(0,140,255,.30);
+      background:#fff;
+      color:var(--jam-blue);
+      font-weight:900;
+      letter-spacing:.08em;
+      font-variant-numeric:tabular-nums
+    }
+
+    .student-id-row{
+      grid-column:1/-1;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin:-2px 0 1px
+    }
+    .student-id-toggle{
+      appearance:none;
+      min-height:34px;
+      padding:0 11px;
+      border:1px solid #d8dfe4;
+      background:#f7f9fa;
+      color:var(--ink);
+      font:800 11px/1 var(--font-ui);
+      cursor:pointer;
+      transition:border-color .14s ease,background .14s ease,color .14s ease
+    }
+    .student-id-toggle:hover,.student-id-toggle[aria-expanded="true"]{
+      border-color:rgba(0,140,255,.45);
+      background:#eef7ff;
+      color:var(--jam-blue)
+    }
+    .student-id-field{
+      flex:1 1 220px;
+      min-width:0
+    }
+    .student-id-field[hidden]{display:none}
+    .student-id-field input{min-height:34px;padding:7px 10px}
+    .student-id-field .field-helper{margin-top:4px}
+
+    .quick-form{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      align-self:start;
+      padding:20px;
+      border:1px solid #dce3e8;
+      border-radius:16px;
+      background:#fff;
+      box-shadow:0 8px 24px rgba(15,23,42,.045)
+    }
+    .form-section-label{
+      grid-column:1/-1;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      margin:3px 0 1px;
+      padding:0 0 9px;
+      border-bottom:1px solid #e7ecef
+    }
+    .form-section-label:first-child{margin-top:0}
+    .form-section-label strong{
+      font-family:var(--font-display);
+      color:var(--jam-deep);
+      font-size:20px;
+      font-weight:400;
+      line-height:1.15
+    }
+    .form-section-label span{
+      max-width:46ch;
+      color:var(--muted);
+      font-size:10.5px;
+      line-height:1.45;
+      text-align:right
+    }
+    .quick-form .field{margin:0}
+    .quick-form .field.full{grid-column:1/-1}
+    .quick-form-actions{
+      grid-column:1/-1;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+      margin-top:2px
+    }
+    .quick-form-actions .small-link{font-size:11px;color:var(--muted)}
+    .quick-form-actions .small-link a{color:var(--jam-blue);font-weight:800}
+
+    /* preferred instructor: plain closed selector; photos only in open menu */
+    .instructor-picker{position:relative;width:100%}
+    .instructor-select-button{
+      width:100%;
+      min-height:46px;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 34px;
+      align-items:center;
+      gap:0;
+      padding:0;
+      border:1px solid #d8dfe4;
+      border-radius:0;
+      background:#fff;
+      color:var(--ink);
+      text-align:left;
+      cursor:pointer;
+      overflow:hidden;
+      transition:border-color .14s ease,box-shadow .14s ease
+    }
+    .instructor-select-button:hover{border-color:#b9c6cf}
+    .instructor-select-button:focus-visible{outline:none;border-color:var(--jam-blue);box-shadow:0 0 0 3px rgba(0,140,255,.12)}
+    .instructor-select-button[aria-expanded="true"]{border-color:var(--jam-blue)}
+    .instructor-selected-copy{
+      min-width:0;
+      display:flex;
+      align-items:center;
+      padding:0 12px
+    }
+    .instructor-selected-copy strong{display:block;font-size:13px;line-height:1.25}
+    .instructor-chevron{
+      display:grid;
+      place-items:center;
+      font-size:17px;
+      color:var(--jam-blue);
+      transition:transform .15s ease
+    }
+    .instructor-select-button[aria-expanded="true"] .instructor-chevron{transform:rotate(180deg)}
+    .instructor-menu{
+      position:absolute;
+      left:0;
+      right:0;
+      top:calc(100% + 4px);
+      z-index:80;
+      display:none;
+      max-height:360px;
+      overflow:auto;
+      border:1px solid #cfd8de;
+      background:#fff;
+      box-shadow:0 18px 38px rgba(15,23,42,.15)
+    }
+    .instructor-menu.open{display:block}
+    .instructor-option{
+      width:100%;
+      height:64px;
+      display:grid;
+      grid-template-columns:64px minmax(0,1fr);
+      align-items:stretch;
+      gap:0;
+      padding:0;
+      border:0;
+      border-bottom:1px solid var(--line);
+      border-radius:0;
+      background:#fff;
+      color:var(--ink);
+      text-align:left;
+      cursor:pointer;
+      overflow:hidden
+    }
+    .instructor-option:last-child{border-bottom:0}
+    .instructor-option:hover,.instructor-option:focus-visible{background:#f4f8fb;outline:none}
+    .instructor-option[aria-selected="true"]{background:#eef8ff}
+    .instructor-option-photo,
+    .instructor-option-mark{
+      width:64px;
+      height:64px;
+      display:block;
+      margin:0;
+      border:0;
+      border-right:1px solid var(--line);
+      padding:0;
+      object-fit:cover;
+      background:#e9f5ff
+    }
+    .instructor-option-mark{
+      display:grid;
+      place-items:center;
+      color:var(--jam-blue);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.03em
+    }
+    .instructor-option-copy{
+      min-width:0;
+      display:flex;
+      align-items:center;
+      padding:0 14px
+    }
+    .instructor-option-copy strong{display:block;font-size:12.5px;line-height:1.25}
+
+    .newsletter-row{grid-column:1/-1;margin-top:2px}
+    .newsletter-optin{
+      display:flex;align-items:flex-start;gap:10px;
+      padding:12px;
+      border:1px solid #d8dfe4;
+      background:#f8fafb;
+      cursor:pointer
+    }
+    .newsletter-optin input{
+      width:17px;height:17px;min-width:17px;margin:1px 0 0;padding:0;
+      border-radius:0;accent-color:var(--jam-blue);cursor:pointer
+    }
+    .newsletter-optin strong{display:block;font-size:12px}
+    .newsletter-optin span span{display:block;margin-top:2px;color:var(--muted);font-size:10.5px;font-weight:500;line-height:1.45}
+
+    /* infinite review carousel with side peeks */
+    .reviews-shell{
+      position:relative;
+      width:100%;
+      overflow:hidden;
+      padding:3px 0 5px
+    }
+    .reviews-viewport{
+      width:100%;
+      overflow:hidden;
+      touch-action:pan-y;
+      cursor:grab
+    }
+    .reviews-viewport:active{cursor:grabbing}
+    .reviews-track{
+      display:flex;
+      gap:12px;
+      will-change:transform;
+      transition:transform .46s cubic-bezier(.22,.75,.25,1)
+    }
+    .review{
+      flex:0 0 calc((100% - 48px)/3.25);
+      min-height:210px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      box-shadow:0 7px 22px rgba(15,23,42,.05)
+    }
+    .review-kicker{
+      display:inline-flex;
+      align-self:flex-start;
+      min-height:27px;
+      align-items:center;
+      padding:0 9px;
+      border-radius:999px;
+      background:rgba(0,140,255,.07);
+      color:#0877c7;
+      font-size:9.5px;
+      font-weight:800;
+      letter-spacing:.075em;
+      text-transform:uppercase
+    }
+    .stars{color:#f2b400;letter-spacing:2px;font-size:16px;margin-top:14px}
+    .review-copy-shell{
+      position:relative;
+      margin:11px 0 18px;
+      min-height:0
+    }
+    .review-copy{
+      color:var(--muted);
+      line-height:1.6;
+      font-size:14px;
+      margin:0;
+      max-height:8em;
+      overflow-y:auto;
+      overscroll-behavior:contain;
+      scrollbar-width:thin;
+      scrollbar-color:#b8c4cc transparent;
+      padding-right:12px;
+      scroll-behavior:smooth
+    }
+    .review-copy::-webkit-scrollbar{width:7px}
+    .review-copy::-webkit-scrollbar-track{background:transparent}
+    .review-copy::-webkit-scrollbar-thumb{background:#b8c4cc;border-radius:999px}
+    .review-copy-shell:not(.is-overflowing) .review-copy{
+      overflow:hidden;
+      padding-right:0
+    }
+    .review-scroll-cue{
+      position:absolute;
+      right:10px;
+      bottom:3px;
+      width:25px;
+      height:25px;
+      border:1px solid rgba(0,140,255,.22);
+      border-radius:50%;
+      background:rgba(255,255,255,.94);
+      color:var(--jam-blue);
+      display:grid;
+      place-items:center;
+      font-size:15px;
+      line-height:1;
+      cursor:pointer;
+      box-shadow:0 3px 10px rgba(15,23,42,.08);
+      transition:transform .16s ease,background .16s ease,border-color .16s ease;
+      z-index:2
+    }
+    .review-scroll-cue:hover,
+    .review-scroll-cue:focus-visible{
+      transform:translateY(1px);
+      background:#f4faff;
+      border-color:rgba(0,140,255,.42)
+    }
+    .review-scroll-cue[hidden]{display:none}
+    .review-scroll-cue.is-at-end{transform:rotate(180deg)}
+    .review-scroll-cue.is-at-end:hover,
+    .review-scroll-cue.is-at-end:focus-visible{transform:rotate(180deg) translateY(-1px)}
+    .review strong{font-size:12px}
+    .review-author{
+      margin:auto -18px -18px;
+      padding:11px 14px 11px 16px;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      align-items:center;
+      gap:12px;
+      background:linear-gradient(180deg,#edf2f5 0%,#e4ebef 100%);
+      border-top:1px solid #cfd8de;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.82);
+      border-radius:0 0 17px 17px
+    }
+    .review-author-profile{
+      min-width:0;
+      display:grid;
+      grid-template-columns:38px minmax(0,1fr);
+      align-items:center;
+      gap:9px;
+      color:inherit;
+      text-decoration:none
+    }
+    a.review-author-profile{
+      border-radius:8px;
+      transition:background .14s ease,color .14s ease
+    }
+    a.review-author-profile:hover,
+    a.review-author-profile:focus-visible{
+      background:rgba(255,255,255,.48);
+      color:var(--jam-blue)
+    }
+    .review-avatar{
+      width:38px;height:38px;border-radius:50%;object-fit:cover;
+      background:#fff;border:2px solid rgba(255,255,255,.92);
+      box-shadow:0 0 0 1px #c7d2d9,0 2px 8px rgba(15,23,42,.08)
+    }
+    .review-avatar-fallback{
+      width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+      background:#fff;color:var(--jam-blue);font-size:10px;font-weight:900;
+      border:2px solid rgba(255,255,255,.92);
+      box-shadow:0 0 0 1px #c7d2d9
+    }
+    .review-author-copy{min-width:0}
+    .review-author-copy strong{
+      display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+      color:var(--jam-deep)
+    }
+    .review small{display:block;margin-top:3px;color:#667783;font-size:10.5px}
+    .review-source-link{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      cursor:pointer;
-      overflow:hidden;
-      transition:background .14s ease, border-color .14s ease, transform .12s ease;
+      min-height:31px;
+      padding:0 9px;
+      border:1px solid #cbd5db;
+      border-radius:999px;
+      background:rgba(255,255,255,.78);
+      color:#40535f;
+      font-size:9.5px;
+      font-weight:800;
+      text-decoration:none;
+      white-space:nowrap;
+      transition:border-color .14s ease,color .14s ease,background .14s ease,transform .14s ease
     }
-
-    .cart-btn:hover{
-      background:#d95e00;
-      border-color:#d95e00;
-      transform:translateY(-1px);
+    .review-source-link:hover,
+    .review-source-link:focus-visible{
+      color:var(--jam-blue);
+      border-color:rgba(0,140,255,.36);
+      background:#fff;
+      transform:translateY(-1px)
     }
-
-    .cart-icon{
-      width:56px;
-      height:56px;
-      stroke:#fff;
-      fill:none;
-      stroke-width:1.5;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-      transform:translateY(4px);
+    .google-maps-attribution{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:6px;
+      margin-top:10px;
+      color:#5e5e5e;
+      font-family:Roboto,Arial,sans-serif;
+      font-size:10px;
+      line-height:1.3
     }
+    .google-maps-attribution b{font-weight:500;color:#454545}
+    .reviews-loading,
+    .reviews-empty{
+      width:100%;
+      min-height:150px;
+      display:grid;
+      place-items:center;
+      padding:28px;
+      border:1px dashed #d8dfe4;
+      border-radius:18px;
+      background:linear-gradient(180deg,#fff,#fbfdff);
+      color:var(--muted);
+      text-align:center;
+      font-size:13px;
+      font-weight:600;
+      line-height:1.6
+    }
+    .review-controls[hidden]{display:none}
+    .review-date{display:block;margin-top:4px;color:var(--muted);font-size:10px}
 
-    .cart-count{
+    .review-controls{
       position:absolute;
-      left:50%;
-      top:44.2%;
-      transform:translate(-50%,-50%);
-      color:#fff;
-      font-size:12px;
-      font-weight:900;
-      line-height:1;
+      inset:50% 8px auto 8px;
+      transform:translateY(-50%);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       pointer-events:none;
+      z-index:5
+    }
+    .review-arrow{
+      width:44px;
+      height:44px;
+      border:1px solid rgba(0,140,255,.24);
+      border-radius:50%;
+      background:rgba(255,255,255,.94);
+      color:var(--jam-deep);
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      font-size:24px;
+      line-height:1;
+      box-shadow:0 7px 20px rgba(15,23,42,.12);
+      pointer-events:auto;
+      transition:transform .14s ease,border-color .14s ease,color .14s ease,background .14s ease
+    }
+    .review-arrow:hover,
+    .review-arrow:focus-visible{
+      color:var(--jam-blue);
+      border-color:rgba(0,140,255,.35);
+      transform:translateY(-1px)
+    }
+    .review-status{
+      position:absolute!important;
+      width:1px!important;
+      height:1px!important;
+      padding:0!important;
+      margin:-1px!important;
+      overflow:hidden!important;
+      clip:rect(0,0,0,0)!important;
+      white-space:nowrap!important;
+      border:0!important
+    }
+    @media(max-width:980px){
+      .review{flex-basis:calc((100% - 36px)/2.25)}
+    }
+    @media(max-width:650px){
+      .review{flex-basis:calc((100% - 24px)/1.25);min-height:195px}
+      .review-author{padding:10px 12px}
+      .review-author-profile{grid-template-columns:36px minmax(0,1fr)}
+      .review-avatar,.review-avatar-fallback{width:36px;height:36px}
+      .review-source-link{padding:0 8px;font-size:9px}
     }
 
-    .wheel{
-      fill:#fff;
-      stroke:none;
+    /* compact Jupiter newsletter + refined footer */
+    .newsletter-band{
+      margin-top:16px;
+      position:relative;
+      overflow:hidden;
+      color:#fff;
+      background:
+        linear-gradient(90deg,rgba(4,19,31,.86),rgba(4,19,31,.58)),
+        url("https://upload.wikimedia.org/wikipedia/commons/7/7a/Jupiter_Lighthouse.JPG") center 48%/cover no-repeat;
+    }
+    .newsletter-band::before,.newsletter-band::after{content:"";position:absolute;left:0;right:0;height:5px;z-index:2;background:linear-gradient(90deg,#73D7FF 0%,#19BFFF 28%,#008CFF 68%,#006BD6 100%)}
+    .newsletter-band::before{top:0}.newsletter-band::after{bottom:0}
+    .newsletter-inner{
+      max-width:1560px;margin:0 auto;padding:24px 22px;
+      display:grid;grid-template-columns:minmax(0,.9fr) minmax(380px,1.1fr);align-items:center;gap:30px
+    }
+    .newsletter-copy .eyebrow{margin:0 0 5px;color:#bce9ff;font-size:9.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+    .newsletter-copy h2{margin:0;font-family:var(--font-display);font-size:clamp(26px,2.7vw,39px);font-weight:400;line-height:1.04;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.38)}
+    .newsletter-copy p{margin:7px 0 0;max-width:60ch;color:rgba(255,255,255,.88);font-size:12px;line-height:1.5}
+    .footer-newsletter-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:stretch}
+    .footer-newsletter-form input{min-height:46px;border:1px solid rgba(255,255,255,.60);border-radius:0;background:rgba(255,255,255,.96);padding:0 14px;font-size:13px}
+    .footer-newsletter-form .btn{min-height:46px;border-radius:0;padding-inline:22px}
+    .footer-newsletter-note{grid-column:1/-1;margin:0;color:rgba(255,255,255,.82);font-size:10px;line-height:1.4}
+    .newsletter-photo-credit{position:absolute;right:9px;bottom:7px;z-index:3;color:rgba(255,255,255,.58);font-size:7.5px;text-shadow:0 1px 5px rgba(0,0,0,.5)}
+
+    .site-footer{background:#f8f9fa}
+    .footer-inner{max-width:1560px;margin:0 auto;padding:30px 22px 18px}
+    .footer-brand-row{display:flex;align-items:center;gap:13px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+    .footer-brand-logo{width:106px;height:66px;border-radius:10px;background:linear-gradient(145deg,#075f9d 0%,#008CFF 74%,#1aa8ff 100%);border:1px solid rgba(0,140,255,.20);display:grid;place-items:center;flex:0 0 106px;padding:6px 8px;box-shadow:0 6px 18px rgba(0,140,255,.18),inset 0 0 0 1px rgba(255,255,255,.10)}
+    .footer-brand-logo img{display:block;width:100%;height:100%;object-fit:contain}
+    .footer-brand-copy strong{display:block;font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--jam-deep)}
+    .footer-brand-copy span{display:block;margin-top:3px;color:var(--muted);font-size:11px;line-height:1.45}
+    .footer-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,6vw,96px);align-items:start;padding-top:26px}
+    .footer-col h3{margin:0 0 13px;font-family:var(--font-display);font-size:23px;font-weight:400}
+    .footer-col ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+    .footer-col a,.footer-col span{font-size:13px;color:var(--muted);font-weight:600}
+    .footer-col a:hover{color:var(--jam-blue)}
+    .footer-bottom{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:11px}
+    .footer-bottom-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .footer-share{
+      display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 10px;
+      border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--jam-deep);
+      font-size:11px;font-weight:800;cursor:pointer;transition:transform .14s ease,border-color .14s ease,color .14s ease,background .14s ease
+    }
+    .footer-share:hover,.footer-share:focus-visible{transform:translateY(-1px);border-color:rgba(0,140,255,.34);color:var(--jam-blue);background:rgba(0,140,255,.035);outline:none}
+    .footer-share svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .footer-share-status{min-width:0;color:var(--muted);font-size:10px;font-weight:700}
+
+    /* persistent accessibility control */
+    .a11y-launcher{
+      position:fixed;
+      right:max(14px,env(safe-area-inset-right));
+      bottom:max(14px,env(safe-area-inset-bottom));
+      z-index:1350;
+      width:50px;height:50px;
+      display:grid;place-items:center;
+      border:1px solid rgba(0,140,255,.34);
+      border-radius:50%;
+      background:#fff;
+      color:var(--jam-blue);
+      box-shadow:0 12px 30px rgba(15,23,42,.16);
+      cursor:pointer;
+      transition:transform .14s ease,box-shadow .14s ease,background .14s ease
+    }
+    .a11y-launcher:hover,.a11y-launcher:focus-visible{
+      transform:translateY(-2px);
+      box-shadow:0 16px 34px rgba(15,23,42,.20);
+      outline:3px solid rgba(0,140,255,.18);
+      outline-offset:2px
+    }
+    .a11y-launcher svg{width:30px;height:30px;display:block;fill:currentColor;stroke:none}
+    .a11y-panel{
+      position:fixed;
+      right:max(14px,env(safe-area-inset-right));
+      bottom:calc(max(14px,env(safe-area-inset-bottom)) + 60px);
+      z-index:1349;
+      width:min(320px,calc(100vw - 28px));
+      padding:16px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+      box-shadow:0 20px 46px rgba(15,23,42,.18)
+    }
+    .a11y-panel[hidden]{display:none}
+    .a11y-panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+    .a11y-panel-head strong{font-family:var(--font-display);font-size:22px;font-weight:400}
+    .a11y-close{width:34px;height:34px;border:0;border-radius:50%;background:var(--soft);cursor:pointer;font-size:20px;line-height:1}
+    .a11y-options{display:grid;gap:8px}
+    .a11y-option{
+      width:100%;min-height:42px;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:9px 11px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:#fff;
+      text-align:left;
+      font-size:12px;font-weight:700;
+      cursor:pointer
+    }
+    .a11y-option[aria-pressed="true"]{border-color:rgba(0,140,255,.42);background:rgba(0,140,255,.07);color:#075f9d}
+    .a11y-panel-link{display:inline-flex;margin-top:12px;color:var(--jam-blue);font-size:11px;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+    body.a11y-contrast{--ink:#000;--muted:#222;--line:#6b7280;--soft:#fff;--hover:#eef2f4}
+    body.a11y-contrast .btn:not(.btn-primary),body.a11y-contrast input,body.a11y-contrast select,body.a11y-contrast textarea{border-color:#555}
+    body.a11y-links a:not(.btn):not(.get-started-btn):not(.brand-link){text-decoration:underline;text-underline-offset:3px}
+    body.a11y-reduce-motion *,body.a11y-reduce-motion *::before,body.a11y-reduce-motion *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+
+    /* responsive */
+    @media(max-width:1180px){
+      .header-contact-link{display:none}
+      .desktop-nav{gap:10px}
+      .desktop-nav a{font-size:11.5px}
+      .social-placeholder{width:26px;height:26px}
+    }
+    @media(max-width:1050px){
+      .desktop-nav,.header-contact-link,.header-socials{display:none}
+      .menu-btn{display:inline-flex;grid-column:1;justify-self:start}
+      .header-row{grid-template-columns:auto 1fr auto}
+      .header-actions{grid-column:3;justify-self:end}
+      .brand-link{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);justify-self:auto}
+      .lesson-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:860px){
+      .feature-grid{grid-template-columns:1fr}
+      .feature-card{min-height:190px}
+      .story{grid-template-columns:1fr}
+      .inquiry-grid{grid-template-columns:1fr}
+      .newsletter-inner{grid-template-columns:1fr;gap:20px}
+      .footer-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+    }
+    @media(max-width:650px){
+      :root{--header-h:54px;--announcement-h:28px}
+      .content{padding-left:11px;padding-right:11px}
+      main{padding-top:calc(var(--announcement-h) + var(--header-h))}
+      .brand-link{height:42px}
+      .brand-logo-shell{width:78px;height:40px;flex-basis:78px;border-radius:8px;padding:4px 5px}
+      .get-started-btn{min-height:36px;padding:0 12px;font-size:10.5px}
+      .local-schools{grid-template-columns:1fr;gap:14px}
+      .hero{min-height:470px}
+      .hero-copy{width:100%;padding:66px 11px 42px}
+      .hero-badges{top:11px;left:11px;right:11px;gap:5px}
+      .badge{font-size:9px;letter-spacing:.045em;gap:4px}
+      .badge::before{font-size:13px}
+      .hero-title{font-size:clamp(42px,12.8vw,62px);line-height:1.02}
+      .hero-actions{width:100%}
+      .hero-location{max-width:calc(100% - 12px);padding:8px 11px;font-size:11px;text-align:center}
+      .visual-label strong{font-size:30px}
+      .piano{height:100px}
+      .feature-grid{gap:11px;margin-top:11px}
+      .feature-card{border-radius:18px}
+      .lesson-grid{grid-template-columns:1fr}
+      .section{margin-top:11px}
+      .section-head{display:block}
+      .section-head p{margin-top:7px}
+      .review-sort{margin-top:12px;width:max-content;max-width:100%}
+      .story-art,.story-copy,.register-band,.inquiry{border-radius:18px}
+      .register-band{align-items:flex-start;flex-direction:column}
+      .form-grid{grid-template-columns:1fr}
+      .field.full{grid-column:auto}
+      .choice-grid{grid-template-columns:1fr}
+      .onboarding-steps{grid-template-columns:1fr}
+      .onboarding-step{border-right:0;border-bottom:1px solid var(--line)}
+      .onboarding-step:last-child{border-bottom:0}
+      .instrument-duo{grid-template-columns:1fr}
+      .other-instrument-field{width:100%}
+      .quick-form-wrap{grid-template-columns:1fr;padding:18px 14px}
+      .quick-form{grid-template-columns:1fr;padding:16px}
+      .quick-form .field.full{grid-column:1/-1}
+      .quick-form-actions{grid-column:auto}
+      .form-section-label{grid-column:auto;display:block}
+      .form-section-label span{display:block;margin-top:4px;text-align:left}
+      .newsletter-inner{padding:22px 11px}
+      .footer-newsletter-form{grid-template-columns:1fr}
+      .footer-newsletter-note{grid-column:auto}
+      .footer-inner{padding-left:11px;padding-right:11px}
+      .footer-grid{grid-template-columns:1fr;gap:24px}
+      .footer-brand-row{align-items:flex-start}
+    }
+    /* system/browser integration + broad device resilience */
+    @media (hover:none), (pointer:coarse){
+      .btn,.get-started-btn,.menu-btn,.menu-close,.review-arrow,.instructor-select-button,.instructor-option{min-height:44px}
+      .desktop-nav a{min-height:44px}
+    }
+    @media(max-width:650px){
+      input,select,textarea{font-size:16px}
+      .menu-panel{padding-left:max(14px,env(safe-area-inset-left));padding-bottom:max(14px,env(safe-area-inset-bottom))}
+      .newsletter-inner,.footer-inner{padding-left:max(11px,env(safe-area-inset-left));padding-right:max(11px,env(safe-area-inset-right))}
+    }
+    @media(max-height:520px) and (orientation:landscape){
+      .hero{min-height:380px}
+      .hero-copy{padding-top:58px;padding-bottom:28px}
+      .hero-title{font-size:clamp(38px,8vw,58px)}
+      .hero-image-status{display:none}
+    }
+    @media(min-width:1900px){
+      .content,.footer-inner{max-width:1760px}
+      .hero{min-height:620px}
+      .newsletter-inner{max-width:1760px}
+    }
+    @media(min-width:2600px){
+      :root{--header-h:68px;--announcement-h:34px}
+      .header-row{max-width:2400px;margin:0 auto}
+      .hero{min-height:720px}
+      .hero-copy{max-width:1250px}
+    }
+    @media(prefers-contrast:more){
+      :root{--line:#aab7c1;--muted:rgba(11,18,32,.88)}
+      .btn,input,select,textarea,.instructor-select-button{border-width:2px}
+    }
+    @media(forced-colors:active){
+      .btn,.get-started-btn,.step-num,.brand-logo-shell{forced-color-adjust:auto}
+      .hero-shade{background:rgba(0,0,0,.55)}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{transition:none!important;scroll-behavior:auto!important}
+      .instrument-ribbon-track{animation:none!important}
+      .hero-slide{animation:none!important;transition:none!important}
+      .hero-slide:not(.active){display:none!important}
+      .music-note-pop{display:none!important}
     }
   </style>
 </head>
+
 <body>
-  <button class="cart-btn" aria-label="Open cart. 0 items">
-    <svg class="cart-icon" viewBox="0 0 16 16" aria-hidden="true">
-      <path d="M1.8 3.2h1.4"></path>
-      <path d="M3.2 3.2 4.2 9.6"></path>
-      <path d="M4.2 9.6h7.6"></path>
-      <path d="M11.8 9.6 13 4.2"></path>
-      <circle class="wheel" cx="5.4" cy="12.8" r=".925"></circle>
-      <circle class="wheel" cx="10.6" cy="12.8" r=".925"></circle>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="instrument-ribbon" aria-label="Instruments taught at Jupiter Academy of Music">
+    <div class="instrument-ribbon-track" aria-hidden="true">
+      <div class="instrument-ribbon-group">
+        <span>Piano</span><span>Acoustic Guitar</span><span>Electric Guitar</span><span>Bass Guitar</span><span>Ukulele</span><span>Drum Set</span><span>Snare Drum</span><span>Percussion</span><span>Mallet Percussion</span><span>Voice &amp; Singing</span><span>Violin</span><span>Viola</span><span>Cello</span><span>Double Bass</span><span>Flute</span><span>Piccolo</span><span>Clarinet</span><span>Bass Clarinet</span><span>Alto Saxophone</span><span>Tenor Saxophone</span><span>Baritone Saxophone</span><span>Oboe</span><span>Bassoon</span><span>Trumpet</span><span>Cornet</span><span>French Horn</span><span>Trombone</span><span>Baritone Horn</span><span>Euphonium</span><span>Tuba</span><span>School Band</span><span>Rock Band</span>
+      </div>
+      <div class="instrument-ribbon-group">
+        <span>Piano</span><span>Acoustic Guitar</span><span>Electric Guitar</span><span>Bass Guitar</span><span>Ukulele</span><span>Drum Set</span><span>Snare Drum</span><span>Percussion</span><span>Mallet Percussion</span><span>Voice &amp; Singing</span><span>Violin</span><span>Viola</span><span>Cello</span><span>Double Bass</span><span>Flute</span><span>Piccolo</span><span>Clarinet</span><span>Bass Clarinet</span><span>Alto Saxophone</span><span>Tenor Saxophone</span><span>Baritone Saxophone</span><span>Oboe</span><span>Bassoon</span><span>Trumpet</span><span>Cornet</span><span>French Horn</span><span>Trombone</span><span>Baritone Horn</span><span>Euphonium</span><span>Tuba</span><span>School Band</span><span>Rock Band</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="header-row">
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuOverlay" aria-label="Open menu">
+        <span class="hamburger" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+
+      <a class="brand-link" href="#top" aria-label="Jupiter Academy of Music home">
+        <span class="brand-logo-shell">
+          <img src="https://jupiteracademyofmusic.com/wp-content/uploads/2020/01/JAM-logo-new-art-white.png" alt="Jupiter Academy of Music">
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a class="active" href="#top">Home</a>
+        <a href="#lessons">Lessons</a>
+        <a href="https://jupiteracademyofmusic.com/faculty/">Instructors</a>
+        <a href="https://jupiteracademyofmusic.com/calendar/">Rates</a>
+        <a href="https://jupiteracademyofmusic.com/about-jam/">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="/es/" hreflang="es" lang="es">ES</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="header-contact-link" href="tel:+15617476878" aria-label="Call Jupiter Academy of Music">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.7 3.7 9.3 8c.3.5.2 1.1-.2 1.5l-1.4 1.4c1.2 2.4 3 4.2 5.4 5.4l1.4-1.4c.4-.4 1-.5 1.5-.2l4.3 2.6c.6.4.8 1.1.5 1.7-.7 1.3-2 2-3.5 2C9.4 21 3 14.6 3 6.7c0-1.5.8-2.8 2-3.5.6-.3 1.3-.1 1.7.5Z" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>561-747-6878</span>
+        </a>
+        <div class="header-socials" aria-label="Social media placeholders">
+          <span class="social-placeholder" title="Facebook — URL coming later" aria-label="Facebook"><span class="brand-glyph">f</span></span>
+          <span class="social-placeholder" title="Instagram — URL coming later" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke-width="2"/><circle cx="17.4" cy="6.7" r="1" stroke="none"/></svg></span>
+          <span class="social-placeholder" title="Threads — URL coming later" aria-label="Threads"><span class="brand-glyph">@</span></span>
+          <span class="social-placeholder" title="YouTube — URL coming later" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 7.2c-.2-1.2-1.1-2.1-2.3-2.3C17 4.5 14.3 4.4 12 4.4s-5 .1-6.7.5C4.1 5.1 3.2 6 3 7.2c-.3 1.4-.4 3.1-.4 4.8s.1 3.4.4 4.8c.2 1.2 1.1 2.1 2.3 2.3 1.7.4 4.4.5 6.7.5s5-.1 6.7-.5c1.2-.2 2.1-1.1 2.3-2.3.3-1.4.4-3.1.4-4.8s-.1-3.4-.4-4.8ZM10 15.6V8.4l6 3.6-6 3.6Z" stroke="none"/></svg></span>
+          <span class="social-placeholder" title="X — URL coming later" aria-label="X"><span class="brand-glyph">X</span></span>
+          <span class="social-placeholder" title="TikTok — URL coming later" aria-label="TikTok"><span class="brand-glyph">♪</span></span>
+        </div>
+        <a class="get-started-btn" href="#signup">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+    <aside class="menu-panel" role="dialog" aria-modal="true" aria-label="Site menu">
+      <div class="menu-panel-head">
+        <strong>JAM</strong>
+        <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
+      </div>
+      <nav class="menu-links">
+        <a class="active" href="#top">Home</a>
+        <a href="#signup">Sign Up</a>
+        <a href="#lessons">Lessons</a>
+        <a href="https://jupiteracademyofmusic.com/faculty/">Faculty</a>
+        <a href="https://jupiteracademyofmusic.com/calendar/">Scheduling &amp; Fees</a>
+        <a href="https://jupiteracademyofmusic.com/registration/">Student Registration</a>
+        <a href="https://jupiteracademyofmusic.com/about-jam/">About JAM</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="/es/" hreflang="es">Español</a>
+      </nav>
+      <div class="menu-contact">
+        <strong>Brad Schechter &middot; Primary lesson contact</strong>
+        <a href="tel:+15617476878">561-747-6878</a>
+        <a href="mailto:brad@jupiteracademyofmusic.com">brad@jupiteracademyofmusic.com</a>
+        <span>500 Commerce Way W #8 &amp; 9, Jupiter, FL 33458</span>
+      </div>
+      <div class="menu-socials" aria-label="Social media placeholders">
+        <span class="social-placeholder" aria-label="Facebook"><span class="brand-glyph">f</span></span>
+        <span class="social-placeholder" aria-label="Instagram"><span class="brand-glyph">◎</span></span>
+        <span class="social-placeholder" aria-label="Threads"><span class="brand-glyph">@</span></span>
+        <span class="social-placeholder" aria-label="YouTube"><span class="brand-glyph">▶</span></span>
+        <span class="social-placeholder" aria-label="X"><span class="brand-glyph">X</span></span>
+        <span class="social-placeholder" aria-label="TikTok"><span class="brand-glyph">♪</span></span>
+      </div>
+    </aside>
+  </div>
+
+  <main id="main">
+      <section class="hero" id="top" aria-labelledby="heroTitle">
+        <!-- TEMPORARY HERO IMAGES: replace with professionally shot JAM photography before launch. -->
+        <div class="hero-media" id="heroMedia" aria-hidden="true">
+          <div class="hero-slide active" style="background-image:url('https://images.squarespace-cdn.com/content/v1/573390dc62cd94aa377f85b7/1555092823499-NEEP34HMD208VCA0XDJA/ke17ZwdGBToddI8pDm48kN_COZbtNkqMzT3m5ronlRMUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcausNyiYwo0r6B3DRayItOqwc6x-iORy-JVjjXfVrLjLsUni7Ml6Pj0L-knUBD3sS/2%2BSummer%2BCamp%2BFlyer.jpg?format=original')"></div>
+          <div class="hero-slide" style="background-image:url('https://images.squarespace-cdn.com/content/v1/573390dc62cd94aa377f85b7/1490577373021-17448UQZZ119A7PUCYGR/ke17ZwdGBToddI8pDm48kPqQfq0L3n3wpHIsRapTfg8UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczo5Zn4xktlpMsMj-QlHXeMfNK6GwvtVkYEWiR8XAPyD3GfLCe_DXOSC_YcAacWL_/image-asset.jpeg?format=original')"></div>
+          <div class="hero-slide" style="background-image:url('https://images.squarespace-cdn.com/content/v1/573390dc62cd94aa377f85b7/1533423439858-SV320OLQIAO08A6MQMSZ/ke17ZwdGBToddI8pDm48kDHPSfPanjkWqhH6pl6g5ph7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0mwONMR1ELp49Lyc52iWr5dNb1QJw9casjKdtTg1_-y4jz4ptJBmI9gQmbjSQnNGng/image-asset.jpeg?format=original')"></div>
+          <div class="hero-slide" style="background-image:url('https://images.squarespace-cdn.com/content/v1/573390dc62cd94aa377f85b7/1554749810235-MZOYUDPGZ2US23F9C4L9/ke17ZwdGBToddI8pDm48kDTReECiQU0_wwRCqy37T9kUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYy7Mythp_T-mtop-vrsUOmeInPi9iDjx9w8K4ZfjXt2dgKqKwQjG7NODT8_JPQHv2lt-2w_LLBfwlOW-Pah6LQQ7zs2yPjc1ECvpa5Zm_kMqw/IMG_5333.jpg?format=original')"></div>
+        </div>
+        <div class="hero-shade" aria-hidden="true"></div>
+
+        <div class="hero-badges" aria-label="Jupiter Academy of Music highlights">
+          <span class="badge">Private Lessons</span>
+          <span class="badge">All Ages</span>
+          <span class="badge">Group Programs</span>
+        </div>
+
+        <div class="hero-copy">
+          <p class="hero-kicker">Music Lessons in Jupiter, Florida</p>
+          <h1 class="hero-title" id="heroTitle">Jupiter Academy of Music</h1>
+          <p>Piano &bull; Guitar &bull; Drums &amp; Percussion &bull; Voice &bull; Strings &bull; Woodwinds &bull; Brass &bull; School Band &bull; Rock Band</p>
+          <a class="hero-location" href="https://www.google.com/maps/search/?api=1&amp;query=500+Commerce+Way+W+%238+%26+9%2C+Jupiter%2C+FL+33458" target="_blank" rel="noopener" aria-label="Open Jupiter Academy of Music location in Google Maps">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.1 6-11A6 6 0 0 0 6 10c0 5.9 6 11 6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg>
+            <span>500 Commerce Way W #8 &amp; 9 &middot; Jupiter, FL 33458</span>
+          </a>
+          <div class="hero-actions" aria-label="Choose your next step">
+            <a class="btn btn-primary music-cta" href="#signup">Sign Up Today</a>
+            <a class="btn music-cta" href="https://jupiteracademyofmusic.com/faculty/">View Instructors</a>
+          </div>
+        </div>
+      </section>
+
+    <div class="content">
+      <section class="section signup-shell" id="signup" aria-labelledby="signupTitle">
+        <div class="signup-intro">
+          <p class="eyebrow">Simple. Easy. Stress-free.</p>
+          <h2 id="signupTitle">Start Lessons, Made Simple.</h2>
+        </div>
+
+        <div class="onboarding-steps" aria-label="How signing up works">
+          <div class="onboarding-step">
+            <span class="step-num">1</span>
+            <span><strong>Choose an instrument</strong><span>Not sure? JAM can help you choose.</span></span>
+          </div>
+          <div class="onboarding-step">
+            <span class="step-num">2</span>
+            <span><strong>Tell us about the student(s)</strong><span>Just the essentials to begin.</span></span>
+          </div>
+          <div class="onboarding-step">
+            <span class="step-num">3</span>
+            <span><strong>Get your JAM Student ID</strong><span>JAM then follows up to confirm instructor and time.</span></span>
+          </div>
+        </div>
+
+        <form id="jamQuickForm" method="post" data-submission-endpoint="REPLACE_WITH_SECURE_FORM_ENDPOINT" novalidate>
+          <div class="bot-trap" aria-hidden="true">
+            <label for="jamContactWebsite">Leave this field empty</label>
+            <input id="jamContactWebsite" name="contactWebsite" type="text" tabindex="-1" autocomplete="off" inputmode="none">
+          </div>
+          <input id="jamFormStartedAt" name="formStartedAt" type="hidden" value="">
+          <input id="jamSubmissionId" name="submissionId" type="hidden" value="">
+          <input name="formVersion" type="hidden" value="JAM-home-v38">
+          <div class="sr-only" id="formStatus" aria-live="assertive"></div>
+          <div class="instrument-select">
+            <div class="instrument-duo">
+              <div class="instrument-control">
+                <div class="instrument-label-row">
+                  <h3 class="instrument-main-label">Choose Your Instrument</h3>
+                  <span class="req" aria-hidden="true">*</span>
+                </div>
+                <div class="instrument-choice-shell">
+                  <span class="instrument-icon" id="instrumentIcon" aria-hidden="true"></span>
+                  <select id="instrumentSelect" name="instrument" aria-describedby="instrumentError" required>
+                    <option value="">Select an instrument</option>
+                    <option>Piano</option>
+                    <option>Guitar</option>
+                    <option>Drums &amp; Percussion</option>
+                    <option>Voice</option>
+                    <option>Strings</option>
+                    <option>Woodwinds</option>
+                    <option>Brass</option>
+                    <option value="Not sure yet">Not sure yet — help me choose</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="instrument-control">
+                <div class="instrument-label-row">
+                  <h3>Rock Band</h3>
+                </div>
+                <label class="rock-band-toggle" for="rockBandInterest">
+                  <input id="rockBandInterest" name="rockBandInterest" type="checkbox" value="Yes">
+                  <span class="rock-band-label">
+                    <svg class="rock-band-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                      <path d="M31.8 5.5 39 2.8l2.2 2.2-2.8 7.2-5.2 5.2-3.9-3.9 2.5-8Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+                      <path d="m30.8 14.2-8.9 8.9" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+                      <path d="M22.8 22.2c-4-2.3-8.5-1.7-11.2 1-2 2-2.6 4.7-1.8 7.2l-3.5 3.5c-1.9 1.9-1.9 5 0 6.9s5 1.9 6.9 0l3.5-3.5c2.5.8 5.2.2 7.2-1.8 2.7-2.7 3.3-7.2 1-11.2l-2.1-2.1Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+                      <circle cx="16.5" cy="31.5" r="2.3" fill="none" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span>Sign Me Up for Rock Band</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="other-instrument-field" id="otherInstrumentField" hidden>
+              <label for="otherInstrument">What instrument are you interested in?</label>
+              <input id="otherInstrument" name="otherInstrument" type="text" maxlength="100" placeholder="Type an instrument">
+            </div>
+            <span class="validation-message" id="instrumentError">Please choose an instrument or select “Not sure yet.”</span>
+          </div>
+
+          <div class="quick-form-wrap">
+            <aside class="quick-form-note">
+              <h3>Ready to Register?</h3>
+              <p>If you already know your instructor or JAM has confirmed your lesson, open the student registration form and use whichever option is easiest.</p>
+              <ul class="registration-methods" aria-label="Ways to complete student registration">
+                <li><b>1</b><span><strong>Email it.</strong> Complete the form and email it to <a href="mailto:brad@jupiteracademyofmusic.com">Brad</a>.</span></li>
+                <li><b>2</b><span><strong>Bring it.</strong> Print the completed form and bring it with you to JAM.</span></li>
+                <li><b>3</b><span><strong>Do it here.</strong> Complete the form when you arrive at the academy.</span></li>
+              </ul>
+              <a class="btn registration-button" href="https://jupiteracademyofmusic.com/registration/">Open Registration Form</a>
+              <p class="mini">Prefer paper? You can print the registration form and bring it with you.</p>
+            </aside>
+
+            <div class="quick-form">
+              <div class="form-section-label">
+                <strong>Student &amp; Contact</strong>
+                <span>Who is taking lessons and the best way for JAM to follow up.</span>
+              </div>
+              <div class="student-id-info" role="note">
+                <span class="student-id-info-mark" aria-hidden="true">ID</span>
+                <span><strong>New students receive a permanent 7-digit JAM Student ID after successful online signup.</strong> Student IDs are never reused.</span>
+              </div>
+              <div class="student-id-row">
+                <button class="student-id-toggle" id="studentIdToggle" type="button" aria-expanded="false" aria-controls="studentIdField">Returning student? Enter Student ID</button>
+                <div class="student-id-field" id="studentIdField" hidden>
+                  <label class="sr-only" for="existingStudentId">JAM Student ID</label>
+                  <input id="existingStudentId" name="existingStudentId" type="text" inputmode="numeric" maxlength="7" autocomplete="off" pattern="[0-9]{7}" placeholder="0000001" aria-describedby="existingStudentIdHelp">
+                  <span class="field-helper" id="existingStudentIdHelp">Seven digits. New students leave this blank.</span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="quickName">Contact Name <span class="req">*</span></label>
+                <input id="quickName" name="contactName" type="text" maxlength="120" autocomplete="name" aria-describedby="quickNameError" required>
+                <span class="validation-message" id="quickNameError">Please enter the contact name.</span>
+              </div>
+              <div class="field">
+                <label for="quickStudent">Student(s) Name <span class="req">*</span></label>
+                <input id="quickStudent" name="studentNames" type="text" maxlength="240" autocomplete="off" aria-describedby="quickStudentError" required>
+                <span class="validation-message" id="quickStudentError">Please enter the student name or names.</span>
+              </div>
+              <div class="field full">
+                <label for="studentGrades">School Grade(s) <span style="color:var(--muted);font-weight:600">(optional)</span></label>
+                <input id="studentGrades" name="studentGrades" type="text" maxlength="80" placeholder="e.g. 3rd, 7th">
+                <span class="field-helper">Leave blank if not applicable.</span>
+                <label class="compact-check" for="homeschoolStudent" style="margin-top:8px;width:max-content;max-width:100%">
+                  <input id="homeschoolStudent" name="homeschoolStudent" type="checkbox">
+                  <span>Homeschool student(s)</span>
+                </label>
+              </div>
+              <div class="field" id="phoneField">
+                <label for="quickPhoneA">Phone <span class="req">*</span></label>
+                <div class="phone-shell" role="group" aria-label="Phone number">
+                  <input class="phone-part p3" id="quickPhoneA" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="3" aria-label="Area code" aria-describedby="phoneError" required>
+                  <span class="phone-sep" id="phoneSep1" aria-hidden="true">-</span>
+                  <input class="phone-part p3" id="quickPhoneB" type="tel" inputmode="numeric" maxlength="3" aria-label="Phone number prefix" required>
+                  <span class="phone-sep" id="phoneSep2" aria-hidden="true">-</span>
+                  <input class="phone-part p4" id="quickPhoneC" type="tel" inputmode="numeric" maxlength="4" aria-label="Phone number line number" required>
+                </div>
+                <input class="phone-hidden" id="quickPhone" name="phone" type="hidden">
+                <span class="validation-message" id="phoneError">Enter a complete 10-digit phone number.</span>
+              </div>
+              <div class="field">
+                <label for="quickEmail">Email <span class="req">*</span></label>
+                <input id="quickEmail" name="email" type="email" maxlength="254" inputmode="email" autocomplete="email" aria-describedby="quickEmailError" required>
+                <span class="validation-message" id="quickEmailError">Enter a valid email address.</span>
+              </div>
+              <div class="form-section-label">
+                <strong>Lesson Preferences</strong>
+                <span>Optional details that help us match the student with the right instructor and schedule.</span>
+              </div>
+              <div class="field full instructor-field">
+                <label id="preferredInstructorLabel">Preferred Instructor <span style="color:var(--muted);font-weight:600">(optional)</span></label>
+                <input id="preferredInstructor" name="preferredInstructor" type="hidden" value="">
+                <div class="instructor-picker" id="instructorPicker">
+                  <button class="instructor-select-button" id="instructorSelectButton" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="preferredInstructorLabel instructorSelectedName">
+                    <span class="instructor-selected-copy">
+                      <strong id="instructorSelectedName">No preference</strong>
+                    </span>
+                    <span class="instructor-chevron" aria-hidden="true">⌄</span>
+                  </button>
+                  <div class="instructor-menu" id="instructorMenu" role="listbox" aria-label="Preferred instructor"></div>
+                </div>
+                <p class="form-note">Preferred instructor requests are subject to availability. We’ll do our best to accommodate your preference and help identify available openings or alternative instructors when needed.</p>
+                <div class="availability-nudge" role="note"><span><strong>Want the best choice of instructor and time?</strong> Preferred instructors and peak lesson times can fill quickly, so earlier requests generally have the best selection.</span></div>
+              </div>
+              <div class="field">
+                <label for="bestTime">Best Lesson Time <span style="color:var(--muted);font-weight:600">(optional)</span></label>
+                <select id="bestTime" name="bestTime">
+                  <option value="">Select one</option>
+                  <option>Morning</option>
+                  <option>Early Afternoon</option>
+                  <option>Late Afternoon</option>
+                  <option>Evening</option>
+                  <option>Flexible</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="lessonLength">Preferred Lesson Length <span style="color:var(--muted);font-weight:600">(optional)</span></label>
+                <select id="lessonLength" name="lessonLength">
+                  <option value="">Select one</option>
+                  <option value="30 minutes">30 minutes</option>
+                  <option value="45 minutes">45 minutes</option>
+                  <option value="60 minutes">60 minutes</option>
+                  <option value="No preference">No preference</option>
+                </select>
+              </div>
+              <div class="form-section-label">
+                <strong>Final Details</strong>
+                <span>A couple of quick details before you send the request.</span>
+              </div>
+              <div class="field full">
+                <label for="hearAbout">How did you hear about JAM? <span class="req">*</span></label>
+                <select id="hearAbout" name="hearAbout" aria-describedby="hearAboutError" aria-controls="referralNameField hearAboutOtherField" required>
+                  <option value="">Select one</option>
+                  <option>Google Search</option>
+                  <option>Google Ads</option>
+                  <option>Google Maps</option>
+                  <option>Friend / Referral</option>
+                  <option>Facebook / Instagram</option>
+                  <option>Drove By / Signage</option>
+                  <option>Other</option>
+                </select>
+                <span class="validation-message" id="hearAboutError">Please tell us how you heard about JAM.</span>
+              </div>
+              <div class="conditional-field" id="referralNameField" hidden>
+                <label for="referralName">Who referred you? <span style="color:var(--muted);font-weight:600">(optional)</span></label>
+                <input id="referralName" name="referralName" type="text" maxlength="120" autocomplete="off" placeholder="Friend or family member's name">
+              </div>
+              <div class="conditional-field" id="hearAboutOtherField" hidden>
+                <label for="hearAboutOther">How did you hear about JAM? <span style="color:var(--muted);font-weight:600">(optional)</span></label>
+                <input id="hearAboutOther" name="hearAboutOther" type="text" maxlength="160" autocomplete="off" placeholder="Tell us where you heard about JAM">
+              </div>
+              <div class="field full">
+                <label for="quickNote">Anything else? <span style="color:var(--muted);font-weight:600">(optional)</span></label>
+                <textarea id="quickNote" name="notes" maxlength="2000" placeholder="Questions, scheduling notes, student experience, etc."></textarea>
+              </div>
+
+              <div class="newsletter-row">
+                <label class="newsletter-optin" for="emailCopyOptIn">
+                  <input id="emailCopyOptIn" name="emailCopy" type="checkbox" checked>
+                  <span>
+                    <strong>Email me a copy of this request</strong>
+                    <span>For convenience, the live form backend should send a copy to the email address above.</span>
+                  </span>
+                </label>
+              </div>
+
+              <div class="newsletter-row">
+                <label class="newsletter-optin" for="newsletterOptIn">
+                  <input id="newsletterOptIn" name="newsletter" type="checkbox">
+                  <span>
+                    <strong>Sign up for our newsletter</strong>
+                    <span>Lesson news, recitals, school updates and occasional announcements.</span>
+                  </span>
+                </label>
+              </div>
+
+              <div class="quick-form-actions">
+                <span class="small-link">Want pricing first? <a href="https://jupiteracademyofmusic.com/calendar/">View rates</a></span>
+                <button class="btn btn-primary" id="lessonSubmitButton" type="submit">Sign Up for Lessons</button>
+              </div>
+              <div class="enrollment-result" id="enrollmentResult" hidden tabindex="-1">
+                <strong>Welcome to JAM.</strong>
+                <span id="enrollmentResultText">Your signup was received.</span>
+                <div class="student-id-result" id="studentIdResult" aria-label="Assigned JAM Student ID"></div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="signup-after-form" aria-label="Lesson information">
+          <div class="signup-quick-facts" aria-label="Lesson options">
+            <span>30-minute lessons</span>
+            <span>45-minute lessons</span>
+            <span>60-minute lessons</span>
+            <span>Flexible scheduling</span>
+          </div>
+          <p class="signup-schedule-note">Lesson times are arranged around instructor availability, with options that can work around school, homeschool, work and family schedules. Preferred instructors and peak lesson times can fill quickly.</p>
+          <p class="signup-primary-contact"><strong>Questions?</strong> Brad Schechter &middot; <a href="tel:+15617476878">561-747-6878</a> &middot; <a href="mailto:brad@jupiteracademyofmusic.com">brad@jupiteracademyofmusic.com</a></p>
+        </div>
+      </section>
+
+      <section class="section" id="lessons" aria-labelledby="lessonsTitle">
+        <div class="section-head">
+          <div>
+            <h2 id="lessonsTitle">Find Your Instrument</h2>
+          </div>
+          <p>
+            JAM offers individual and group instruction across a wide range of instruments,
+            including the core lesson options featured on the current Jupiter Academy of Music site.
+          </p>
+        </div>
+
+        <div class="lesson-grid">
+          <a class="lesson" href="https://jupiteracademyofmusic.com/class/piano/">
+            <span class="lesson-icon" aria-hidden="true">♬</span>
+            <h3>Piano</h3>
+            <span>Explore Piano Lessons →</span>
+          </a>
+          <a class="lesson" href="https://jupiteracademyofmusic.com/class/guitar/">
+            <span class="lesson-icon" aria-hidden="true">♩</span>
+            <h3>Guitar</h3>
+            <span>Explore Guitar Lessons →</span>
+          </a>
+          <a class="lesson" href="https://jupiteracademyofmusic.com/class/drums/">
+            <span class="lesson-icon" aria-hidden="true">●</span>
+            <h3>Drums</h3>
+            <span>Explore Drum Lessons →</span>
+          </a>
+          <a class="lesson" href="https://jupiteracademyofmusic.com/class/flute/">
+            <span class="lesson-icon" aria-hidden="true">♪</span>
+            <h3>Flute</h3>
+            <span>Explore Flute Lessons →</span>
+          </a>
+          <a class="lesson" href="https://jupiteracademyofmusic.com/class/violin/">
+            <span class="lesson-icon" aria-hidden="true">𝄞</span>
+            <h3>Violin &amp; Strings</h3>
+            <span>Explore String Lessons →</span>
+          </a>
+          <a class="lesson" href="https://jupiteracademyofmusic.com/class/trumpet-brass/">
+            <span class="lesson-icon" aria-hidden="true">♫</span>
+            <h3>Trumpet &amp; Brass</h3>
+            <span>Explore Brass Lessons →</span>
+          </a>
+          <a class="lesson" href="https://jupiteracademyofmusic.com/class/voice/">
+            <span class="lesson-icon" aria-hidden="true">♬</span>
+            <h3>Voice</h3>
+            <span>Explore Voice Lessons →</span>
+          </a>
+          <a class="lesson" href="https://jupiteracademyofmusic.com/classes/">
+            <span class="lesson-icon" aria-hidden="true">+</span>
+            <h3>More Classes</h3>
+            <span>View All Classes →</span>
+          </a>
+        </div>
+
+        <div class="instrument-band" aria-labelledby="bandInstrumentTitle">
+          <h3 id="bandInstrumentTitle">School Band Instruments &amp; More</h3>
+          <p>
+            Looking for music lessons in Jupiter for a school band instrument? JAM offers instruction across
+            core band and orchestra families in addition to piano, guitar, drums and voice.
+          </p>
+          <div class="instrument-tags" aria-label="Instruments taught at Jupiter Academy of Music">
+            <span class="instrument-tag">Piano</span>
+            <span class="instrument-tag">Guitar</span>
+            <span class="instrument-tag">Drums</span>
+            <span class="instrument-tag">Voice</span>
+            <span class="instrument-tag">Violin</span>
+            <span class="instrument-tag">Viola &amp; Strings</span>
+            <span class="instrument-tag">Flute</span>
+            <span class="instrument-tag">Clarinet</span>
+            <span class="instrument-tag">Saxophone</span>
+            <span class="instrument-tag">Trumpet</span>
+            <span class="instrument-tag">Trombone</span>
+            <span class="instrument-tag">French Horn</span>
+            <span class="instrument-tag">Baritone / Euphonium</span>
+            <span class="instrument-tag">Tuba</span>
+            <span class="instrument-tag">Percussion</span>
+            <span class="instrument-tag">Bass</span>
+            <span class="instrument-tag">Ukulele</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section local-schools" aria-labelledby="localSchoolsTitle">
+        <div class="local-schools-copy">
+          <p class="eyebrow">Jupiter, Tequesta &amp; northern Palm Beach County</p>
+          <h2 id="localSchoolsTitle">Music Lessons That Fit Local Family Life.</h2>
+          <p>JAM welcomes children, teens and adults for private and group instruction, with after-school scheduling, homeschool-friendly options, school-band support and Rock Band opportunities. Instrument availability varies by instructor.</p>
+        </div>
+        <details class="school-disclosure">
+          <summary>Explore nearby school communities</summary>
+          <p class="school-list"><strong>Jupiter:</strong> Jupiter Elementary, Jupiter Farms Elementary, Jerry Thomas Elementary, Limestone Creek Elementary, Lighthouse Elementary, Beacon Cove Intermediate, Independence Middle, Jupiter Middle, Jupiter Community High, All Saints Catholic School, Jupiter Christian School and Turtle River Montessori. <strong>Nearby:</strong> Marsh Pointe Elementary, Good Shepherd Episcopal School, The Harvey Academy, William T. Dwyer High School and BAK Middle School of the Arts.</p>
+          <small>School names are included only as geographic context for families searching for local music lessons. Jupiter Academy of Music is independently operated and is not affiliated with, sponsored by or endorsed by these schools.</small>
+        </details>
+      </section>
+
+      <section class="section story" aria-labelledby="storyTitle">
+        <div class="story-art" aria-hidden="true">
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="big-jam">JAM</div>
+        </div>
+        <div class="story-copy">
+          <p class="eyebrow">Music education in Jupiter since 2003</p>
+          <h2 id="storyTitle">A Local Place to Grow Through Music.</h2>
+          <p>
+            Jupiter Academy of Music is recognized by the community for its commitment to music education.
+            Its mission is to provide exceptional music education and performance opportunities to students
+            of all ages, while helping make music a meaningful part of the Jupiter community.
+          </p>
+          <a class="btn" href="https://jupiteracademyofmusic.com/about-jam/">About JAM</a>
+        </div>
+      </section>
+
+      <section class="section register-band" aria-label="Registration">
+        <div>
+          <h2>Already spoken with your JAM instructor?</h2>
+          <p>Open the registration form, then email it to Brad, print and bring it, or complete it when you arrive.</p>
+        </div>
+        <a class="btn" href="https://jupiteracademyofmusic.com/registration/">Open Registration Form</a>
+      </section>
+
+      <section class="section" id="reviews" aria-labelledby="reviewsTitle">
+        <div class="section-head reviews-head">
+          <div class="reviews-head-copy">
+            <h2 id="reviewsTitle">What Families Say About JAM</h2>
+            <p>Google reviews from JAM families and students. Browse with the arrows, swipe, keyboard controls, or choose a sort order.</p>
+          </div>
+          <label class="review-sort" for="reviewSort">
+            <span>Sort by</span>
+            <select id="reviewSort" aria-label="Sort Google reviews">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="highest">Highest rated</option>
+              <option value="lowest">Lowest rated</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="reviews-shell" id="reviewsCarousel">
+          <div class="reviews-viewport" id="reviewsViewport" tabindex="0" aria-label="Jupiter Academy of Music Google reviews carousel. Use left and right arrow keys to browse." aria-live="polite">
+            <div class="reviews-track" id="reviewsTrack">
+              <div class="reviews-loading">Loading the latest Google reviews…</div>
+            </div>
+          </div>
+
+          <div class="review-controls" id="reviewControls" hidden>
+            <span class="review-status" id="reviewStatus">Use the left and right arrows, swipe, or keyboard arrow keys to browse. Automatic rotation pauses while you interact.</span>
+            <button class="review-arrow" id="reviewPrev" type="button" aria-label="Previous review">‹</button>
+            <button class="review-arrow" id="reviewNext" type="button" aria-label="Next review">›</button>
+          </div>
+        </div>
+        <div class="google-maps-attribution" aria-label="Google Maps attribution">
+          <span>Reviews provided by</span><b>Google Maps</b>
+        </div>
+      </section>
+
+      <section class="section register-band" id="contact" aria-label="Contact Jupiter Academy of Music">
+        <div>
+          <h2>Questions before you start?</h2>
+          <p>Call JAM at 561-747-6878 or email brad@jupiteracademyofmusic.com.</p>
+        </div>
+        <a class="btn" href="mailto:brad@jupiteracademyofmusic.com">Email JAM</a>
+      </section>
+
+    </div>
+  </main>
+
+  <section class="newsletter-band" aria-labelledby="newsletterTitle">
+    <div class="newsletter-inner">
+      <div class="newsletter-copy">
+        <p class="eyebrow">Stay in tune with Jupiter</p>
+        <h2 id="newsletterTitle">A little JAM in your inbox.</h2>
+        <p>Recitals, lesson news, school updates and occasional announcements.</p>
+      </div>
+      <!-- TODO: connect this form to JAM's production newsletter provider before launch. -->
+      <form class="footer-newsletter-form" id="footerNewsletterForm" method="post" data-submission-endpoint="REPLACE_WITH_SECURE_NEWSLETTER_ENDPOINT" novalidate>
+        <div class="bot-trap" aria-hidden="true">
+          <label for="newsletterCompanyWebsite">Leave this field empty</label>
+          <input id="newsletterCompanyWebsite" name="companyWebsite" type="text" tabindex="-1" autocomplete="off" inputmode="none">
+        </div>
+        <input id="newsletterStartedAt" name="formStartedAt" type="hidden" value="">
+        <input id="newsletterSubmissionId" name="submissionId" type="hidden" value="">
+        <input name="formVersion" type="hidden" value="JAM-home-v38">
+        <label class="sr-only" for="footerNewsletterEmail">Email address</label>
+        <input id="footerNewsletterEmail" name="email" type="email" maxlength="254" autocomplete="email" placeholder="Email address" required>
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+        <p class="footer-newsletter-note" id="footerNewsletterStatus" aria-live="polite">No spam at JAM. Just useful updates.</p>
+      </form>
+    </div>
+    <span class="newsletter-photo-credit">Temporary lighthouse image: Dk100 / Wikimedia Commons / CC BY-SA 3.0</span>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-row">
+        <div class="footer-brand-logo">
+          <img src="https://jupiteracademyofmusic.com/wp-content/uploads/2020/01/JAM-logo-new-art-white.png" alt="Jupiter Academy of Music">
+        </div>
+        <div class="footer-brand-copy">
+          <strong>Jupiter Academy of Music</strong>
+          <span>Serving Jupiter-area students and families since 2003 &middot; 500 Commerce Way W #8 &amp; 9, Jupiter, FL 33458 &middot; Brad Schechter: <a href="tel:+15617476878">561-747-6878</a></span>
+        </div>
+      </div>
+
+      <div class="footer-grid">
+        <nav class="footer-col" aria-label="Explore">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="#lessons">Lessons</a></li>
+            <li><a href="https://jupiteracademyofmusic.com/classes/">Classes &amp; Programs</a></li>
+            <li><a href="https://jupiteracademyofmusic.com/about-jam/">About JAM</a></li>
+            <li><a href="https://jupiteracademyofmusic.com/testimonials/">Testimonials</a></li>
+            <li><a href="/es/" hreflang="es">Español</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Students and teachers">
+          <h3>Students / Teachers</h3>
+          <ul>
+            <li><a href="#signup">Get Started</a></li>
+            <li><a href="https://jupiteracademyofmusic.com/faculty/">Instructors</a></li>
+            <li><a href="https://jupiteracademyofmusic.com/calendar/">Scheduling &amp; Fees</a></li>
+            <li><a href="https://jupiteracademyofmusic.com/registration/">Student Registration</a></li>
+            <li><a href="mailto:brad@jupiteracademyofmusic.com">Contact Brad</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Legal">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/sitemap/">Sitemap</a></li>
+            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms</a></li>
+            <li><a href="/accessibility/">Accessibility</a></li>
+            <li><span>Social links coming soon</span></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; <span id="copyrightYear">2026</span> Jupiter Academy of Music. All Rights Reserved.</span>
+        <div class="footer-bottom-actions">
+          <span>Website designed by August Kokus</span>
+          <button class="footer-share" id="footerShareButton" type="button" aria-label="Share Jupiter Academy of Music">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="18" cy="5" r="2.5"></circle>
+              <circle cx="6" cy="12" r="2.5"></circle>
+              <circle cx="18" cy="19" r="2.5"></circle>
+              <path d="M8.2 10.8 15.7 6.4M8.2 13.2l7.5 4.4"></path>
+            </svg>
+            <span>Share</span>
+          </button>
+          <span class="footer-share-status" id="footerShareStatus" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="a11y-launcher" id="a11yLauncher" type="button" aria-label="Accessibility options" aria-expanded="false" aria-controls="a11yPanel">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <circle cx="12" cy="4.65" r="2.35"></circle>
+      <path d="M5.1 7.85h13.8a1.35 1.35 0 0 1 0 2.7h-4.45v3.02l3.2 5.12a1.35 1.35 0 1 1-2.29 1.43L12 14.78l-3.36 5.34a1.35 1.35 0 1 1-2.29-1.43l3.2-5.12v-3.02H5.1a1.35 1.35 0 0 1 0-2.7Z"></path>
     </svg>
-    <span class="cart-count">0</span>
   </button>
+  <aside class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="false" aria-label="Accessibility options" hidden>
+    <div class="a11y-panel-head">
+      <strong>Accessibility</strong>
+      <button class="a11y-close" id="a11yClose" type="button" aria-label="Close accessibility options">×</button>
+    </div>
+    <div class="a11y-options">
+      <button class="a11y-option" id="a11yContrast" type="button" aria-pressed="false"><span>Higher contrast</span><span aria-hidden="true">◐</span></button>
+      <button class="a11y-option" id="a11yLinks" type="button" aria-pressed="false"><span>Underline links</span><span aria-hidden="true">↗</span></button>
+      <button class="a11y-option" id="a11yMotion" type="button" aria-pressed="false"><span>Pause motion</span><span aria-hidden="true">Ⅱ</span></button>
+    </div>
+    <a class="a11y-panel-link" href="/accessibility/">Read our Accessibility Statement</a>
+  </aside>
+
+  <script>
+    (() => {
+      const form = document.getElementById('footerNewsletterForm');
+      const email = document.getElementById('footerNewsletterEmail');
+      const trap = document.getElementById('newsletterCompanyWebsite');
+      const startedAt = document.getElementById('newsletterStartedAt');
+      const submissionId = document.getElementById('newsletterSubmissionId');
+      const status = document.getElementById('footerNewsletterStatus');
+      if (!form || !email || !status) return;
+
+      if (startedAt) startedAt.value = String(Date.now());
+      if (submissionId) submissionId.value = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+
+      form.addEventListener('submit', async event => {
+        event.preventDefault();
+        if (!email.checkValidity()) {
+          email.reportValidity();
+          return;
+        }
+
+        // Honeypot: real visitors never see or interact with this field.
+        if (trap?.value.trim()) {
+          status.textContent = 'Thanks!';
+          form.reset();
+          return;
+        }
+
+        const endpoint = (form.dataset.submissionEndpoint || '').trim();
+        if (!endpoint || endpoint.includes('REPLACE_WITH_')) {
+          status.textContent = 'Newsletter signup is ready for JAM’s secure production endpoint.';
+          return;
+        }
+
+        const payload = new FormData(form);
+        payload.set('page', window.location.href);
+        payload.set('interactionMs', String(Math.max(0, Date.now() - Number(startedAt?.value || Date.now()))));
+
+        try {
+          const response = await fetch(endpoint, {method:'POST', body:payload, headers:{'Accept':'application/json'}});
+          if (!response.ok) throw new Error(`Newsletter signup failed (${response.status})`);
+          status.textContent = 'You’re on the list. No spam at JAM.';
+          form.reset();
+          if (startedAt) startedAt.value = String(Date.now());
+          if (submissionId) submissionId.value = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+        } catch (error) {
+          console.error(error);
+          status.textContent = 'We could not subscribe you right now. Please try again later.';
+        }
+      });
+    })();
+
+
+    (() => {
+      const btn = document.getElementById('menuBtn');
+      const overlay = document.getElementById('menuOverlay');
+      const close = document.getElementById('menuClose');
+      const backdrop = document.getElementById('menuBackdrop');
+      const links = overlay.querySelectorAll('a');
+
+      function setOpen(open) {
+        overlay.classList.toggle('open', open);
+        overlay.setAttribute('aria-hidden', String(!open));
+        btn.setAttribute('aria-expanded', String(open));
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.classList.toggle('menu-open', open);
+      }
+
+      btn.addEventListener('click', () => setOpen(!overlay.classList.contains('open')));
+      close.addEventListener('click', () => setOpen(false));
+      backdrop.addEventListener('click', () => setOpen(false));
+      links.forEach(link => link.addEventListener('click', () => setOpen(false)));
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) setOpen(false);
+      });
+    })();
+
+
+    (() => {
+      const picker = document.getElementById('instructorPicker');
+      const trigger = document.getElementById('instructorSelectButton');
+      const menu = document.getElementById('instructorMenu');
+      const hidden = document.getElementById('preferredInstructor');
+      const selectedName = document.getElementById('instructorSelectedName');
+      if (!picker || !trigger || !menu || !hidden || !selectedName) return;
+
+      const faculty = [
+        {name:'August Kokus', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/August-Krokus-300x297-circle.jpg'},
+        {name:'Brad Schechter', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/Brad-circle.jpeg'},
+        {name:'Gary Frost', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/Gary-Frost-circle.gif'},
+        {name:'Gregory Kokus', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/Gregory-Kokus-circle.gif'},
+        {name:'James Binion, Jr.', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/James-Binion-300x297-circle.jpg'},
+        {name:'Jennell Eve', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/jennel1-crop-300x300-circle.jpg'},
+        {name:'Jim Estes', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/Jim-Estes-circle.jpeg'},
+        {name:'JoAnn Floyd', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/joann-floyd-circle.jpeg'},
+        {name:'Karen Miller', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/Karen-Miller-circle.jpeg'},
+        {name:'Katey Thompson', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/IMG_5437copy-circle.jpg'},
+        {name:'Lea Roy', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/Lea-Roy-300x300-circle.jpg'},
+        {name:'Paul Destito', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/Paul-Destito-277x300-circle.jpg'},
+        {name:'Sandra Baran', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/Sandra-Baran-circle.jpeg'},
+        {name:'Teresa Olowin', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/Teresa-Olowin-300x300-circle.jpg'},
+        {name:'Tiffany Goff', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/Goff_piano_pic-300x282-circle.jpg'},
+        {name:'Tom Floyd', image:'https://jupiteracademyofmusic.com/wp-content/uploads/bb-plugin/cache/tom-floyd-circle.jpeg'}
+      ];
+
+      const escapeHtml = value => String(value)
+        .replace(/&/g,'&amp;')
+        .replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;')
+        .replace(/"/g,'&quot;');
+
+      function optionMarkup(person) {
+        const safeName = escapeHtml(person.name);
+        const safeImage = escapeHtml(person.image || '');
+        return `<button class="instructor-option" type="button" role="option" aria-selected="false" data-name="${safeName}">
+          <img class="instructor-option-photo" src="${safeImage}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          <span class="instructor-option-copy"><strong>${safeName}</strong></span>
+        </button>`;
+      }
+
+      menu.innerHTML = [
+        `<button class="instructor-option" type="button" role="option" aria-selected="true" data-name="">
+          <span class="instructor-option-mark" aria-hidden="true">JAM</span>
+          <span class="instructor-option-copy"><strong>No preference</strong></span>
+        </button>`,
+        ...faculty.map(optionMarkup)
+      ].join('');
+
+      function setOpen(open) {
+        menu.classList.toggle('open', open);
+        trigger.setAttribute('aria-expanded', String(open));
+      }
+
+      function selectOption(option) {
+        const name = option.dataset.name || '';
+        hidden.value = name;
+        selectedName.textContent = name || 'No preference';
+        menu.querySelectorAll('.instructor-option').forEach(item => {
+          item.setAttribute('aria-selected', String(item === option));
+        });
+        setOpen(false);
+        trigger.focus();
+      }
+
+      trigger.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+      menu.addEventListener('click', event => {
+        const option = event.target.closest('.instructor-option');
+        if (option) selectOption(option);
+      });
+      document.addEventListener('click', event => {
+        if (!picker.contains(event.target)) setOpen(false);
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && menu.classList.contains('open')) {
+          setOpen(false);
+          trigger.focus();
+        }
+      });
+    })();
+
+
+    (() => {
+      const select = document.getElementById('instrumentSelect');
+      const field = document.getElementById('otherInstrumentField');
+      const input = document.getElementById('otherInstrument');
+      const icon = document.getElementById('instrumentIcon');
+      if (!select || !field || !input) return;
+
+      const icons = {
+        default: `<svg viewBox="0 0 48 48"><path d="M19 10v24.5a6 6 0 1 1-3-5.2V15l20-4v18.5a6 6 0 1 1-3-5.2V6L19 10Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        Piano: `<svg viewBox="0 0 48 48"><rect x="5" y="10" width="38" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M11 11v26m7-26v26m7-26v26m7-26v26m7-26v26" stroke="currentColor" stroke-width="1.8"/><path d="M14 11v14m14-14v14m7-14v14" stroke="currentColor" stroke-width="4.2" stroke-linecap="square"/></svg>`,
+        Guitar: `<svg viewBox="0 0 48 48"><path d="M31.8 5.5 39 2.8l2.2 2.2-2.8 7.2-5.2 5.2-3.9-3.9 2.5-8Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="m30.8 14.2-8.9 8.9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/><path d="M22.8 22.2c-4-2.3-8.5-1.7-11.2 1-2 2-2.6 4.7-1.8 7.2l-3.5 3.5c-1.9 1.9-1.9 5 0 6.9s5 1.9 6.9 0l3.5-3.5c2.5.8 5.2.2 7.2-1.8 2.7-2.7 3.3-7.2 1-11.2l-2.1-2.1Z" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="16.5" cy="31.5" r="2.3" fill="none" stroke="currentColor" stroke-width="2"/></svg>`,
+        "Drums & Percussion": `<svg viewBox="0 0 48 48"><ellipse cx="24" cy="18" rx="13" ry="5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M11 18v15c0 2.8 5.8 5 13 5s13-2.2 13-5V18" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m8 7 13 10M40 7 27 17" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg>`,
+        Voice: `<svg viewBox="0 0 48 48"><rect x="18" y="5" width="12" height="24" rx="6" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M13 23a11 11 0 0 0 22 0M24 34v9m-7 0h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>`,
+        Strings: `<svg viewBox="0 0 48 48"><path d="M25 5c4 2 4 7 1 10 5 4 6 9 4 14-1 3-3 5-6 7-3-2-5-4-6-7-2-5-1-10 4-14-3-3-3-8 1-10h2Z" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M24 5v38M17 22h14M19 31h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+        Woodwinds: `<svg viewBox="0 0 48 48"><path d="M30 5c-5 2-7 7-6 12l2 9c1 4-1 8-5 10-5 3-10 1-12-3-2-5 1-10 6-11 4-1 8 1 10 4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="m29 6 7 2-2 5-7-2M16 23l-2-6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="28" r="1.8"/><circle cx="21" cy="24" r="1.8"/><path d="M8 36c4 3 10 4 16 1" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg>`,
+        Brass: `<svg viewBox="0 0 48 48"><path d="M7 20h22l8-7v22l-8-7H7Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M13 16v16m5-16v16m6-16v16" stroke="currentColor" stroke-width="1.8"/><path d="M7 19H4v10h3" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>`,
+        "Not sure yet": `<svg viewBox="0 0 48 48"><path d="M18 10v24.5a6 6 0 1 1-3-5.2V15l18-4v17" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 30c0-4-6-4-6 0 0 3 3 3 3 6m0 5h.01" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>`,
+        Other: `<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M24 15v18M15 24h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>`
+      };
+
+      const sync = () => {
+        const show = select.value === 'Other';
+        field.hidden = !show;
+        if (!show) input.value = '';
+        if (icon) icon.innerHTML = icons[select.value] || icons.default;
+      };
+      select.addEventListener('change', sync);
+      sync();
+    })();
+
+
+    (() => {
+      const form = document.getElementById('jamQuickForm');
+      if (!form) return;
+
+      const a = document.getElementById('quickPhoneA');
+      const b = document.getElementById('quickPhoneB');
+      const c = document.getElementById('quickPhoneC');
+      const hidden = document.getElementById('quickPhone');
+      const sep1 = document.getElementById('phoneSep1');
+      const sep2 = document.getElementById('phoneSep2');
+      const phoneField = document.getElementById('phoneField');
+      const hearAbout = document.getElementById('hearAbout');
+      const instrumentBox = form.querySelector('.instrument-select');
+      const instrumentSelect = document.getElementById('instrumentSelect');
+      const botTrap = document.getElementById('jamContactWebsite');
+      const formStartedAt = document.getElementById('jamFormStartedAt');
+      const submissionId = document.getElementById('jamSubmissionId');
+
+      if (formStartedAt) formStartedAt.value = String(Date.now());
+      if (submissionId) submissionId.value = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+
+      const digitsOnly = value => value.replace(/\D/g, '');
+
+      function syncPhone() {
+        a.value = digitsOnly(a.value).slice(0,3);
+        b.value = digitsOnly(b.value).slice(0,3);
+        c.value = digitsOnly(c.value).slice(0,4);
+
+        // Hyphens are presentation characters, not editable input.
+        // They appear when the previous block is complete and disappear
+        // automatically when that block is shortened.
+        sep1.classList.toggle('show', a.value.length === 3);
+        sep2.classList.toggle('show', a.value.length === 3 && b.value.length === 3);
+
+        hidden.value = [a.value,b.value,c.value].filter(Boolean).join('-');
+      }
+
+      function forward(current, next, max) {
+        current.addEventListener('input', () => {
+          const raw = digitsOnly(current.value);
+          current.value = raw.slice(0,max);
+          syncPhone();
+          if (current.value.length === max && next) next.focus();
+          clearInvalid(phoneField);
+        });
+
+        current.addEventListener('paste', e => {
+          const pasted = digitsOnly((e.clipboardData || window.clipboardData).getData('text'));
+          if (pasted.length >= 7) {
+            e.preventDefault();
+            a.value = pasted.slice(0,3);
+            b.value = pasted.slice(3,6);
+            c.value = pasted.slice(6,10);
+            syncPhone();
+            c.focus();
+            clearInvalid(phoneField);
+          }
+        });
+      }
+
+      function backAcross(current, previous) {
+        current.addEventListener('keydown', e => {
+          if (e.key === 'Backspace' && current.selectionStart === 0 && current.selectionEnd === 0 && previous) {
+            e.preventDefault();
+            previous.focus();
+            const end = previous.value.length;
+            previous.setSelectionRange(end,end);
+            previous.value = previous.value.slice(0,-1);
+            syncPhone();
+          }
+        });
+      }
+
+      forward(a,b,3);
+      forward(b,c,3);
+      forward(c,null,4);
+      backAcross(b,a);
+      backAcross(c,b);
+      syncPhone();
+
+      function markInvalid(container) {
+        if (!container) return;
+        container.classList.add('invalid');
+        container.querySelectorAll('input,select,textarea').forEach(el => el.setAttribute('aria-invalid','true'));
+      }
+      function clearInvalid(container) {
+        if (!container) return;
+        container.classList.remove('invalid');
+        container.querySelectorAll('input,select,textarea').forEach(el => el.setAttribute('aria-invalid','false'));
+      }
+      function fieldFor(el) {
+        return el ? el.closest('.field') : null;
+      }
+      function validEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+      }
+      function buzz() {
+        // Vibration API works on many Android/Chromium devices.
+        // Unsupported devices simply ignore this.
+        if ('vibrate' in navigator) {
+          try { navigator.vibrate([65,35,65]); } catch (_) {}
+        }
+      }
+
+      // Remove red state as soon as a field becomes valid.
+      ['quickName','quickStudent','quickEmail'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('input', () => {
+          if ((id === 'quickEmail' && validEmail(el.value)) || (id !== 'quickEmail' && el.value.trim())) {
+            clearInvalid(fieldFor(el));
+          }
+        });
+      });
+
+      const referralNameField = document.getElementById('referralNameField');
+      const referralName = document.getElementById('referralName');
+      const hearAboutOtherField = document.getElementById('hearAboutOtherField');
+      const hearAboutOther = document.getElementById('hearAboutOther');
+
+      function syncHearAboutFollowup() {
+        const referral = hearAbout?.value === 'Friend / Referral';
+        const other = hearAbout?.value === 'Other';
+        if (referralNameField) referralNameField.hidden = !referral;
+        if (hearAboutOtherField) hearAboutOtherField.hidden = !other;
+        if (!referral && referralName) referralName.value = '';
+        if (!other && hearAboutOther) hearAboutOther.value = '';
+      }
+
+      hearAbout?.addEventListener('change', () => {
+        if (hearAbout.value) clearInvalid(fieldFor(hearAbout));
+        syncHearAboutFollowup();
+      });
+      syncHearAboutFollowup();
+
+      instrumentSelect?.addEventListener('change', () => {
+        if (instrumentSelect.value) clearInvalid(instrumentBox);
+      });
+
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+
+        // Simple client-side honeypot. The production endpoint must independently
+        // enforce Turnstile, rate limits, validation and abuse controls.
+        if (botTrap?.value.trim()) {
+          const status = document.getElementById('formStatus');
+          if (status) status.textContent = 'Thanks!';
+          form.reset();
+          return;
+        }
+
+        let firstInvalid = null;
+        let invalid = false;
+
+        const name = document.getElementById('quickName');
+        const student = document.getElementById('quickStudent');
+        const email = document.getElementById('quickEmail');
+
+        const checks = [
+          [name, Boolean(name?.value.trim())],
+          [student, Boolean(student?.value.trim())],
+          [email, Boolean(email && validEmail(email.value))],
+          [hearAbout, Boolean(hearAbout?.value)]
+        ];
+
+        checks.forEach(([el, ok]) => {
+          const field = fieldFor(el);
+          if (ok) clearInvalid(field);
+          else {
+            markInvalid(field);
+            invalid = true;
+            if (!firstInvalid) firstInvalid = el;
+          }
+        });
+
+        const phoneOk = a.value.length === 3 && b.value.length === 3 && c.value.length === 4;
+        if (phoneOk) clearInvalid(phoneField);
+        else {
+          markInvalid(phoneField);
+          invalid = true;
+          if (!firstInvalid) firstInvalid = a;
+        }
+
+        const instrumentOk = Boolean(instrumentSelect?.value);
+        if (instrumentOk) clearInvalid(instrumentBox);
+        else {
+          markInvalid(instrumentBox);
+          invalid = true;
+          if (!firstInvalid) firstInvalid = instrumentSelect;
+        }
+
+        const status = document.getElementById('formStatus');
+
+        if (invalid) {
+          if (status) status.textContent = 'Please correct the highlighted fields before signing up.';
+          buzz();
+          firstInvalid?.focus({preventScroll:true});
+          const target = firstInvalid?.closest('.field, .instrument-select') || firstInvalid;
+          target?.scrollIntoView({behavior:'smooth',block:'center'});
+          return;
+        }
+
+        // Real submissions require a secure endpoint (serverless function or form service).
+        // Put that URL in data-submission-endpoint on #jamQuickForm. Never expose mail/API secrets here.
+        // Production endpoint MUST validate Turnstile server-side, rate-limit requests,
+        // revalidate/max-length every field, reject the honeypot, and dedupe submissionId.
+        //
+        // STUDENT ID CONTRACT:
+        // - A successful NEW signup creates the student record immediately.
+        // - Allocate the next permanent 7-digit Student ID atomically on the server/database.
+        // - IDs begin at 0000001, increase sequentially, are never reused, and must never be
+        //   generated in browser JavaScript.
+        // - For siblings/multiple students, return one unique Student ID per created student.
+        // - Suggested JSON response:
+        //   {"ok":true,"studentIds":["0000001","0000002"],"requestId":"..."}
+        // - Returning students that provide existingStudentId should be linked to that record.
+        const endpoint = (form.dataset.submissionEndpoint || '').trim();
+        const submitButton = document.getElementById('lessonSubmitButton');
+        if (!endpoint || endpoint.includes('REPLACE_WITH_')) {
+          if (status) status.textContent = 'Signup form is ready, but JAM still needs to connect the secure enrollment endpoint before launch.';
+          return;
+        }
+
+        const payload = new FormData(form);
+        payload.set('phone', hidden.value);
+        payload.set('page', window.location.href);
+        payload.set('submittedAt', new Date().toISOString());
+        payload.set('interactionMs', String(Math.max(0, Date.now() - Number(formStartedAt?.value || Date.now()))));
+
+        try {
+          if (submitButton) { submitButton.disabled = true; submitButton.textContent = 'Sending…'; }
+          if (status) status.textContent = 'Creating your JAM signup…';
+          const response = await fetch(endpoint, {
+            method:'POST',
+            body:payload,
+            headers:{'Accept':'application/json'}
+          });
+          if (!response.ok) throw new Error(`Submission failed (${response.status})`);
+
+          let result = {};
+          try { result = await response.json(); } catch (_) {}
+
+          const enrollmentResult = document.getElementById('enrollmentResult');
+          const enrollmentResultText = document.getElementById('enrollmentResultText');
+          const studentIdResult = document.getElementById('studentIdResult');
+
+          const rawIds = Array.isArray(result.studentIds)
+            ? result.studentIds
+            : (result.studentId ? [result.studentId] : []);
+          const studentIds = rawIds
+            .map(value => String(value).replace(/\D/g,'').padStart(7,'0').slice(-7))
+            .filter(value => /^\d{7}$/.test(value));
+
+          if (status) status.textContent = studentIds.length
+            ? `Welcome to JAM. Student ID${studentIds.length > 1 ? 's' : ''}: ${studentIds.join(', ')}.`
+            : 'Welcome to JAM. Your signup was received.';
+
+          if (enrollmentResult) {
+            enrollmentResult.hidden = false;
+            if (enrollmentResultText) {
+              enrollmentResultText.textContent = studentIds.length
+                ? `Your permanent JAM Student ID${studentIds.length > 1 ? 's are' : ' is'} below. Keep ${studentIds.length > 1 ? 'them' : 'it'} for future registrations and JAM records.`
+                : 'Your signup was received. JAM will follow up to confirm your instructor and lesson time.';
+            }
+            if (studentIdResult) {
+              studentIdResult.innerHTML = studentIds
+                .map(id => `<span class="student-id-chip">${id}</span>`)
+                .join('');
+            }
+            enrollmentResult.focus({preventScroll:true});
+            enrollmentResult.scrollIntoView({behavior:'smooth',block:'nearest'});
+          }
+
+          form.reset();
+          if (formStartedAt) formStartedAt.value = String(Date.now());
+          if (submissionId) submissionId.value = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+          syncPhone();
+          syncHearAboutFollowup();
+          document.getElementById('otherInstrumentField')?.setAttribute('hidden','');
+        } catch (error) {
+          console.error(error);
+          if (status) status.textContent = 'We could not send the form. Please call 561-747-6878 or email brad@jupiteracademyofmusic.com.';
+          buzz();
+        } finally {
+          if (submitButton) { submitButton.disabled = false; submitButton.textContent = 'Sign Up for Lessons'; }
+        }
+      });
+    })();
+
+
+    (() => {
+      const shell = document.getElementById('reviewsCarousel');
+      const viewport = document.getElementById('reviewsViewport');
+      const track = document.getElementById('reviewsTrack');
+      const controls = document.getElementById('reviewControls');
+      const prev = document.getElementById('reviewPrev');
+      const next = document.getElementById('reviewNext');
+      const status = document.getElementById('reviewStatus');
+      const sortSelect = document.getElementById('reviewSort');
+      if (!shell || !viewport || !track || !controls || !prev || !next || !sortSelect) return;
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let cleanupCarousel = null;
+      let currentReviews = [];
+
+      // Verified fallback snapshot from JAM's current live Google-review display.
+      // Production /api/reviews should replace these automatically with current Google data.
+      // When Google provides authorAttribution.uri/photoUri and review.googleMapsUri,
+      // V38 renders the author attribution and direct Google Maps source links automatically.
+      const fallbackReviews = [
+        {
+          authorName:'Lynette Miller',
+          authorPhotoUrl:'https://lh3.googleusercontent.com/a-/ALV-UjXGyXzBxXDTJwwIW1t-dn4q4suDtBOZsyxgHFobs0UXRz5DcuVb6A=w80-h80-c-rp-mo-br100',
+          rating:5,
+          text:'Real world experienced instruction. All ages go there for guitar, piano, drums, & horns.',
+          date:'February 29, 2024'
+        },
+        {
+          authorName:'Engin Ayaz',
+          authorPhotoUrl:'https://lh3.googleusercontent.com/a-/ALV-UjUbo65bnYujA0QpixrnPj2BrQm7WKByhQ3hZlPCUXgnbgvI86XnYA=w80-h80-c-rp-mo-ba3-br100',
+          rating:5,
+          text:'JoAnn is teaching my son how to play piano. She’s kind, encouraging, funny, talented - just incredible all around. The Jupiter community is truly lucky to have her here.',
+          date:'September 8, 2022'
+        },
+        {
+          authorName:'Michael Zolkiewicz',
+          authorPhotoUrl:'https://lh3.googleusercontent.com/a-/ALV-UjW2rPGigCIzd98-RTGGWOWR1NfZpHGgFgyege3U64PCQUKNUOT7=w80-h80-c-rp-mo-br100',
+          rating:5,
+          text:"They were practicing 'Ode to Joy'",
+          date:'January 19, 2022'
+        },
+        {
+          authorName:'Hawk Levy',
+          authorPhotoUrl:'https://lh3.googleusercontent.com/a-/ALV-UjURFn1CHAg4jvg2VI-pxtwqLBVBSuuvlI49E3ABqQT9hNMyUnKXzg=w80-h80-c-rp-mo-br100',
+          rating:5,
+          text:'The best place within 50 miles for music instruction. Brad is great with kids.',
+          date:'January 14, 2020'
+        },
+        {
+          authorName:'Stephen Carver',
+          authorPhotoUrl:'https://lh3.googleusercontent.com/a/ACg8ocLJEIfe45Z3qbk8_IBIjZJStph26l18DYtYA7nfMlNkEm09MQ=w80-h80-c-rp-mo-br100',
+          rating:5,
+          text:'Sandra Barran, the owner, has been teaching my girls piano and voice for almost seven years. She is a great teacher! She’s kind and patient with the girls and also with stressed out parents, haha. She teaches my niece and nephew, and they love her as well. We are very thankful we discovered JAM.',
+          date:'January 3, 2018'
+        },
+        {
+          authorName:'Kellie Floyd',
+          authorPhotoUrl:'https://lh3.googleusercontent.com/a/ACg8ocIeT9vMWbhIMzGVk2u0oSoIXmKzkkaiI2IF8Z3sarHo_5MGzg=w80-h80-c-rp-mo-br100',
+          rating:5,
+          text:'The music teachers here are amazing!',
+          date:'September 17, 2017'
+        }
+      ];
+
+      function escapeText(value) {
+        return String(value ?? '').trim();
+      }
+
+      function starString(rating) {
+        const rounded = Math.max(1, Math.min(5, Math.round(Number(rating) || 5)));
+        return '★'.repeat(rounded) + '☆'.repeat(5 - rounded);
+      }
+
+      function reviewTimestamp(review) {
+        return Date.parse(review.createTime || review.date || '') || 0;
+      }
+
+      function sortedReviews(reviews, mode = sortSelect.value) {
+        const list = [...reviews];
+        if (mode === 'oldest') {
+          return list.sort((a,b) => reviewTimestamp(a) - reviewTimestamp(b));
+        }
+        if (mode === 'highest') {
+          return list.sort((a,b) => (Number(b.rating)||0) - (Number(a.rating)||0) || reviewTimestamp(b) - reviewTimestamp(a));
+        }
+        if (mode === 'lowest') {
+          return list.sort((a,b) => (Number(a.rating)||0) - (Number(b.rating)||0) || reviewTimestamp(b) - reviewTimestamp(a));
+        }
+        return list.sort((a,b) => reviewTimestamp(b) - reviewTimestamp(a));
+      }
+
+      function renderReview(review) {
+        const article = document.createElement('article');
+        article.className = 'review';
+        article.dataset.reviewOriginal = 'true';
+
+        const attribution = review.authorAttribution || review.author_attribution || {};
+        const kicker = document.createElement('span');
+        kicker.className = 'review-kicker';
+        kicker.textContent = 'Google Review';
+
+        const stars = document.createElement('div');
+        stars.className = 'stars';
+        stars.setAttribute('aria-label', `${Number(review.rating) || 5} out of 5 stars`);
+        stars.textContent = starString(review.rating);
+
+        const copyShell = document.createElement('div');
+        copyShell.className = 'review-copy-shell';
+
+        const quote = document.createElement('p');
+        quote.className = 'review-copy';
+        quote.textContent = escapeText(
+          review.text?.text ||
+          review.originalText?.text ||
+          review.text ||
+          review.comment ||
+          ''
+        );
+
+        const scrollCue = document.createElement('button');
+        scrollCue.className = 'review-scroll-cue';
+        scrollCue.type = 'button';
+        scrollCue.hidden = true;
+        scrollCue.setAttribute('aria-label','Scroll down through this review');
+        scrollCue.textContent = '↓';
+        copyShell.append(quote, scrollCue);
+
+        const authorName = escapeText(
+          attribution.displayName ||
+          review.authorName ||
+          review.reviewer ||
+          'Google reviewer'
+        );
+        const authorPhoto = escapeText(
+          attribution.photoUri ||
+          review.authorPhotoUrl ||
+          review.profilePhotoUrl ||
+          review.reviewerPhotoUrl ||
+          review.photoUrl ||
+          ''
+        );
+        const authorUri = escapeText(
+          attribution.uri ||
+          review.authorUri ||
+          review.profileUri ||
+          review.reviewerProfileUrl ||
+          ''
+        );
+        const reviewUri = escapeText(
+          review.googleMapsUri ||
+          review.reviewUri ||
+          review.sourceUri ||
+          ''
+        );
+
+        const authorRow = document.createElement('div');
+        authorRow.className = 'review-author';
+
+        let avatar;
+        if (authorPhoto) {
+          avatar = document.createElement('img');
+          avatar.className = 'review-avatar';
+          avatar.src = authorPhoto;
+          avatar.alt = '';
+          avatar.referrerPolicy = 'no-referrer';
+          avatar.loading = 'lazy';
+          avatar.addEventListener('error', () => {
+            const fallback = document.createElement('span');
+            fallback.className = 'review-avatar-fallback';
+            fallback.textContent = authorName.split(/\s+/).filter(Boolean).slice(0,2).map(part => part[0]).join('').toUpperCase() || 'G';
+            avatar.replaceWith(fallback);
+          }, {once:true});
+        } else {
+          avatar = document.createElement('span');
+          avatar.className = 'review-avatar-fallback';
+          avatar.textContent = authorName.split(/\s+/).filter(Boolean).slice(0,2).map(part => part[0]).join('').toUpperCase() || 'G';
+        }
+
+        const authorCopy = document.createElement('span');
+        authorCopy.className = 'review-author-copy';
+        const author = document.createElement('strong');
+        author.textContent = authorName;
+        authorCopy.append(author);
+
+        const dateText = escapeText(
+          review.relativePublishTimeDescription ||
+          review.relativeTime ||
+          review.date ||
+          review.createTime ||
+          ''
+        );
+        if (dateText) {
+          const date = document.createElement('small');
+          date.className = 'review-date';
+          date.textContent = dateText;
+          authorCopy.append(date);
+        }
+
+        let profileWrap;
+        if (authorUri) {
+          profileWrap = document.createElement('a');
+          profileWrap.href = authorUri;
+          profileWrap.target = '_blank';
+          profileWrap.rel = 'noopener noreferrer';
+          profileWrap.className = 'review-author-profile';
+          profileWrap.setAttribute('aria-label', `View ${authorName}'s Google profile`);
+        } else {
+          profileWrap = document.createElement('div');
+          profileWrap.className = 'review-author-profile';
+        }
+        profileWrap.append(avatar, authorCopy);
+        authorRow.append(profileWrap);
+
+        if (reviewUri) {
+          const source = document.createElement('a');
+          source.className = 'review-source-link';
+          source.href = reviewUri;
+          source.target = '_blank';
+          source.rel = 'noopener noreferrer';
+          source.textContent = 'View on Google Maps';
+          source.setAttribute('aria-label', `View ${authorName}'s review on Google Maps`);
+          authorRow.append(source);
+        }
+
+        article.append(kicker, stars, copyShell, authorRow);
+        return article;
+      }
+
+      function refreshReviewOverflow(scope = track) {
+        scope.querySelectorAll('.review-copy-shell').forEach(shell => {
+          const copy = shell.querySelector('.review-copy');
+          const cue = shell.querySelector('.review-scroll-cue');
+          if (!copy || !cue) return;
+
+          const overflowing = copy.scrollHeight > copy.clientHeight + 2;
+          shell.classList.toggle('is-overflowing', overflowing);
+          cue.hidden = !overflowing;
+
+          const updateCue = () => {
+            if (!overflowing) return;
+            const atEnd = copy.scrollTop + copy.clientHeight >= copy.scrollHeight - 3;
+            cue.classList.toggle('is-at-end', atEnd);
+            cue.textContent = atEnd ? '↑' : '↓';
+            cue.setAttribute('aria-label', atEnd ? 'Scroll back to the top of this review' : 'Scroll down through this review');
+          };
+
+          if (!copy.dataset.reviewScrollBound) {
+            copy.dataset.reviewScrollBound = 'true';
+            copy.addEventListener('scroll', updateCue, {passive:true});
+          }
+          updateCue();
+        });
+      }
+
+      function showUnavailable(message) {
+        cleanupCarousel?.();
+        cleanupCarousel = null;
+        controls.hidden = true;
+        track.style.transform = '';
+        track.style.transition = '';
+        track.innerHTML = '';
+        const empty = document.createElement('div');
+        empty.className = 'reviews-empty';
+        empty.textContent = message;
+        track.append(empty);
+      }
+
+      function mountCarousel() {
+        cleanupCarousel?.();
+
+        const originals = [...track.querySelectorAll('[data-review-original="true"]')];
+        if (originals.length < 2) {
+          controls.hidden = true;
+          return;
+        }
+
+        controls.hidden = false;
+        const count = originals.length;
+        const before = originals.map(card => {
+          const clone = card.cloneNode(true);
+          clone.removeAttribute('data-review-original');
+          clone.setAttribute('aria-hidden','true');
+          return clone;
+        });
+        const after = originals.map(card => {
+          const clone = card.cloneNode(true);
+          clone.removeAttribute('data-review-original');
+          clone.setAttribute('aria-hidden','true');
+          return clone;
+        });
+
+        track.prepend(...before);
+        track.append(...after);
+        requestAnimationFrame(() => refreshReviewOverflow());
+
+        let index = count;
+        let locked = false;
+        let timer = null;
+        let pointerStart = null;
+        const gap = 12;
+
+        function metrics() {
+          const card = track.querySelector('.review');
+          const width = card ? card.getBoundingClientRect().width : 0;
+          return { width, step: width + gap, peek: width * .125 };
+        }
+
+        function paint(animate = true) {
+          const { step, peek } = metrics();
+          if (!step) return;
+          track.style.transition = animate
+            ? 'transform .46s cubic-bezier(.22,.75,.25,1)'
+            : 'none';
+          const x = -(index * step) + gap + peek;
+          track.style.transform = `translate3d(${x}px,0,0)`;
+        }
+
+        function move(delta) {
+          if (locked) return;
+          locked = true;
+          index += delta;
+          paint(true);
+        }
+
+        function normalize() {
+          if (index >= count * 2) {
+            index = count;
+            paint(false);
+            void track.offsetWidth;
+          } else if (index < count) {
+            index = count * 2 - 1;
+            paint(false);
+            void track.offsetWidth;
+          }
+          locked = false;
+        }
+
+        function stopAuto() {
+          if (timer) clearInterval(timer);
+          timer = null;
+        }
+
+        function startAuto() {
+          stopAuto();
+          if (reducedMotion.matches || document.body.classList.contains('a11y-reduce-motion')) {
+            if (status) status.textContent = 'Automatic review motion is paused.';
+            return;
+          }
+          if (status) status.textContent = 'Use the left and right arrows, swipe, or keyboard arrow keys to browse. Automatic rotation pauses while you interact.';
+          timer = setInterval(() => move(1), 4700);
+        }
+
+        const onPrev = () => { move(-1); startAuto(); };
+        const onNext = () => { move(1); startAuto(); };
+        const onEnter = () => stopAuto();
+        const onLeave = () => startAuto();
+        const onFocusIn = () => stopAuto();
+        const onFocusOut = e => { if (!shell.contains(e.relatedTarget)) startAuto(); };
+        const onPointerDown = e => { pointerStart = e.clientX; stopAuto(); };
+        const onPointerUp = e => {
+          if (pointerStart == null) return;
+          const dx = e.clientX - pointerStart;
+          pointerStart = null;
+          if (Math.abs(dx) > 45) move(dx < 0 ? 1 : -1);
+          startAuto();
+        };
+        const onPointerCancel = () => { pointerStart = null; startAuto(); };
+        const onKeyDown = e => {
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            move(-1);
+            startAuto();
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            move(1);
+            startAuto();
+          }
+        };
+        const onReviewCueClick = e => {
+          const cue = e.target.closest('.review-scroll-cue');
+          if (!cue) return;
+          const copy = cue.closest('.review-copy-shell')?.querySelector('.review-copy');
+          if (!copy) return;
+          e.preventDefault();
+          e.stopPropagation();
+          stopAuto();
+          const atEnd = cue.classList.contains('is-at-end');
+          copy.scrollTo({
+            top: atEnd ? 0 : Math.min(copy.scrollTop + copy.clientHeight * .82, copy.scrollHeight),
+            behavior: reducedMotion.matches ? 'auto' : 'smooth'
+          });
+        };
+        const onResize = () => {
+          paint(false);
+          refreshReviewOverflow();
+        };
+        const onMotionChange = () => startAuto();
+
+        track.addEventListener('transitionend', normalize);
+        prev.addEventListener('click', onPrev);
+        next.addEventListener('click', onNext);
+        shell.addEventListener('mouseenter', onEnter);
+        shell.addEventListener('mouseleave', onLeave);
+        shell.addEventListener('focusin', onFocusIn);
+        shell.addEventListener('focusout', onFocusOut);
+        viewport.addEventListener('pointerdown', onPointerDown);
+        viewport.addEventListener('pointerup', onPointerUp);
+        viewport.addEventListener('pointercancel', onPointerCancel);
+        viewport.addEventListener('keydown', onKeyDown);
+        track.addEventListener('click', onReviewCueClick);
+        window.addEventListener('resize', onResize, {passive:true});
+        reducedMotion.addEventListener?.('change', onMotionChange);
+
+        requestAnimationFrame(() => {
+          paint(false);
+          startAuto();
+        });
+
+        cleanupCarousel = () => {
+          stopAuto();
+          track.removeEventListener('transitionend', normalize);
+          prev.removeEventListener('click', onPrev);
+          next.removeEventListener('click', onNext);
+          shell.removeEventListener('mouseenter', onEnter);
+          shell.removeEventListener('mouseleave', onLeave);
+          shell.removeEventListener('focusin', onFocusIn);
+          shell.removeEventListener('focusout', onFocusOut);
+          viewport.removeEventListener('pointerdown', onPointerDown);
+          viewport.removeEventListener('pointerup', onPointerUp);
+          viewport.removeEventListener('pointercancel', onPointerCancel);
+          viewport.removeEventListener('keydown', onKeyDown);
+          track.removeEventListener('click', onReviewCueClick);
+          window.removeEventListener('resize', onResize);
+          reducedMotion.removeEventListener?.('change', onMotionChange);
+        };
+      }
+
+      function renderCurrentReviews() {
+        cleanupCarousel?.();
+        track.innerHTML = '';
+        sortedReviews(currentReviews).forEach(review => track.append(renderReview(review)));
+        mountCarousel();
+        requestAnimationFrame(() => refreshReviewOverflow());
+        if (status) {
+          const label = sortSelect.options[sortSelect.selectedIndex]?.textContent || 'Newest first';
+          status.textContent = `Google reviews from JAM families and students. Sorted: ${label}.`;
+        }
+      }
+
+      function renderFallbackReviews() {
+        currentReviews = [...fallbackReviews];
+        renderCurrentReviews();
+      }
+
+      async function loadReviews() {
+        try {
+          // /api/reviews should be a secure server-side endpoint that normalizes
+          // Google Business Profile reviews to:
+          // { reviews: [{ authorName, authorPhotoUrl, rating, text, relativeTime, createTime }] }
+          const response = await fetch('/api/reviews', {
+            headers: { 'Accept': 'application/json' },
+            cache: 'no-store'
+          });
+          if (!response.ok) throw new Error(`Review endpoint returned ${response.status}`);
+
+          const payload = await response.json();
+          const reviews = Array.isArray(payload?.reviews) ? payload.reviews : [];
+          const usable = reviews
+            .filter(r => r && (r.text || r.comment))
+            .slice(0, 50);
+
+          if (!usable.length) {
+            renderFallbackReviews();
+            return;
+          }
+
+          currentReviews = usable;
+          renderCurrentReviews();
+        } catch (error) {
+          console.info('JAM reviews are not connected yet:', error);
+          renderFallbackReviews();
+        }
+      }
+
+      sortSelect.addEventListener('change', () => {
+        if (!currentReviews.length) return;
+        renderCurrentReviews();
+      });
+
+      loadReviews();
+    })();
+
+
+
+    (() => {
+      const slides = [...document.querySelectorAll('.hero-slide')];
+      if (slides.length < 2) return;
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let index = 0;
+      let timer = null;
+      const FADE_MS = 1350;
+      const paint = next => {
+        if (next === index) return;
+
+        const outgoing = slides[index];
+        const incoming = slides[next];
+
+        // Keep the outgoing slide's Ken Burns animation alive while it fades.
+        // Without this handoff, removing .active resets transform immediately
+        // and creates the brief size jump visible just before each transition.
+        outgoing.classList.add('leaving');
+        outgoing.classList.remove('active');
+
+        incoming.classList.remove('leaving');
+        incoming.classList.add('active');
+        index = next;
+
+        window.setTimeout(() => outgoing.classList.remove('leaving'), FADE_MS + 80);
+      };
+      const stop = () => { if (timer) clearInterval(timer); timer = null; };
+      const start = () => {
+        stop();
+        if (reduced.matches || document.body.classList.contains('a11y-reduce-motion')) {
+          slides.forEach((slide,i) => {
+            slide.classList.toggle('active', i === index);
+            slide.classList.remove('leaving');
+          });
+          return;
+        }
+        timer = setInterval(() => paint((index + 1) % slides.length), 8500);
+      };
+      reduced.addEventListener?.('change', start);
+      document.addEventListener('jam:motionchange', start);
+      start();
+    })();
+
+    (() => {
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const notes = ['♪','♫','♪'];
+      document.querySelectorAll('.music-cta,.get-started-btn').forEach(el => {
+        el.addEventListener('click', () => {
+          if (reduced.matches || document.body.classList.contains('a11y-reduce-motion')) return;
+          const r = el.getBoundingClientRect();
+          notes.forEach((note,i) => {
+            const n = document.createElement('span');
+            n.className = 'music-note-pop';
+            n.textContent = note;
+            n.style.left = `${r.left + r.width*(.3 + i*.2)}px`;
+            n.style.top = `${r.top + r.height*.35}px`;
+            n.style.setProperty('--note-x', `${(i-1)*17}px`);
+            n.style.setProperty('--note-r', `${(i-1)*14}deg`);
+            document.body.append(n);
+            setTimeout(() => n.remove(), 850);
+          });
+        });
+      });
+    })();
+
+    (() => {
+      const button = document.getElementById('footerShareButton');
+      const status = document.getElementById('footerShareStatus');
+      if (!button) return;
+
+      const canonical = document.querySelector('link[rel="canonical"]')?.href || 'https://jupiteracademyofmusic.com/';
+      const shareUrl = /^https?:$/.test(location.protocol) ? location.href.split('#')[0] : canonical;
+
+      button.addEventListener('click', async () => {
+        const data = {
+          title: document.title || 'Jupiter Academy of Music',
+          text: 'Jupiter Academy of Music — music lessons in Jupiter, Florida.',
+          url: shareUrl
+        };
+
+        try {
+          if (navigator.share) {
+            await navigator.share(data);
+            if (status) status.textContent = '';
+            return;
+          }
+
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(shareUrl);
+          } else {
+            const temp = document.createElement('textarea');
+            temp.value = shareUrl;
+            temp.setAttribute('readonly','');
+            temp.style.position = 'fixed';
+            temp.style.opacity = '0';
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            temp.remove();
+          }
+          if (status) {
+            status.textContent = 'Link copied!';
+            setTimeout(() => { status.textContent = ''; }, 2200);
+          }
+        } catch (error) {
+          if (error?.name === 'AbortError') return;
+          if (status) {
+            status.textContent = 'Copy the page URL to share.';
+            setTimeout(() => { status.textContent = ''; }, 2600);
+          }
+        }
+      });
+    })();
+
+    (() => {
+      const launcher = document.getElementById('a11yLauncher');
+      const panel = document.getElementById('a11yPanel');
+      const close = document.getElementById('a11yClose');
+      const contrast = document.getElementById('a11yContrast');
+      const links = document.getElementById('a11yLinks');
+      const motion = document.getElementById('a11yMotion');
+      if (!launcher || !panel) return;
+
+      const prefs = {
+        contrast: localStorage.getItem('jam-a11y-contrast') === '1',
+        links: localStorage.getItem('jam-a11y-links') === '1',
+        motion: localStorage.getItem('jam-a11y-motion') === '1'
+      };
+
+      function apply() {
+        document.body.classList.toggle('a11y-contrast', prefs.contrast);
+        document.body.classList.toggle('a11y-links', prefs.links);
+        document.body.classList.toggle('a11y-reduce-motion', prefs.motion);
+        contrast?.setAttribute('aria-pressed', String(prefs.contrast));
+        links?.setAttribute('aria-pressed', String(prefs.links));
+        motion?.setAttribute('aria-pressed', String(prefs.motion));
+        document.dispatchEvent(new CustomEvent('jam:motionchange', {detail:{paused:prefs.motion}}));
+      }
+      function togglePanel(open) {
+        panel.hidden = !open;
+        launcher.setAttribute('aria-expanded', String(open));
+        if (open) close?.focus();
+      }
+      function bind(button, key, storageKey) {
+        button?.addEventListener('click', () => {
+          prefs[key] = !prefs[key];
+          localStorage.setItem(storageKey, prefs[key] ? '1' : '0');
+          apply();
+        });
+      }
+
+      apply();
+      launcher.addEventListener('click', () => togglePanel(panel.hidden));
+      close?.addEventListener('click', () => { togglePanel(false); launcher.focus(); });
+      bind(contrast, 'contrast', 'jam-a11y-contrast');
+      bind(links, 'links', 'jam-a11y-links');
+      bind(motion, 'motion', 'jam-a11y-motion');
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && !panel.hidden) { togglePanel(false); launcher.focus(); }
+      });
+      document.addEventListener('click', event => {
+        if (!panel.hidden && !panel.contains(event.target) && !launcher.contains(event.target)) togglePanel(false);
+      });
+    })();
+
+    (() => {
+      const year = document.getElementById('copyrightYear');
+      if (year) year.textContent = new Date().getFullYear();
+    })();
+  </script>
+<script>
+    (() => {
+      const toggle = document.getElementById('studentIdToggle');
+      const field = document.getElementById('studentIdField');
+      const input = document.getElementById('existingStudentId');
+      if (!toggle || !field || !input) return;
+
+      input.addEventListener('input', () => {
+        input.value = input.value.replace(/\D/g,'').slice(0,7);
+      });
+
+      toggle.addEventListener('click', () => {
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        field.hidden = open;
+        if (!open) input.focus();
+        if (open) input.value = '';
+      });
+    })();
+</script>
+<!--
+  STUDENT ID / RECORD SYSTEM:
+  - Successful online signup = student record created, even if the student never attends.
+  - Student IDs start at 0000001 from the launch of the new ID system.
+  - One permanent 7-digit Student ID per student, never recycled.
+  - Keep enrollment status separate from identity (e.g. Active, Inactive, Never Started, Alumni).
+  - Use a server/database transaction or atomic sequence for ID allocation; front-end JS is display only.
+  - One household/account may link multiple Student IDs.
+  - Spreadsheet/database columns should include Student ID, Account/Household ID, student name,
+    contact name, phone, email, instrument, instructor, signup date, status, and registration-file location.
+-->
 </body>
 </html>
